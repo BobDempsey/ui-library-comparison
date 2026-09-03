@@ -1,0 +1,33 @@
+{
+  "name": "@bakeoff/vue-quasar",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "node node_modules/jest/bin/jest.js",
+    "measure": "tsx ../../scripts/measure.ts --build vue-quasar"
+  },
+  "dependencies": {
+    "@bakeoff/fixture": "workspace:*",
+    "quasar": "^2.18.6",
+    "vue": "^3.5.0"
+  },
+  "devDependencies": {
+    "@bakeoff/criteria": "workspace:*",
+    "@bakeoff/harness": "workspace:*",
+    "@quasar/vite-plugin": "^1.12.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/user-event": "^14.5.0",
+    "@testing-library/vue": "^8.1.0",
+    "@vitejs/plugin-vue": "^5.2.0",
+    "@vue/vue3-jest": "^29.2.6",
+    "axe-core": "^4.10.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "sass": "^1.77.8",
+    "ts-jest": "^29.2.0",
+    "vite": "^6.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "build": "vue-quasar",
+  "library": "Quasar",
+  "framework": "vue",
+  "kind": "suite",
+  "bundle": {
+    "totalGzipKb": 115.84,
+    "baselineGzipKb": 24.21,
+    "deltaGzipKb": 91.63,
+    "overBudget": false
+  },
+  "accessibility": {
+    "axeViolationsBeforeFixes": 1,
+    "requirementsNeedingCustomCode": 6
+  },
+  "ergonomics": {
+    "linesOfAppCode": 898,
+    "libraryImports": 1,
+    "typeEscapes": 0,
+    "handBuilt": {
+      "modal": false,
+      "select": false,
+      "toast": true
+    }
+  },
+  "render": {
+    "lighthouseFcpMsMedian": 0,
+    "runs": 0
+  },
+  "criteria": {
+    "passed": 18,
+    "failed": 0,
+    "failedNumbers": []
+  }
+}

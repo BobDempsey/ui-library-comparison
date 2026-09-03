@@ -1,0 +1,130 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 10rem;
+}
+
+.created-range {
+  display: flex;
+  gap: 0.75rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.created-range label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.clear-field {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+
+tbody tr[tabindex] {
+  cursor: pointer;
+}
+
+.badge-status-open,
+.badge-priority-normal {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.skeleton-row td {
+  padding: 0.75rem;
+}
+
+.read-only-field {
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.field-label {
+  font-weight: 600;
+}
+
+.toast-region {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 6000;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #0f172a;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+}
