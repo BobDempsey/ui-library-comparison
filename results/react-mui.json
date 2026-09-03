@@ -1,0 +1,35 @@
+{
+  "build": "react-mui",
+  "library": "Material UI",
+  "framework": "react",
+  "kind": "suite",
+  "bundle": {
+    "totalGzipKb": 124.65,
+    "baselineGzipKb": 44.91,
+    "deltaGzipKb": 79.74,
+    "overBudget": false
+  },
+  "accessibility": {
+    "axeViolationsBeforeFixes": 0,
+    "requirementsNeedingCustomCode": 3
+  },
+  "ergonomics": {
+    "linesOfAppCode": 985,
+    "libraryImports": 8,
+    "typeEscapes": 0,
+    "handBuilt": {
+      "modal": false,
+      "select": false,
+      "toast": true
+    }
+  },
+  "render": {
+    "lighthouseFcpMsMedian": 0,
+    "runs": 0
+  },
+  "criteria": {
+    "passed": 18,
+    "failed": 0,
+    "failedNumbers": []
+  }
+}
