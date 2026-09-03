@@ -1,0 +1,149 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* PrimeVue's Aura preset ships its own focus ring, but section 9 fixes the
+   contrast at 3:1 against the background, so this is set explicitly rather
+   than trusted to the theme default. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible,
+[role='combobox']:focus-visible {
+  outline: 3px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 10rem;
+}
+
+.field label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.created-range {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.created-range label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.created-range input {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+}
+
+.clear-field {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.table-region table {
+  background: #fff;
+}
+
+.table-region tbody tr[tabindex] {
+  cursor: pointer;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+  background: #e2e8f0;
+}
+
+table[aria-label='Support tickets, loading'],
+[data-testid='loading-skeleton'] table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.skeleton-row td {
+  padding: 0.75rem;
+}
+
+.read-only-field {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.field-label {
+  font-weight: 600;
+}
+
+.toast-region {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1100;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #0f172a;
+  color: #fff;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+}
+
+.toast button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
