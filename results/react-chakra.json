@@ -1,0 +1,35 @@
+{
+  "build": "react-chakra",
+  "library": "Chakra UI",
+  "framework": "react",
+  "kind": "suite",
+  "bundle": {
+    "totalGzipKb": 142.63,
+    "baselineGzipKb": 44.91,
+    "deltaGzipKb": 97.72,
+    "overBudget": false
+  },
+  "accessibility": {
+    "axeViolationsBeforeFixes": 0,
+    "requirementsNeedingCustomCode": 4
+  },
+  "ergonomics": {
+    "linesOfAppCode": 902,
+    "libraryImports": 9,
+    "typeEscapes": 0,
+    "handBuilt": {
+      "modal": false,
+      "select": false,
+      "toast": false
+    }
+  },
+  "render": {
+    "lighthouseFcpMsMedian": 0,
+    "runs": 0
+  },
+  "criteria": {
+    "passed": 18,
+    "failed": 0,
+    "failedNumbers": []
+  }
+}

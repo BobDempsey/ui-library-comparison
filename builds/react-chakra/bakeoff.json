@@ -1,0 +1,12 @@
+{
+  "_comment": "The two things a script cannot read off the code. Fill these in honestly as you build; the write-up quotes them next to the automated numbers.",
+  "requirementsNeedingCustomCode": 4,
+  "_requirementsNeedingCustomCode_notes": "Of section 9's implementable bullets: keyboard operability for the table row (a <tr> isn't natively interactive, so tabIndex+keydown for Enter/Space is hand wired), the table caption, aria-sort on the active column, and the aria-live pagination announcement all needed code we wrote. Free from Chakra/Ark: keyboard operability and focus rings on every native control (Button, Input, NativeSelect, Dialog), the dialog's role/aria-modal/title association/focus trap/focus return, and tab order (plain DOM order). Focus-ring contrast was not independently measured (axe-core cannot check contrast under jsdom); a manual pass is still owed per section 9's last bullet.",
+  "handBuilt": {
+    "modal": false,
+    "select": false,
+    "toast": false
+  },
+  "_handBuilt_notes": "modal: Chakra's Dialog.Root/Content/Title (Ark UI) gives role=dialog|alertdialog, aria-modal, the title association, the focus trap, and focus return, for both the record dialog and the confirm dialog. select: Chakra's NativeSelect (a styled wrapper over a real <select>) was used for Status/Priority (multiple) and Assignee/modal Status/Priority, instead of the Ark-based listbox Select, for simpler and more reliable keyboard/native semantics; it is still a real library component, not hand rolled. toast: Chakra's createToaster/Toaster (Ark UI toast machine) supplies the live region, the per-toast role=status, and Escape-to-dismiss for free; the cap of 3 with oldest-dropped-first (section 7) needed hand-written eviction logic layered on top, since Ark's own `max` option queues rather than evicts.",
+  "axeViolationsBeforeFixes": 0
+}
