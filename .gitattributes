@@ -1,0 +1,7 @@
+# LF everywhere. CI regenerates tickets.json and fails on a diff, so a checkout
+# that rewrites line endings would fail the fixture gate on Windows for reasons
+# that have nothing to do with the fixture.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.woff2 binary

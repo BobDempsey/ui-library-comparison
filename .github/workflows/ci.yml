@@ -1,0 +1,105 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  NODE_VERSION: '22'
+
+jobs:
+  # Phase one is the fixed input. If the fixture drifts or the shared packages
+  # stop typechecking, no build result from this commit means anything, so
+  # nothing else runs until this passes.
+  shared:
+    name: shared packages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - name: fixture assumptions still hold
+        run: pnpm fixture:check
+      - name: tickets.json matches the seed
+        run: |
+          pnpm fixture:generate
+          git diff --exit-code packages/fixture/tickets.json
+
+  # One job per app. A library failing its criteria is a recorded result, so the
+  # matrix uses fail-fast: false and every build reports.
+  builds:
+    name: ${{ matrix.app }}
+    needs: shared
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app:
+          - react-shadcn
+          - react-mui
+          - react-chakra
+          - react-antd
+          - react-headless
+          - vue-vuetify
+          - vue-primevue
+          - vue-quasar
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: skip until this build is scaffolded
+        id: exists
+        run: echo "found=$([ -d builds/${{ matrix.app }} ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
+      - if: steps.exists.outputs.found == 'yes'
+        run: pnpm install --frozen-lockfile
+      - name: shared suite, 18 criteria
+        if: steps.exists.outputs.found == 'yes'
+        run: pnpm --filter @bakeoff/${{ matrix.app }} test
+      - name: nobody edited the shared packages
+        if: steps.exists.outputs.found == 'yes'
+        run: git diff --exit-code origin/main -- packages/criteria packages/harness
+      - if: steps.exists.outputs.found == 'yes'
+        run: pnpm --filter @bakeoff/${{ matrix.app }} build
+      - name: size, delta, and the budget
+        if: steps.exists.outputs.found == 'yes'
+        run: pnpm --filter @bakeoff/${{ matrix.app }} measure
+      - uses: actions/upload-artifact@v4
+        if: steps.exists.outputs.found == 'yes'
+        with:
+          name: result-${{ matrix.app }}
+          path: results/${{ matrix.app }}.json
+
+  # The baselines feed the delta and are never published.
+  baselines:
+    needs: shared
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [baseline-react, baseline-vue]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @bakeoff/${{ matrix.app }} build
+
+  # Only the eight builds publish, alongside the write-up.
+  publish:
+    needs: [builds, baselines]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "static site publish goes here once a build exists"

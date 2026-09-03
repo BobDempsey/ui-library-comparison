@@ -1,0 +1,2162 @@
+[
+  {
+    "id": "TCK-0001",
+    "subject": "XML feed rejects unicode in the EU region",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-03-04T00:00:00.000Z",
+    "updatedAt": "2026-04-07T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0002",
+    "subject": "Email digest never arrives on the trial plan",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-03-16T00:00:00.000Z",
+    "updatedAt": "2026-04-29T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0003",
+    "subject": "Upload progress freezes once the cache warms",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-03-13T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0004",
+    "subject": "XML feed rejects unicode when SSO is enabled",
+    "status": "open",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-06-10T00:00:00.000Z",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0005",
+    "subject": "Yearly rollup misses December once the cache warms",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-04-20T00:00:00.000Z",
+    "updatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0006",
+    "subject": "Keyboard shortcuts conflict for enterprise accounts",
+    "status": "pending",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-02-09T00:00:00.000Z",
+    "updatedAt": "2026-03-08T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0007",
+    "subject": "Timezone shown as UTC when SSO is enabled",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-01-31T00:00:00.000Z",
+    "updatedAt": "2026-05-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0008",
+    "subject": "Header search returns nothing on slow connections",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-04-12T00:00:00.000Z",
+    "updatedAt": "2026-05-02T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0009",
+    "subject": "Login loops after timeout for enterprise accounts",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-22T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0010",
+    "subject": "Group permissions ignored in the EU region",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-04-27T00:00:00.000Z",
+    "updatedAt": "2026-05-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0011",
+    "subject": "Session drops on idle for read only members",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-01-28T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0012",
+    "subject": "Report totals disagree after the March release",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-01T00:00:00.000Z",
+    "updatedAt": "2026-03-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0013",
+    "subject": "Group permissions ignored in the EU region",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-03-24T00:00:00.000Z",
+    "updatedAt": "2026-06-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0014",
+    "subject": "Onboarding step is skipped once the cache warms",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-05-27T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0015",
+    "subject": "Keyboard shortcuts conflict after the March release",
+    "status": "open",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-26T00:00:00.000Z",
+    "updatedAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0016",
+    "subject": "Login loops after timeout for enterprise accounts",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-02-27T00:00:00.000Z",
+    "updatedAt": "2026-06-20T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0017",
+    "subject": "Webhook retries too fast in the EU region",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-03-19T00:00:00.000Z",
+    "updatedAt": "2026-06-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0018",
+    "subject": "Webhook retries too fast for read only members",
+    "status": "open",
+    "priority": "high",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-05-26T00:00:00.000Z",
+    "updatedAt": "2026-06-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0019",
+    "subject": "Yearly rollup misses December in the EU region",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-01-08T00:00:00.000Z",
+    "updatedAt": "2026-05-03T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0020",
+    "subject": "Group permissions ignored for read only members",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-01-22T00:00:00.000Z",
+    "updatedAt": "2026-03-07T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0021",
+    "subject": "Keyboard shortcuts conflict for read only members",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-15T00:00:00.000Z",
+    "updatedAt": "2026-06-20T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0022",
+    "subject": "Dashboard shows stale counts when SSO is enabled",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-01-26T00:00:00.000Z",
+    "updatedAt": "2026-02-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0023",
+    "subject": "XML feed rejects unicode in the EU region",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-05-01T00:00:00.000Z",
+    "updatedAt": "2026-06-29T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0024",
+    "subject": "Yearly rollup misses December on slow connections",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-01-21T00:00:00.000Z",
+    "updatedAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0025",
+    "subject": "Webhook retries too fast for enterprise accounts",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-01-13T00:00:00.000Z",
+    "updatedAt": "2026-05-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0026",
+    "subject": "CSV import drops rows for enterprise accounts",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-02-04T00:00:00.000Z",
+    "updatedAt": "2026-06-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0027",
+    "subject": "Billing export is empty on the trial plan",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-25T00:00:00.000Z",
+    "updatedAt": "2026-06-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0028",
+    "subject": "Queue depth alert misfires in the EU region",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-01-18T00:00:00.000Z",
+    "updatedAt": "2026-05-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0029",
+    "subject": "Billing export is empty after the March release",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-03-19T00:00:00.000Z",
+    "updatedAt": "2026-05-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0030",
+    "subject": "Zip download is truncated for enterprise accounts",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-01-23T00:00:00.000Z",
+    "updatedAt": "2026-02-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0031",
+    "subject": "Login loops after timeout on slow connections",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-01-31T00:00:00.000Z",
+    "updatedAt": "2026-02-17T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0032",
+    "subject": "Report totals disagree on the trial plan",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-06-08T00:00:00.000Z",
+    "updatedAt": "2026-06-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0033",
+    "subject": "Email digest never arrives when SSO is enabled",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-03-06T00:00:00.000Z",
+    "updatedAt": "2026-05-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0034",
+    "subject": "Billing export is empty for enterprise accounts",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-06-05T00:00:00.000Z",
+    "updatedAt": "2026-06-12T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0035",
+    "subject": "Validation message is wrong once the cache warms",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-04-12T00:00:00.000Z",
+    "updatedAt": "2026-06-02T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0036",
+    "subject": "Session drops on idle on the trial plan",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-01-09T00:00:00.000Z",
+    "updatedAt": "2026-02-01T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0037",
+    "subject": "Job queue stalls overnight in the EU region",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-04-29T00:00:00.000Z",
+    "updatedAt": "2026-06-20T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0038",
+    "subject": "Yearly rollup misses December for read only members",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-06-25T00:00:00.000Z",
+    "updatedAt": "2026-06-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0039",
+    "subject": "Dashboard shows stale counts after the March release",
+    "status": "open",
+    "priority": "high",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-05-03T00:00:00.000Z",
+    "updatedAt": "2026-06-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0040",
+    "subject": "Billing export is empty on slow connections",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-03-14T00:00:00.000Z",
+    "updatedAt": "2026-04-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0041",
+    "subject": "Dashboard shows stale counts after the March release",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-06-30T00:00:00.000Z",
+    "updatedAt": "2026-06-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0042",
+    "subject": "XML feed rejects unicode on slow connections",
+    "status": "closed",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-03-14T00:00:00.000Z",
+    "updatedAt": "2026-06-12T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0043",
+    "subject": "XML feed rejects unicode for read only members",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-01-09T00:00:00.000Z",
+    "updatedAt": "2026-01-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0044",
+    "subject": "Onboarding step is skipped on the trial plan",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-03-08T00:00:00.000Z",
+    "updatedAt": "2026-03-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0045",
+    "subject": "Keyboard shortcuts conflict after the March release",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-05-04T00:00:00.000Z",
+    "updatedAt": "2026-06-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0046",
+    "subject": "Notifications duplicate for read only members",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-01-24T00:00:00.000Z",
+    "updatedAt": "2026-03-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0047",
+    "subject": "Group permissions ignored for enterprise accounts",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-05-23T00:00:00.000Z",
+    "updatedAt": "2026-06-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0048",
+    "subject": "Filters reset on refresh on the trial plan",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-06-06T00:00:00.000Z",
+    "updatedAt": "2026-06-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0049",
+    "subject": "Job queue stalls overnight in the EU region",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-04-07T00:00:00.000Z",
+    "updatedAt": "2026-05-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0050",
+    "subject": "Zip download is truncated on the trial plan",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-05-15T00:00:00.000Z",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0051",
+    "subject": "Queue depth alert misfires on slow connections",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-02-21T00:00:00.000Z",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0052",
+    "subject": "Filters reset on refresh for enterprise accounts",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-03-28T00:00:00.000Z",
+    "updatedAt": "2026-06-20T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0053",
+    "subject": "Invoice PDF is blank in the EU region",
+    "status": "open",
+    "priority": "normal",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-02-23T00:00:00.000Z",
+    "updatedAt": "2026-04-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0054",
+    "subject": "Header search returns nothing on slow connections",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-14T00:00:00.000Z",
+    "updatedAt": "2026-05-21T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0055",
+    "subject": "Mobile layout overlaps once the cache warms",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-03-05T00:00:00.000Z",
+    "updatedAt": "2026-06-08T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0056",
+    "subject": "Attachment upload fails for read only members",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-02-17T00:00:00.000Z",
+    "updatedAt": "2026-06-20T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0057",
+    "subject": "Notifications duplicate once the cache warms",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-16T00:00:00.000Z",
+    "updatedAt": "2026-03-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0058",
+    "subject": "CSV import drops rows for enterprise accounts",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-08T00:00:00.000Z",
+    "updatedAt": "2026-06-13T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0059",
+    "subject": "Session drops on idle once the cache warms",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-04-27T00:00:00.000Z",
+    "updatedAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0060",
+    "subject": "Queue depth alert misfires in the EU region",
+    "status": "pending",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-04-19T00:00:00.000Z",
+    "updatedAt": "2026-05-06T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0061",
+    "subject": "Password reset link expires early for read only members",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-04-09T00:00:00.000Z",
+    "updatedAt": "2026-06-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0062",
+    "subject": "Notifications duplicate when SSO is enabled",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-09T00:00:00.000Z",
+    "updatedAt": "2026-06-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0063",
+    "subject": "Queue depth alert misfires on slow connections",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-01-10T00:00:00.000Z",
+    "updatedAt": "2026-04-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0064",
+    "subject": "Login loops after timeout on slow connections",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-04-18T00:00:00.000Z",
+    "updatedAt": "2026-06-20T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0065",
+    "subject": "Login loops after timeout once the cache warms",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-05-04T00:00:00.000Z",
+    "updatedAt": "2026-06-02T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0066",
+    "subject": "Notifications duplicate after the March release",
+    "status": "pending",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-03-20T00:00:00.000Z",
+    "updatedAt": "2026-06-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0067",
+    "subject": "Yearly rollup misses December once the cache warms",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-27T00:00:00.000Z",
+    "updatedAt": "2026-06-29T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0068",
+    "subject": "Mobile layout overlaps once the cache warms",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-03T00:00:00.000Z",
+    "updatedAt": "2026-04-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0069",
+    "subject": "Zip download is truncated for read only members",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-04-07T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0070",
+    "subject": "Group permissions ignored for enterprise accounts",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-01-18T00:00:00.000Z",
+    "updatedAt": "2026-03-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0071",
+    "subject": "CSV import drops rows after the March release",
+    "status": "closed",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-01-25T00:00:00.000Z",
+    "updatedAt": "2026-02-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0072",
+    "subject": "Group permissions ignored for read only members",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-04-25T00:00:00.000Z",
+    "updatedAt": "2026-06-16T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0073",
+    "subject": "Billing export is empty for enterprise accounts",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-04-29T00:00:00.000Z",
+    "updatedAt": "2026-06-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0074",
+    "subject": "Notifications duplicate on slow connections",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-02-09T00:00:00.000Z",
+    "updatedAt": "2026-02-17T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0075",
+    "subject": "Email digest never arrives on slow connections",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-03-07T00:00:00.000Z",
+    "updatedAt": "2026-04-13T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0076",
+    "subject": "Attachment upload fails once the cache warms",
+    "status": "open",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-03-17T00:00:00.000Z",
+    "updatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0077",
+    "subject": "Queue depth alert misfires for read only members",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-03-28T00:00:00.000Z",
+    "updatedAt": "2026-06-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0078",
+    "subject": "Notifications duplicate for read only members",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-03-24T00:00:00.000Z",
+    "updatedAt": "2026-03-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0079",
+    "subject": "XML feed rejects unicode after the March release",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-02-26T00:00:00.000Z",
+    "updatedAt": "2026-03-22T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0080",
+    "subject": "Group permissions ignored on slow connections",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-04-25T00:00:00.000Z",
+    "updatedAt": "2026-06-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0081",
+    "subject": "Zip download is truncated for enterprise accounts",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-04-18T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0082",
+    "subject": "Queue depth alert misfires once the cache warms",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-05-14T00:00:00.000Z",
+    "updatedAt": "2026-06-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0083",
+    "subject": "Email digest never arrives on slow connections",
+    "status": "closed",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-03-12T00:00:00.000Z",
+    "updatedAt": "2026-03-20T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0084",
+    "subject": "Header search returns nothing when SSO is enabled",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-03-12T00:00:00.000Z",
+    "updatedAt": "2026-04-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0085",
+    "subject": "Validation message is wrong on the trial plan",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-05-30T00:00:00.000Z",
+    "updatedAt": "2026-06-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0086",
+    "subject": "Dashboard shows stale counts once the cache warms",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-06-08T00:00:00.000Z",
+    "updatedAt": "2026-06-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0087",
+    "subject": "Invoice PDF is blank when SSO is enabled",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-01-17T00:00:00.000Z",
+    "updatedAt": "2026-01-31T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0088",
+    "subject": "Job queue stalls overnight on the trial plan",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-06-09T00:00:00.000Z",
+    "updatedAt": "2026-06-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0089",
+    "subject": "Webhook retries too fast on slow connections",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-01-10T00:00:00.000Z",
+    "updatedAt": "2026-03-12T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0090",
+    "subject": "Job queue stalls overnight after the March release",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-17T00:00:00.000Z",
+    "updatedAt": "2026-04-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0091",
+    "subject": "Group permissions ignored for enterprise accounts",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-07T00:00:00.000Z",
+    "updatedAt": "2026-04-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0092",
+    "subject": "Dashboard shows stale counts on the trial plan",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-04-07T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0093",
+    "subject": "Yearly rollup misses December for enterprise accounts",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-04-05T00:00:00.000Z",
+    "updatedAt": "2026-05-12T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0094",
+    "subject": "Group permissions ignored for read only members",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-06-02T00:00:00.000Z",
+    "updatedAt": "2026-06-06T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0095",
+    "subject": "Filters reset on refresh for enterprise accounts",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0096",
+    "subject": "Zip download is truncated once the cache warms",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-27T00:00:00.000Z",
+    "updatedAt": "2026-04-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0097",
+    "subject": "Login loops after timeout in the EU region",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-05-31T00:00:00.000Z",
+    "updatedAt": "2026-06-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0098",
+    "subject": "Yearly rollup misses December for enterprise accounts",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-06-25T00:00:00.000Z",
+    "updatedAt": "2026-06-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0099",
+    "subject": "Validation message is wrong in the EU region",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-04-21T00:00:00.000Z",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0100",
+    "subject": "XML feed rejects unicode when SSO is enabled",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-03-01T00:00:00.000Z",
+    "updatedAt": "2026-05-13T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0101",
+    "subject": "Yearly rollup misses December on slow connections",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-03-31T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0102",
+    "subject": "Attachment upload fails after the March release",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-01-26T00:00:00.000Z",
+    "updatedAt": "2026-03-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0103",
+    "subject": "Timezone shown as UTC on the trial plan",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-01-20T00:00:00.000Z",
+    "updatedAt": "2026-03-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0104",
+    "subject": "Email digest never arrives in the EU region",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-03-12T00:00:00.000Z",
+    "updatedAt": "2026-04-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0105",
+    "subject": "Session drops on idle once the cache warms",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-04-18T00:00:00.000Z",
+    "updatedAt": "2026-04-21T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0106",
+    "subject": "Password reset link expires early for enterprise accounts",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-06-16T00:00:00.000Z",
+    "updatedAt": "2026-06-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0107",
+    "subject": "Yearly rollup misses December for read only members",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-05-26T00:00:00.000Z",
+    "updatedAt": "2026-05-31T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0108",
+    "subject": "Session drops on idle for enterprise accounts",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-06-19T00:00:00.000Z",
+    "updatedAt": "2026-06-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0109",
+    "subject": "Session drops on idle for read only members",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-02-21T00:00:00.000Z",
+    "updatedAt": "2026-03-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0110",
+    "subject": "Dashboard shows stale counts on slow connections",
+    "status": "closed",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-03-07T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0111",
+    "subject": "CSV import drops rows after the March release",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-02-24T00:00:00.000Z",
+    "updatedAt": "2026-05-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0112",
+    "subject": "CSV import drops rows when SSO is enabled",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-05-29T00:00:00.000Z",
+    "updatedAt": "2026-06-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0113",
+    "subject": "Mobile layout overlaps when SSO is enabled",
+    "status": "open",
+    "priority": "normal",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-02-05T00:00:00.000Z",
+    "updatedAt": "2026-03-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0114",
+    "subject": "Login loops after timeout for read only members",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-02-24T00:00:00.000Z",
+    "updatedAt": "2026-06-02T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0115",
+    "subject": "Yearly rollup misses December for enterprise accounts",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-01-14T00:00:00.000Z",
+    "updatedAt": "2026-05-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0116",
+    "subject": "Attachment upload fails for enterprise accounts",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "updatedAt": "2026-06-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0117",
+    "subject": "Login loops after timeout after the March release",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-04-03T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0118",
+    "subject": "Attachment upload fails once the cache warms",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-03-13T00:00:00.000Z",
+    "updatedAt": "2026-05-17T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0119",
+    "subject": "Upload progress freezes after the March release",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-04-03T00:00:00.000Z",
+    "updatedAt": "2026-06-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0120",
+    "subject": "Billing export is empty after the March release",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-02-18T00:00:00.000Z",
+    "updatedAt": "2026-04-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0121",
+    "subject": "Invoice PDF is blank once the cache warms",
+    "status": "open",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-05-13T00:00:00.000Z",
+    "updatedAt": "2026-06-06T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0122",
+    "subject": "Dashboard shows stale counts after the March release",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-02-05T00:00:00.000Z",
+    "updatedAt": "2026-02-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0123",
+    "subject": "Attachment upload fails after the March release",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-06-13T00:00:00.000Z",
+    "updatedAt": "2026-06-17T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0124",
+    "subject": "Onboarding step is skipped on the trial plan",
+    "status": "open",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-02-05T00:00:00.000Z",
+    "updatedAt": "2026-03-16T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0125",
+    "subject": "Notifications duplicate for enterprise accounts",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-02-25T00:00:00.000Z",
+    "updatedAt": "2026-05-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0126",
+    "subject": "Onboarding step is skipped on the trial plan",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-03-03T00:00:00.000Z",
+    "updatedAt": "2026-05-07T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0127",
+    "subject": "Session drops on idle after the March release",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-03-27T00:00:00.000Z",
+    "updatedAt": "2026-05-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0128",
+    "subject": "Report totals disagree in the EU region",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-04-21T00:00:00.000Z",
+    "updatedAt": "2026-05-31T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0129",
+    "subject": "Yearly rollup misses December in the EU region",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-02-18T00:00:00.000Z",
+    "updatedAt": "2026-03-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0130",
+    "subject": "Onboarding step is skipped once the cache warms",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-06-26T00:00:00.000Z",
+    "updatedAt": "2026-06-26T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0131",
+    "subject": "XML feed rejects unicode when SSO is enabled",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-24T00:00:00.000Z",
+    "updatedAt": "2026-04-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0132",
+    "subject": "Timezone shown as UTC when SSO is enabled",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-01-20T00:00:00.000Z",
+    "updatedAt": "2026-02-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0133",
+    "subject": "Zip download is truncated after the March release",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-06-02T00:00:00.000Z",
+    "updatedAt": "2026-06-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0134",
+    "subject": "CSV import drops rows when SSO is enabled",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-04-19T00:00:00.000Z",
+    "updatedAt": "2026-06-16T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0135",
+    "subject": "Email digest never arrives once the cache warms",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-01-30T00:00:00.000Z",
+    "updatedAt": "2026-02-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0136",
+    "subject": "CSV import drops rows on the trial plan",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-05-21T00:00:00.000Z",
+    "updatedAt": "2026-05-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0137",
+    "subject": "Notifications duplicate in the EU region",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-04-29T00:00:00.000Z",
+    "updatedAt": "2026-05-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0138",
+    "subject": "Validation message is wrong for enterprise accounts",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-02-23T00:00:00.000Z",
+    "updatedAt": "2026-05-03T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0139",
+    "subject": "Onboarding step is skipped in the EU region",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-05-07T00:00:00.000Z",
+    "updatedAt": "2026-06-22T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0140",
+    "subject": "CSV import drops rows for enterprise accounts",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-03-25T00:00:00.000Z",
+    "updatedAt": "2026-05-29T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0141",
+    "subject": "Attachment upload fails when SSO is enabled",
+    "status": "open",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-06T00:00:00.000Z",
+    "updatedAt": "2026-04-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0142",
+    "subject": "CSV import drops rows after the March release",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-06-19T00:00:00.000Z",
+    "updatedAt": "2026-06-21T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0143",
+    "subject": "Invoice PDF is blank for enterprise accounts",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-02-28T00:00:00.000Z",
+    "updatedAt": "2026-03-06T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0144",
+    "subject": "Notifications duplicate on the trial plan",
+    "status": "pending",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-04-21T00:00:00.000Z",
+    "updatedAt": "2026-04-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0145",
+    "subject": "Attachment upload fails when SSO is enabled",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-03-05T00:00:00.000Z",
+    "updatedAt": "2026-05-01T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0146",
+    "subject": "Keyboard shortcuts conflict when SSO is enabled",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-21T00:00:00.000Z",
+    "updatedAt": "2026-06-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0147",
+    "subject": "Job queue stalls overnight once the cache warms",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-01-30T00:00:00.000Z",
+    "updatedAt": "2026-04-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0148",
+    "subject": "Notifications duplicate once the cache warms",
+    "status": "open",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-04-13T00:00:00.000Z",
+    "updatedAt": "2026-06-13T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0149",
+    "subject": "Validation message is wrong on slow connections",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-03-15T00:00:00.000Z",
+    "updatedAt": "2026-03-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0150",
+    "subject": "Queue depth alert misfires in the EU region",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-04-23T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0151",
+    "subject": "Email digest never arrives in the EU region",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-06-03T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0152",
+    "subject": "Zip download is truncated when SSO is enabled",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-02-03T00:00:00.000Z",
+    "updatedAt": "2026-05-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0153",
+    "subject": "Header search returns nothing once the cache warms",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-05-26T00:00:00.000Z",
+    "updatedAt": "2026-06-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0154",
+    "subject": "Login loops after timeout for read only members",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-04-21T00:00:00.000Z",
+    "updatedAt": "2026-05-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0155",
+    "subject": "Header search returns nothing once the cache warms",
+    "status": "open",
+    "priority": "normal",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-06-15T00:00:00.000Z",
+    "updatedAt": "2026-06-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0156",
+    "subject": "Yearly rollup misses December on the trial plan",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-01-28T00:00:00.000Z",
+    "updatedAt": "2026-03-02T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0157",
+    "subject": "Group permissions ignored for enterprise accounts",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-05-05T00:00:00.000Z",
+    "updatedAt": "2026-06-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0158",
+    "subject": "Session drops on idle after the March release",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-03-22T00:00:00.000Z",
+    "updatedAt": "2026-04-22T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0159",
+    "subject": "XML feed rejects unicode for enterprise accounts",
+    "status": "pending",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-05-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0160",
+    "subject": "Session drops on idle after the March release",
+    "status": "open",
+    "priority": "normal",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-05-21T00:00:00.000Z",
+    "updatedAt": "2026-06-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0161",
+    "subject": "Queue depth alert misfires on slow connections",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-04-02T00:00:00.000Z",
+    "updatedAt": "2026-04-03T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0162",
+    "subject": "Login loops after timeout for read only members",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-04-19T00:00:00.000Z",
+    "updatedAt": "2026-06-02T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0163",
+    "subject": "Queue depth alert misfires for enterprise accounts",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-03-15T00:00:00.000Z",
+    "updatedAt": "2026-05-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0164",
+    "subject": "Header search returns nothing on the trial plan",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-05-21T00:00:00.000Z",
+    "updatedAt": "2026-06-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0165",
+    "subject": "Attachment upload fails on slow connections",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-05-13T00:00:00.000Z",
+    "updatedAt": "2026-06-01T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0166",
+    "subject": "Yearly rollup misses December for enterprise accounts",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-06-27T00:00:00.000Z",
+    "updatedAt": "2026-06-29T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0167",
+    "subject": "Dashboard shows stale counts in the EU region",
+    "status": "pending",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-04-23T00:00:00.000Z",
+    "updatedAt": "2026-05-02T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0168",
+    "subject": "CSV import drops rows for enterprise accounts",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": null,
+    "createdAt": "2026-02-16T00:00:00.000Z",
+    "updatedAt": "2026-02-17T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0169",
+    "subject": "CSV import drops rows for enterprise accounts",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-02-05T00:00:00.000Z",
+    "updatedAt": "2026-04-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0170",
+    "subject": "CSV import drops rows for enterprise accounts",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-05-22T00:00:00.000Z",
+    "updatedAt": "2026-06-13T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0171",
+    "subject": "Yearly rollup misses December for read only members",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-26T00:00:00.000Z",
+    "updatedAt": "2026-05-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0172",
+    "subject": "Dashboard shows stale counts for read only members",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-04-08T00:00:00.000Z",
+    "updatedAt": "2026-04-13T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0173",
+    "subject": "Filters reset on refresh when SSO is enabled",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-03-20T00:00:00.000Z",
+    "updatedAt": "2026-04-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0174",
+    "subject": "Zip download is truncated after the March release",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-06-09T00:00:00.000Z",
+    "updatedAt": "2026-06-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0175",
+    "subject": "Email digest never arrives for read only members",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-02-14T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0176",
+    "subject": "Validation message is wrong when SSO is enabled",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-03-26T00:00:00.000Z",
+    "updatedAt": "2026-06-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0177",
+    "subject": "Report totals disagree for enterprise accounts",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-01-21T00:00:00.000Z",
+    "updatedAt": "2026-03-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0178",
+    "subject": "Header search returns nothing when SSO is enabled",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-06-01T00:00:00.000Z",
+    "updatedAt": "2026-06-07T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0179",
+    "subject": "Validation message is wrong in the EU region",
+    "status": "open",
+    "priority": "high",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-23T00:00:00.000Z",
+    "updatedAt": "2026-06-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0180",
+    "subject": "Zip download is truncated on slow connections",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-01-13T00:00:00.000Z",
+    "updatedAt": "2026-01-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0181",
+    "subject": "Login loops after timeout after the March release",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-06-19T00:00:00.000Z",
+    "updatedAt": "2026-06-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0182",
+    "subject": "Report totals disagree for enterprise accounts",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-04-16T00:00:00.000Z",
+    "updatedAt": "2026-05-06T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0183",
+    "subject": "Upload progress freezes on the trial plan",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-03-09T00:00:00.000Z",
+    "updatedAt": "2026-04-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0184",
+    "subject": "CSV import drops rows for read only members",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-04-08T00:00:00.000Z",
+    "updatedAt": "2026-04-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0185",
+    "subject": "Zip download is truncated for enterprise accounts",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-05-18T00:00:00.000Z",
+    "updatedAt": "2026-06-01T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0186",
+    "subject": "Session drops on idle on slow connections",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-03-31T00:00:00.000Z",
+    "updatedAt": "2026-06-26T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0187",
+    "subject": "Job queue stalls overnight for read only members",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-05-09T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0188",
+    "subject": "Yearly rollup misses December for read only members",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-03-30T00:00:00.000Z",
+    "updatedAt": "2026-05-16T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0189",
+    "subject": "Password reset link expires early once the cache warms",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-18T00:00:00.000Z",
+    "updatedAt": "2026-06-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0190",
+    "subject": "Header search returns nothing when SSO is enabled",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-04-05T00:00:00.000Z",
+    "updatedAt": "2026-04-06T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0191",
+    "subject": "Password reset link expires early when SSO is enabled",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-05-10T00:00:00.000Z",
+    "updatedAt": "2026-05-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0192",
+    "subject": "Group permissions ignored after the March release",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-01-31T00:00:00.000Z",
+    "updatedAt": "2026-02-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0193",
+    "subject": "Group permissions ignored for enterprise accounts",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-05-17T00:00:00.000Z",
+    "updatedAt": "2026-06-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0194",
+    "subject": "Timezone shown as UTC on the trial plan",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-01-09T00:00:00.000Z",
+    "updatedAt": "2026-02-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0195",
+    "subject": "Login loops after timeout on slow connections",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-03-25T00:00:00.000Z",
+    "updatedAt": "2026-04-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0196",
+    "subject": "Webhook retries too fast when SSO is enabled",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-05-26T00:00:00.000Z",
+    "updatedAt": "2026-06-16T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0197",
+    "subject": "Job queue stalls overnight for enterprise accounts",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-01-21T00:00:00.000Z",
+    "updatedAt": "2026-05-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0198",
+    "subject": "Notifications duplicate when SSO is enabled",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-04-06T00:00:00.000Z",
+    "updatedAt": "2026-06-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0199",
+    "subject": "Dashboard shows stale counts for enterprise accounts",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-06-29T00:00:00.000Z",
+    "updatedAt": "2026-06-29T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0200",
+    "subject": "Upload progress freezes when SSO is enabled",
+    "status": "closed",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-02-02T00:00:00.000Z",
+    "updatedAt": "2026-04-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0201",
+    "subject": "Upload progress freezes when SSO is enabled",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-04-16T00:00:00.000Z",
+    "updatedAt": "2026-06-03T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0202",
+    "subject": "Zip download is truncated on the trial plan",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-02-08T00:00:00.000Z",
+    "updatedAt": "2026-03-31T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0203",
+    "subject": "Yearly rollup misses December when SSO is enabled",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-05-31T00:00:00.000Z",
+    "updatedAt": "2026-06-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0204",
+    "subject": "Yearly rollup misses December on slow connections",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-05-22T00:00:00.000Z",
+    "updatedAt": "2026-06-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0205",
+    "subject": "Keyboard shortcuts conflict for enterprise accounts",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-02-14T00:00:00.000Z",
+    "updatedAt": "2026-04-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0206",
+    "subject": "Billing export is empty for read only members",
+    "status": "closed",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-03-26T00:00:00.000Z",
+    "updatedAt": "2026-06-26T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0207",
+    "subject": "Session drops on idle for enterprise accounts",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-04-29T00:00:00.000Z",
+    "updatedAt": "2026-06-07T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0208",
+    "subject": "CSV import drops rows on the trial plan",
+    "status": "resolved",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-05-30T00:00:00.000Z",
+    "updatedAt": "2026-06-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0209",
+    "subject": "Yearly rollup misses December once the cache warms",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-02-21T00:00:00.000Z",
+    "updatedAt": "2026-04-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0210",
+    "subject": "Queue depth alert misfires once the cache warms",
+    "status": "open",
+    "priority": "low",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-05-03T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0211",
+    "subject": "Timezone shown as UTC when SSO is enabled",
+    "status": "resolved",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-05-11T00:00:00.000Z",
+    "updatedAt": "2026-05-29T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0212",
+    "subject": "Notifications duplicate when SSO is enabled",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": null,
+    "createdAt": "2026-06-18T00:00:00.000Z",
+    "updatedAt": "2026-06-21T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0213",
+    "subject": "Filters reset on refresh on slow connections",
+    "status": "pending",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-05-09T00:00:00.000Z",
+    "updatedAt": "2026-05-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0214",
+    "subject": "Validation message is wrong on the trial plan",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-03-06T00:00:00.000Z",
+    "updatedAt": "2026-04-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0215",
+    "subject": "Zip download is truncated when SSO is enabled",
+    "status": "open",
+    "priority": "high",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-05-07T00:00:00.000Z",
+    "updatedAt": "2026-06-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0216",
+    "subject": "Keyboard shortcuts conflict after the March release",
+    "status": "open",
+    "priority": "low",
+    "assignee": null,
+    "createdAt": "2026-05-13T00:00:00.000Z",
+    "updatedAt": "2026-06-05T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0217",
+    "subject": "Queue depth alert misfires in the EU region",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-05-19T00:00:00.000Z",
+    "updatedAt": "2026-06-10T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0218",
+    "subject": "Timezone shown as UTC for read only members",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-01-20T00:00:00.000Z",
+    "updatedAt": "2026-04-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0219",
+    "subject": "Yearly rollup misses December in the EU region",
+    "status": "pending",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-06-25T00:00:00.000Z",
+    "updatedAt": "2026-06-27T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0220",
+    "subject": "Validation message is wrong in the EU region",
+    "status": "open",
+    "priority": "high",
+    "assignee": null,
+    "createdAt": "2026-06-29T00:00:00.000Z",
+    "updatedAt": "2026-06-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0221",
+    "subject": "Webhook retries too fast for enterprise accounts",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-04-20T00:00:00.000Z",
+    "updatedAt": "2026-05-15T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0222",
+    "subject": "Login loops after timeout for read only members",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-06-19T00:00:00.000Z",
+    "updatedAt": "2026-06-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0223",
+    "subject": "Billing export is empty after the March release",
+    "status": "closed",
+    "priority": "urgent",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-04-15T00:00:00.000Z",
+    "updatedAt": "2026-06-24T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0224",
+    "subject": "Zip download is truncated after the March release",
+    "status": "open",
+    "priority": "high",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-04-15T00:00:00.000Z",
+    "updatedAt": "2026-06-12T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0225",
+    "subject": "Mobile layout overlaps after the March release",
+    "status": "closed",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-05-16T00:00:00.000Z",
+    "updatedAt": "2026-06-28T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0226",
+    "subject": "CSV import drops rows in the EU region",
+    "status": "pending",
+    "priority": "high",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-02-25T00:00:00.000Z",
+    "updatedAt": "2026-04-11T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0227",
+    "subject": "Login loops after timeout after the March release",
+    "status": "pending",
+    "priority": "normal",
+    "assignee": "Daniel Reyes",
+    "createdAt": "2026-01-24T00:00:00.000Z",
+    "updatedAt": "2026-05-08T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0228",
+    "subject": "Login loops after timeout once the cache warms",
+    "status": "open",
+    "priority": "urgent",
+    "assignee": "Marcus Webb",
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-04-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0229",
+    "subject": "XML feed rejects unicode on the trial plan",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-03-02T00:00:00.000Z",
+    "updatedAt": "2026-05-14T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0230",
+    "subject": "Invoice PDF is blank on the trial plan",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-04-03T00:00:00.000Z",
+    "updatedAt": "2026-04-09T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0231",
+    "subject": "Attachment upload fails in the EU region",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Grace Mbeki",
+    "createdAt": "2026-04-10T00:00:00.000Z",
+    "updatedAt": "2026-05-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0232",
+    "subject": "Zip download is truncated on slow connections",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-05-13T00:00:00.000Z",
+    "updatedAt": "2026-06-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0233",
+    "subject": "Onboarding step is skipped on the trial plan",
+    "status": "pending",
+    "priority": "urgent",
+    "assignee": "Nadia Osei",
+    "createdAt": "2026-01-30T00:00:00.000Z",
+    "updatedAt": "2026-02-04T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0234",
+    "subject": "Password reset link expires early in the EU region",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Priya Raman",
+    "createdAt": "2026-01-20T00:00:00.000Z",
+    "updatedAt": "2026-03-23T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0235",
+    "subject": "Zip download is truncated in the EU region",
+    "status": "closed",
+    "priority": "high",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-06-03T00:00:00.000Z",
+    "updatedAt": "2026-06-19T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0236",
+    "subject": "Invoice PDF is blank on the trial plan",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-05-20T00:00:00.000Z",
+    "updatedAt": "2026-06-12T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0237",
+    "subject": "Notifications duplicate on slow connections",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "updatedAt": "2026-06-25T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0238",
+    "subject": "Validation message is wrong for read only members",
+    "status": "resolved",
+    "priority": "normal",
+    "assignee": "Tomas Lindqvist",
+    "createdAt": "2026-06-17T00:00:00.000Z",
+    "updatedAt": "2026-06-30T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0239",
+    "subject": "Session drops on idle after the March release",
+    "status": "resolved",
+    "priority": "high",
+    "assignee": "Sofia Duarte",
+    "createdAt": "2026-01-19T00:00:00.000Z",
+    "updatedAt": "2026-02-18T00:00:00.000Z"
+  },
+  {
+    "id": "TCK-0240",
+    "subject": "Job queue stalls overnight once the cache warms",
+    "status": "closed",
+    "priority": "low",
+    "assignee": "Ken Ito",
+    "createdAt": "2026-05-05T00:00:00.000Z",
+    "updatedAt": "2026-06-26T00:00:00.000Z"
+  }
+]

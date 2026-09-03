@@ -1,0 +1,21 @@
+{
+  "name": "component-bakeoff",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.15.1",
+  "scripts": {
+    "build": "pnpm -r --filter \"./builds/*\" --filter \"./baselines/*\" build",
+    "test": "pnpm -r --filter \"./builds/*\" test",
+    "measure": "tsx scripts/measure.ts",
+    "fixture:generate": "tsx packages/fixture/src/generate.ts && tsx scripts/check-fixture.ts",
+    "fixture:check": "tsx scripts/check-fixture.ts",
+    "typecheck": "tsc --noEmit -p packages/fixture/tsconfig.json && tsc --noEmit -p packages/harness/tsconfig.json && tsc --noEmit -p packages/criteria/tsconfig.json",
+    "new-build": "tsx scripts/new-build.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.0",
+    "@types/node": "^26.4.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

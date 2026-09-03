@@ -1,0 +1,22 @@
+# __BUILD__
+
+__LIBRARY__ building the bake-off screen in __FRAMEWORK__.
+
+Read [`spec/screen-spec.md`](../../spec/screen-spec.md) before writing code. Sections 2 to 9 are the requirements. A requirement this library cannot meet is recorded as a failure, not worked around.
+
+```
+pnpm --filter @bakeoff/__BUILD__ dev
+pnpm --filter @bakeoff/__BUILD__ test
+pnpm --filter @bakeoff/__BUILD__ build
+pnpm --filter @bakeoff/__BUILD__ measure
+```
+
+Write only inside this folder and `results/__BUILD__.json`. `packages/criteria` and `packages/harness` belong to the phase one owner.
+
+## Notes for the write-up
+
+Keep a running list here as you build: what the library gave for free, what had to be hand built, and where a spec requirement fought the defaults. The write-up is assembled from these once all eight results exist.
+
+## bakeoff.json
+
+`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `bakeoff.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from __LIBRARY__ or were hand built. Update it as you go rather than at the end.
