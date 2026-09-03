@@ -6,7 +6,7 @@
 
 The workspace behind `bakeoff-screen-spec.md`, which lives in `../demo-resume/` and is copied here as `spec/screen-spec.md`. Eight UI libraries build the same `/tickets` screen so they can be compared on ergonomics, bundle size, and accessibility defaults.
 
-Demo content. The domain, the data, and the numbers are fictional, matching `../demo-resume/demo-resume.md`. Not a git repo yet, so there is no history to fall back on.
+Demo content. The domain, the data, and the numbers are fictional, matching `../demo-resume/demo-resume.md`. Git history starts at the phase one commit, which is the baseline every build diffs against.
 
 Phase one is built and frozen. Phase two, the eight builds, has not started. `builds/` and `results/` are empty.
 
@@ -63,4 +63,4 @@ A library that cannot meet a requirement records the failure. Do not bend the sp
 - The `publish` job in CI is a placeholder. Nothing publishes the static sites yet.
 - No Lighthouse runner. `measure` reads a `lighthouse.json` that nothing writes.
 - No write-up. `write-up/` is an empty folder; it is written once, after all eight results files exist, by one owner reading `results/`.
-- Not a git repo, so the CI steps that diff against main have never run.
+- No remote and no pull request has ever run, so the CI steps that diff against main are untested.
