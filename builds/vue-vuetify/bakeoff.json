@@ -1,0 +1,10 @@
+{
+  "_comment": "The two things a script cannot read off the code. Filled in honestly after building the screen; see README.md for the reasoning behind each number.",
+  "requirementsNeedingCustomCode": 6,
+  "handBuilt": {
+    "modal": false,
+    "select": false,
+    "toast": true
+  },
+  "axeViolationsBeforeFixes": 0
+}
