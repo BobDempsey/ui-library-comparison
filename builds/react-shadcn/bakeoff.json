@@ -1,0 +1,10 @@
+{
+  "_comment": "The two things a script cannot read off the code. Fill these in honestly as you build; the write-up quotes them next to the automated numbers.",
+  "requirementsNeedingCustomCode": 4,
+  "handBuilt": {
+    "modal": true,
+    "select": true,
+    "toast": true
+  },
+  "axeViolationsBeforeFixes": 0
+}

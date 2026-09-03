@@ -1,0 +1,35 @@
+{
+  "build": "react-shadcn",
+  "library": "shadcn/ui",
+  "framework": "react",
+  "kind": "assembly-kit",
+  "bundle": {
+    "totalGzipKb": 103.52,
+    "baselineGzipKb": 44.91,
+    "deltaGzipKb": 58.61,
+    "overBudget": false
+  },
+  "accessibility": {
+    "axeViolationsBeforeFixes": 0,
+    "requirementsNeedingCustomCode": 4
+  },
+  "ergonomics": {
+    "linesOfAppCode": 1396,
+    "libraryImports": 20,
+    "typeEscapes": 0,
+    "handBuilt": {
+      "modal": true,
+      "select": true,
+      "toast": true
+    }
+  },
+  "render": {
+    "lighthouseFcpMsMedian": 0,
+    "runs": 0
+  },
+  "criteria": {
+    "passed": 18,
+    "failed": 0,
+    "failedNumbers": []
+  }
+}
