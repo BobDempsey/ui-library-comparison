@@ -1,63 +1,60 @@
 # UI library comparison
 
-Eight UI libraries build the same screen so they can be compared on ergonomics, bundle size, and accessibility defaults. The spec in [`spec/screen-spec.md`](spec/screen-spec.md) is the fixed input, and a library that cannot meet a requirement fails it rather than changing it.
+Eight UI libraries build the same `/tickets` screen, so they can be compared on ergonomics, bundle size, and accessibility defaults. The spec in [`spec/screen-spec.md`](spec/screen-spec.md) is the fixed input, and a library that cannot meet a requirement fails it rather than changing it.
 
 This is sample content for a demo. The domain, the data, and the numbers are fictional.
 
-## Where this stands
+## Results
 
-Phase one is built and frozen. Phase two, the eight builds, has not started. Every build folder is empty, so CI skips its matrix leg until someone scaffolds one.
+All eight builds pass all 18 acceptance criteria. Sorted by bundle cost.
 
-| Piece | State |
+| Library | Framework | Kind | Delta gzip | Total gzip | Custom code | Hand built |
+| --- | --- | --- | --- | --- | --- | --- |
+| Headless UI | React | assembly kit | 44.85 KB | 89.76 KB | 6 | select, toast |
+| shadcn/ui | React | assembly kit | 58.87 KB | 103.78 KB | 4 | modal, select, toast |
+| Material UI | React | suite | 79.76 KB | 124.67 KB | 3 | toast |
+| Quasar | Vue | suite | 91.68 KB | 115.89 KB | 6 | toast |
+| Chakra UI | React | suite | 97.80 KB | 142.71 KB | 4 | none |
+| Vuetify | Vue | suite | 128.87 KB | 153.08 KB | 6 | toast |
+| PrimeVue | Vue | suite | 150.18 KB | 174.39 KB | 4 | toast |
+| Ant Design | React | suite | 233.74 KB | 278.65 KB | 5 | toast |
+
+Delta is the total minus an empty app on the same framework, 44.91 KB for React and 24.21 KB for Vue, and it is the number the comparison is about. The 240 fixture rows load through a dynamic import and are excluded, as section 10 of the spec requires. Custom code counts how many of section 9's accessibility requirements the library did not supply.
+
+Ant Design is the only build over the 180 KB budget. Its `Table` alone costs roughly 247 KB gzip with React, because `rc-table` pulls in `rc-virtual-list` unconditionally. That is a library weight finding, not an implementation shortfall.
+
+Seven of the eight reported zero axe violations before any fix. Quasar had one, a double-nested `<label>` around `QInput`, since fixed. All results are machine written into [`results/`](results/) by `pnpm measure`.
+
+Two differences are recorded rather than normalized: badge label casing varies by library, and only shadcn/ui renders a visible page heading. Both are library defaults showing through, which is what the comparison exists to measure.
+
+## Layout
+
+| Path | What it holds |
 | --- | --- |
-| `spec/screen-spec.md` | settled, sections 1 to 13 |
-| `packages/fixture` | 240 tickets, generator, committed `tickets.json` |
-| `packages/criteria` | the 18 acceptance criteria, shared |
-| `packages/harness` | the adapter interface every build implements |
-| `templates/` | `common` plus a `react` and a `vue` overlay |
-| `builds/*` | empty, eight to come |
-| `baselines/*` | built, React floor 45.8 KB gzipped, Vue floor 24.6 KB |
-| `scripts/measure.ts` | scores one build, writes `results/<build>.json` |
-| `.github/workflows/ci.yml` | matrix over the ten apps |
-
-## Phase one is frozen
-
-Section 15 of the spec: the fixture, the criteria, and the adapter interface are settled before any build starts, because a comparison where they moved partway through is not a comparison.
-
-Nobody working on a build edits `packages/criteria` or `packages/harness`. A criterion that looks wrong goes back to the phase one owner as a question. A test patched locally ends the comparison and nothing in CI will say so.
-
-## Starting a build
-
-The slice is one library, not one feature. Take a folder from empty through the screen, the adapter, the 18 criteria, and a `measure` run that writes `results/<name>.json`.
-
-1. Scaffold the folder, then install:
-
-```
-pnpm new-build react-shadcn
-pnpm install
-```
-
-   A build arrives with the four scripts `dev`, `build`, `test`, and `measure`, the Jest wiring, a Vite config matching its baseline, an `index.html`, a `TicketsScreen` already loading the fixture, and an adapter stub that throws from every method. It builds and typechecks before you write a line. The library, framework, and kind come from `scripts/roster.ts`, so all eight are labelled the same way.
-
-2. Build the screen from the spec. Read sections 2 to 9 before writing code.
-3. Fill in `test/adapter.ts`, deleting a `notImplemented` at a time. Drive real controls, never internal state. A build is done when none are left.
-4. Run `pnpm --filter @uilc/<build> test`. Record what fails, do not bend the spec.
-
-`test/criteria.test.ts` is the whole test file and it is one line of setup. There is nothing to add.
-
-The 240 rows load through a dynamic import, so a bundler emits them as their own chunk and `measure` can leave them out of the size total, as section 10 requires. Keep using `loadTickets`; a static import of the fixture folds it back into the application bundle and inflates the number.
-
-A worker writes only inside its own `builds/<name>/` folder and its own `results/<name>.json`, so eight writers never touch the same line. Each build lands as its own pull request.
+| `spec/screen-spec.md` | the spec, sections 1 to 13 |
+| `packages/fixture` | 240 tickets from a seeded generator, committed as `tickets.json` |
+| `packages/criteria` | the 18 acceptance criteria, shared by every build |
+| `packages/harness` | the `ComparisonAdapter` interface and the 180 KB budget |
+| `builds/*` | the eight implementations |
+| `baselines/*` | an empty React and Vue app, the floor each delta subtracts |
+| `results/*.json` | one scored result per build |
 
 ## Commands
 
 ```
 pnpm install
-pnpm fixture:generate   # regenerate the 240 tickets, then check the assumptions
-pnpm fixture:check      # check them without regenerating
-pnpm typecheck          # the three shared packages
-pnpm new-build <name>   # scaffold one of the eight from templates/build
-pnpm measure --all      # score every scaffolded build into results/
+pnpm build               # all ten apps
+pnpm test                # the 18 criteria in every build
+pnpm typecheck           # the three shared packages
+pnpm measure --all       # rescore every build into results/
+pnpm fixture:check       # check what the criteria assume about the fixture
+pnpm fixture:generate    # regenerate the 240 tickets, then check them
 ```
 
-`tickets.json` is committed and the seed is fixed, so regenerating produces the same file. If it does not, the earlier bundle and render numbers stop comparing and the run starts over.
+`tickets.json` is committed and the seed is fixed, so regenerating produces the same file. If it does not, the earlier bundle numbers stop comparing and the run starts over.
+
+Each build serves on its own port, 5173 through 5180 in roster order, so all eight can run at once: `pnpm --filter @uilc/<build> dev`.
+
+## Working on this
+
+The rules that keep the comparison valid are in [`CLAUDE.md`](CLAUDE.md). The fuller state, the decisions, and the known gaps are in [`handoff.md`](handoff.md).
