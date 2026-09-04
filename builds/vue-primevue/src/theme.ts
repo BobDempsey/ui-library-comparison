@@ -33,3 +33,18 @@ export const preset = {
   ...base,
   components: { button, confirmdialog, datatable, dialog, inputtext, message, multiselect, paginator, ripple, select, skeleton },
 };
+
+/**
+ * PrimeVue's own default for `darkModeSelector` is `'system'`, which wraps
+ * the preset's dark `colorScheme` tokens in `@media (prefers-color-scheme:
+ * dark)`. This screen's own markup (`styles.css`) is light-only and never
+ * offers a way to opt into dark mode, so on a system with a dark OS/browser
+ * preference the PrimeVue-themed controls and table silently switched to the
+ * preset's dark tokens while the surrounding page stayed on its hardcoded
+ * light colors, splitting the screen. It also flipped the badges' inherited
+ * text color to the dark scheme's near-white `text.color` against their own
+ * fixed light-grey pill background, an unreadable pairing. Disabling dark
+ * resolution keeps this screen on the preset's light `colorScheme` tokens
+ * unconditionally, matching the light-only page it actually ships.
+ */
+export const options = { darkModeSelector: false };

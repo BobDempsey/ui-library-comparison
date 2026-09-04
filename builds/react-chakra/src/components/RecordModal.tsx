@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { Button, Dialog, Field, HStack, Input, NativeSelect, Stack, Text } from '@chakra-ui/react';
-import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import { pushToast } from '../toasts.js';
 

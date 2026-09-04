@@ -1,14 +1,14 @@
 # react-mui
 
-Material UI building the bake-off screen in React.
+Material UI building the comparison screen in React.
 
 Read [`spec/screen-spec.md`](../../spec/screen-spec.md) before writing code. Sections 2 to 9 are the requirements. A requirement this library cannot meet is recorded as a failure, not worked around.
 
 ```
-pnpm --filter @bakeoff/react-mui dev
-pnpm --filter @bakeoff/react-mui test
-pnpm --filter @bakeoff/react-mui build
-pnpm --filter @bakeoff/react-mui measure
+pnpm --filter @uilc/react-mui dev
+pnpm --filter @uilc/react-mui test
+pnpm --filter @uilc/react-mui build
+pnpm --filter @uilc/react-mui measure
 ```
 
 Write only inside this folder and `results/react-mui.json`. `packages/criteria` and `packages/harness` belong to the phase one owner.
@@ -38,7 +38,7 @@ Write only inside this folder and `results/react-mui.json`. `packages/criteria` 
 
 ### Accessibility (section 9)
 
-Declared `requirementsNeedingCustomCode: 3` in `bakeoff.json`: the focus-visible outline, the table's `<caption>` plus `aria-sort` wiring, and the live region around the pagination summary. The other three of section 9's six code-relevant bullets (semantic HTML/ARIA choice, keyboard operability, tab order) came from using real `table` markup, MUI's ARIA-pattern `Select`/`Dialog`, and natural DOM order without extra work.
+Declared `requirementsNeedingCustomCode: 3` in `comparison.json`: the focus-visible outline, the table's `<caption>` plus `aria-sort` wiring, and the live region around the pagination summary. The other three of section 9's six code-relevant bullets (semantic HTML/ARIA choice, keyboard operability, tab order) came from using real `table` markup, MUI's ARIA-pattern `Select`/`Dialog`, and natural DOM order without extra work.
 
 `axeViolationsBeforeFixes: 0` — axe-core reported zero violations of any severity (not just serious/critical) on both the loaded table and with the modal open, confirmed with a throwaway debug run before this file was written. The same caveat as every other build applies: axe-core runs under jsdom here (Jest's `testEnvironment`), and jsdom has no real layout or canvas (`HTMLCanvasElement.getContext` is not implemented), so axe's `color-contrast` check throws internally and cannot evaluate real contrast in this environment. "Zero violations" reflects everything axe can check under jsdom (roles, names, ARIA attribute correctness, structure), not a substitute for the manual NVDA/VoiceOver pass or a browser-based axe run for contrast.
 
@@ -58,6 +58,6 @@ Declared `requirementsNeedingCustomCode: 3` in `bakeoff.json`: the focus-visible
 - Nothing in the shared packages writes `criteria-results.json`, so a local Jest reporter (`test/reporter.cjs`) turns the suite's pass/fail state into that file for `measure` to read.
 - jsdom implements neither `ResizeObserver` nor `window.matchMedia`, both touched by Material UI internals (`Popper` positioning, theme transition helpers). `test/setup.ts` stubs both.
 
-## bakeoff.json
+## comparison.json
 
-`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `bakeoff.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from Material UI or were hand built. Update it as you go rather than at the end.
+`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `comparison.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from Material UI or were hand built. Update it as you go rather than at the end.

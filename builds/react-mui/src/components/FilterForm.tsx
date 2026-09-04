@@ -12,7 +12,7 @@ import {
   Typography,
   type SelectChangeEvent,
 } from '@mui/material';
-import { PRIORITIES, STATUSES, type Priority, type Status } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status } from '@uilc/fixture';
 import type { FiltersApi } from '../useFilters.js';
 
 /**
@@ -61,7 +61,9 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
       />
 
       <FormControl size="small" className="field" data-testid="filter-status-field">
-        <InputLabel id="filter-status-label">Status</InputLabel>
+        <InputLabel id="filter-status-label" shrink>
+          Status
+        </InputLabel>
         <Select
           labelId="filter-status-label"
           label="Status"
@@ -81,7 +83,9 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
       </FormControl>
 
       <FormControl size="small" className="field" data-testid="filter-priority-field">
-        <InputLabel id="filter-priority-label">Priority</InputLabel>
+        <InputLabel id="filter-priority-label" shrink>
+          Priority
+        </InputLabel>
         <Select
           labelId="filter-priority-label"
           label="Priority"
@@ -101,7 +105,9 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
       </FormControl>
 
       <FormControl size="small" className="field" data-testid="filter-assignee-field">
-        <InputLabel id="filter-assignee-label">Assignee</InputLabel>
+        <InputLabel id="filter-assignee-label" shrink>
+          Assignee
+        </InputLabel>
         <Select
           labelId="filter-assignee-label"
           label="Assignee"

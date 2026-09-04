@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import { useToasts } from '../toasts.js';
 
@@ -130,6 +130,7 @@ function save() {
             :model-value="status"
             emit-value
             map-options
+            dropdown-icon="M7 10l5 5 5-5z"
             @update:model-value="onStatusChange"
           />
         </div>
@@ -142,6 +143,7 @@ function save() {
             :model-value="priority"
             emit-value
             map-options
+            dropdown-icon="M7 10l5 5 5-5z"
             @update:model-value="onPriorityChange"
           />
         </div>
@@ -154,6 +156,7 @@ function save() {
             :model-value="assignee ?? 'Unassigned'"
             emit-value
             map-options
+            dropdown-icon="M7 10l5 5 5-5z"
             @update:model-value="(v) => onAssigneeChange(v === 'Unassigned' ? null : (v as string))"
           />
         </div>

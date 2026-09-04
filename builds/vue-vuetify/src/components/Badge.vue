@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 
 /** Section 3: status and priority render as badges, built on Vuetify's `v-chip`. */
 const props = defineProps<{ kind: 'status' | 'priority'; value: Status | Priority }>();

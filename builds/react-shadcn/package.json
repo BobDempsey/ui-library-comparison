@@ -1,5 +1,5 @@
 {
-  "name": "@bakeoff/react-shadcn",
+  "name": "@uilc/react-shadcn",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,7 +10,7 @@
     "measure": "tsx ../../scripts/measure.ts --build react-shadcn"
   },
   "dependencies": {
-    "@bakeoff/fixture": "workspace:*",
+    "@uilc/fixture": "workspace:*",
     "@radix-ui/react-alert-dialog": "^1.1.6",
     "@radix-ui/react-checkbox": "^1.1.4",
     "@radix-ui/react-dialog": "^1.1.6",
@@ -26,8 +26,8 @@
     "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
-    "@bakeoff/criteria": "workspace:*",
-    "@bakeoff/harness": "workspace:*",
+    "@uilc/criteria": "workspace:*",
+    "@uilc/harness": "workspace:*",
     "@tailwindcss/vite": "^4.0.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",

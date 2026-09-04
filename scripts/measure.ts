@@ -1,13 +1,13 @@
 /**
  * Scores one build against section 10 and writes `results/<build>.json`.
  *
- *   pnpm --filter @bakeoff/react-shadcn measure
+ *   pnpm --filter @uilc/react-shadcn measure
  *   pnpm measure --build react-shadcn --all
  *
  * Bundle size and the ergonomics counts are read off the build output and the
  * source, so nobody types them. The two numbers a script cannot see, how many
  * section 9 requirements needed custom code and whether the modal, select, and
- * toast were hand built, come from a `bakeoff.json` the build declares. They are
+ * toast were hand built, come from a `comparison.json` the build declares. They are
  * counts, not opinions, and the write-up quotes them next to the automated ones.
  *
  * `results/` is committed. A scoring run then shows up as a diff a reader can check.
@@ -104,10 +104,10 @@ function librarySpecifier(library: string): string {
 }
 
 function readDeclared(dir: string, build: string): Declared {
-  const path = join(dir, 'bakeoff.json');
+  const path = join(dir, 'comparison.json');
   if (!existsSync(path)) {
     throw new Error(
-      `${build}: bakeoff.json is missing. Declare requirementsNeedingCustomCode and handBuilt before scoring.`,
+      `${build}: comparison.json is missing. Declare requirementsNeedingCustomCode and handBuilt before scoring.`,
     );
   }
   return JSON.parse(readFileSync(path, 'utf8')) as Declared;

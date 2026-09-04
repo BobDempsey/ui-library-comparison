@@ -1,5 +1,5 @@
 import { computed, reactive, ref, watch, type ComputedRef, type ShallowRef } from 'vue';
-import type { Priority, Status, Ticket } from '@bakeoff/fixture';
+import type { Priority, Status, Ticket } from '@uilc/fixture';
 import { activeFilterCount, applyFilters, EMPTY_FILTERS, type FilterState } from './filtering.js';
 
 const SEARCH_DEBOUNCE_MS = 250;

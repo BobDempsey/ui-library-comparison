@@ -3,7 +3,7 @@ import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import MultiSelect from 'primevue/multiselect';
 import Select from 'primevue/select';
-import { PRIORITIES, STATUSES } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES } from '@uilc/fixture';
 import type { FiltersApi } from '../composables/useFilters.js';
 
 /** Section 5. Filters on every keystroke or change, no submit button. */

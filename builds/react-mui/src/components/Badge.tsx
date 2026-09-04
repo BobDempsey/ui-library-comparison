@@ -1,5 +1,5 @@
 import { Chip } from '@mui/material';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 
 const STATUS_COLOR: Record<Status, 'info' | 'warning' | 'success' | 'default'> = {
   open: 'info',

@@ -1,5 +1,5 @@
 import { Tag } from 'antd';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 
 const STATUS_COLOR: Record<Status, string> = {
   open: 'blue',

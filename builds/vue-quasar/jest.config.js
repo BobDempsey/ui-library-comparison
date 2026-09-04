@@ -12,11 +12,11 @@
  * files to CommonJS `require()`/`exports` regardless of Jest's ESM settings,
  * and mixing that with `--experimental-vm-modules` produced unresolvable
  * `ERR_REQUIRE_ESM` / "does not provide an export named 'default'" failures
- * once a `.vue` file's compiled output reached `@bakeoff/fixture` (an
+ * once a `.vue` file's compiled output reached `@uilc/fixture` (an
  * ESM-only workspace package) or one of this build's own `.ts` composables.
  * ts-jest's default (non-ESM) output is CommonJS too, so pointing every
  * transform at CommonJS keeps the whole graph in one module system. ts-jest
- * still transpiles `@bakeoff/fixture`'s TypeScript source (its real path
+ * still transpiles `@uilc/fixture`'s TypeScript source (its real path
  * resolves outside `node_modules` through the pnpm symlink, so the default
  * `transformIgnorePatterns` does not exempt it), so its `import`/`export` and
  * dynamic `import()` never reach Jest as raw ESM in the first place.

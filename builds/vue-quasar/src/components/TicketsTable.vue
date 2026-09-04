@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { PAGE_SIZE, type Ticket } from '@bakeoff/fixture';
+import { PAGE_SIZE, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import { sortRows, type SortColumn, type SortState } from '../filtering.js';
 import Badge from './Badge.vue';

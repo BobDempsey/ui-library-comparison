@@ -1,4 +1,4 @@
-# Component library bake-off
+# UI library comparison
 
 Eight UI libraries build the same screen so they can be compared on ergonomics, bundle size, and accessibility defaults. The spec in [`spec/screen-spec.md`](spec/screen-spec.md) is the fixed input, and a library that cannot meet a requirement fails it rather than changing it.
 
@@ -41,7 +41,7 @@ pnpm install
 
 2. Build the screen from the spec. Read sections 2 to 9 before writing code.
 3. Fill in `test/adapter.ts`, deleting a `notImplemented` at a time. Drive real controls, never internal state. A build is done when none are left.
-4. Run `pnpm --filter @bakeoff/<build> test`. Record what fails, do not bend the spec.
+4. Run `pnpm --filter @uilc/<build> test`. Record what fails, do not bend the spec.
 
 `test/criteria.test.ts` is the whole test file and it is one line of setup. There is nothing to add.
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from 'vue';
-import { loadTickets, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { loadTickets, type FixtureOptions, type Ticket } from '@uilc/fixture';
 
 /**
  * The screen from sections 2 to 8: a filterable table, a filter form above it, a

@@ -2,17 +2,17 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/vue';
 import type { RenderResult } from '@testing-library/vue';
 import axeCore from 'axe-core';
 import { Quasar, QBtn, QInput, QSelect, QDialog, QCard, QCardSection, QCardActions, QBadge, QSkeleton } from 'quasar';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 import type {
   AxeViolation,
-  BakeoffAdapter,
+  ComparisonAdapter,
   CreatedRange,
   EmptyKind,
   FilterValues,
   RowView,
   SortColumn,
   SortDirection,
-} from '@bakeoff/harness';
+} from '@uilc/harness';
 import TicketsScreen from '../src/TicketsScreen.vue';
 
 const COLUMN_LABEL: Record<SortColumn, string> = {
@@ -52,7 +52,7 @@ const sleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout
  * Headless UI's `Listbox`, because the interface requires a synchronous read
  * and opening a `QSelect` popup to inspect `aria-selected` is asynchronous.
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   let view: RenderResult | null = null;
 
   const requireView = (): RenderResult => {

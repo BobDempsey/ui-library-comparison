@@ -1,14 +1,14 @@
 # react-chakra
 
-Chakra UI building the bake-off screen in React.
+Chakra UI building the comparison screen in React.
 
 Read [`spec/screen-spec.md`](../../spec/screen-spec.md) before writing code. Sections 2 to 9 are the requirements. A requirement this library cannot meet is recorded as a failure, not worked around.
 
 ```
-pnpm --filter @bakeoff/react-chakra dev
-pnpm --filter @bakeoff/react-chakra test
-pnpm --filter @bakeoff/react-chakra build
-pnpm --filter @bakeoff/react-chakra measure
+pnpm --filter @uilc/react-chakra dev
+pnpm --filter @uilc/react-chakra test
+pnpm --filter @uilc/react-chakra build
+pnpm --filter @uilc/react-chakra measure
 ```
 
 Write only inside this folder and `results/react-chakra.json`. `packages/criteria` and `packages/harness` belong to the phase one owner.
@@ -38,6 +38,6 @@ Write only inside this folder and `results/react-chakra.json`. `packages/criteri
 
 **Gotcha for whoever builds another Ark-UI-based library (or debugs this one):** Ark's dialog and toast machines schedule some of their internal `setState` on `requestAnimationFrame`, not synchronously with the triggering event. The adapter's `pressEnterOnRow` and `cancel`/`confirmDiscard` methods wait for focus to actually land inside or return from the dialog (`waitFor`), not just for the dialog element to appear or disappear — asserting immediately after a click was flaky (criteria 10 and 14 intermittently failed) before that wait was added. Also, `createToaster()` builds a store meant to be a module-level singleton that outlives a single render (the right call for the real app), which means it also outlives a single Jest test's `mount()`/`unmount()` cycle; the adapter's `unmount()` calls `resetToastsForTest()` (a hard `toaster.remove()`, not the animated `dismiss()`) so a toast from one test doesn't leak into the next one's assertions (this caused criteria 11/12 to fail before the reset was added).
 
-## bakeoff.json
+## comparison.json
 
-`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `bakeoff.json`: how many section 9 requirements needed custom code (4), and whether the modal, select, and toast came from Chakra UI or were hand built (all three came from the library; see the notes above for what "came from the library" meant in each case).
+`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `comparison.json`: how many section 9 requirements needed custom code (4), and whether the modal, select, and toast came from Chakra UI or were hand built (all three came from the library; see the notes above for what "came from the library" meant in each case).

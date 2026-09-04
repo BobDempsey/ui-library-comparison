@@ -8,5 +8,6 @@ import { defineConfig } from 'vite';
  */
 export default defineConfig({
   plugins: [vue()],
+  server: { port: 5179, strictPort: true },
   build: { outDir: 'dist', target: 'es2022', sourcemap: false },
 });

@@ -2,17 +2,17 @@ import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testi
 import type { RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axeCore from 'axe-core';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 import type {
   AxeViolation,
-  BakeoffAdapter,
+  ComparisonAdapter,
   CreatedRange,
   EmptyKind,
   FilterValues,
   RowView,
   SortColumn,
   SortDirection,
-} from '@bakeoff/harness';
+} from '@uilc/harness';
 import { TicketsScreen } from '../src/TicketsScreen.js';
 
 const COLUMN_LABEL: Record<SortColumn, string> = {
@@ -49,7 +49,7 @@ const settle = (ms: number): Promise<void> =>
  * not synchronously. Anything that can close the dialog waits a real macrotask
  * afterward so criterion 14's focus-return assertion sees it.
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   let view: RenderResult | null = null;
   // `pointerEventsCheck: 0` skips user-event's own pre-dispatch computed-style
   // check. Radix's DismissableLayer sets `document.body.style.pointerEvents =
@@ -268,9 +268,9 @@ export function createAdapter(): BakeoffAdapter {
         const priority = (screen.getByTestId('filter-priority-selected').textContent ?? '')
           .split(',')
           .filter(Boolean) as Priority[];
-        // The trigger's textContent also carries the trailing "▾" icon glyph
-        // (`SelectPrimitive.Icon`, aria-hidden but still text content).
-        const assigneeText = (screen.getByTestId('filter-assignee-button').textContent ?? '').replace(/▾$/, '');
+        // The trigger's caret is an inline SVG (`SelectPrimitive.Icon`), which
+        // contributes no text content, so the button's textContent is just the value.
+        const assigneeText = screen.getByTestId('filter-assignee-button').textContent ?? '';
         const assignee = assigneeText === 'Any assignee' ? null : assigneeText;
         const from = (screen.getByLabelText('From') as HTMLInputElement).value;
         const to = (screen.getByLabelText('To') as HTMLInputElement).value;

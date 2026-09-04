@@ -1,14 +1,14 @@
 # react-headless
 
-Headless UI building the bake-off screen in React.
+Headless UI building the comparison screen in React.
 
 Read [`spec/screen-spec.md`](../../spec/screen-spec.md) before writing code. Sections 2 to 9 are the requirements. A requirement this library cannot meet is recorded as a failure, not worked around.
 
 ```
-pnpm --filter @bakeoff/react-headless dev
-pnpm --filter @bakeoff/react-headless test
-pnpm --filter @bakeoff/react-headless build
-pnpm --filter @bakeoff/react-headless measure
+pnpm --filter @uilc/react-headless dev
+pnpm --filter @uilc/react-headless test
+pnpm --filter @uilc/react-headless build
+pnpm --filter @uilc/react-headless measure
 ```
 
 Write only inside this folder and `results/react-headless.json`. `packages/criteria` and `packages/harness` belong to the phase one owner.
@@ -33,7 +33,7 @@ Write only inside this folder and `results/react-headless.json`. `packages/crite
 
 ### Accessibility (section 9)
 
-Declared `requirementsNeedingCustomCode: 6` in `bakeoff.json` — of the six code-relevant bullets in section 9 (semantic HTML/ARIA, keyboard + focus-visible, tab order, table semantics, aria-sort/live regions, zero axe violations), every one needed hand-written work, since Headless UI has no table, pagination, or toast component to inherit correctness from. The modal's accessibility (focus trap, labeling) came free; everything table- and toast-shaped did not.
+Declared `requirementsNeedingCustomCode: 6` in `comparison.json` — of the six code-relevant bullets in section 9 (semantic HTML/ARIA, keyboard + focus-visible, tab order, table semantics, aria-sort/live regions, zero axe violations), every one needed hand-written work, since Headless UI has no table, pagination, or toast component to inherit correctness from. The modal's accessibility (focus trap, labeling) came free; everything table- and toast-shaped did not.
 
 `axeViolationsBeforeFixes: 0` — axe-core reported zero serious/critical violations from the first run that exercised it, because the table/form/modal were built against section 9 from the start rather than retrofitted. One caveat worth flagging for whoever reads the results: axe-core runs here under jsdom (Jest's `testEnvironment`), and jsdom has no real layout or canvas (`HTMLCanvasElement.getContext` is not implemented), so axe's `color-contrast` check throws internally and effectively can't evaluate real contrast in this environment. The "zero violations" result reflects everything axe *can* check under jsdom (roles, names, ARIA attribute correctness, structure) — it is not a substitute for the manual NVDA/VoiceOver pass or a browser-based axe run for contrast.
 
@@ -45,10 +45,10 @@ Declared `requirementsNeedingCustomCode: 6` in `bakeoff.json` — of the six cod
 
 ### Tooling snags (not part of the 18, but worth recording)
 
-- `packages/criteria/jest-preset.json`'s `transform` key is the literal string `"^.+\.(t|j)sx?$"`. `\.` is not a legal JSON escape (`\\.` is), so `JSON.parse` throws on that file outright — every build pointing `jest.config.js`'s `preset` at `@bakeoff/criteria/jest-preset` hits this, not just this one. Worked around locally by inlining the same settings (correctly escaped) directly in this build's `jest.config.js` rather than editing the shared file. Flagged for the phase one owner.
+- `packages/criteria/jest-preset.json`'s `transform` key is the literal string `"^.+\.(t|j)sx?$"`. `\.` is not a legal JSON escape (`\\.` is), so `JSON.parse` throws on that file outright — every build pointing `jest.config.js`'s `preset` at `@uilc/criteria/jest-preset` hits this, not just this one. Worked around locally by inlining the same settings (correctly escaped) directly in this build's `jest.config.js` rather than editing the shared file. Flagged for the phase one owner.
 - The scaffolded `package.json` test script was `node --experimental-vm-modules ../../node_modules/jest/bin/jest.js`, but this pnpm workspace does not hoist `jest` to the repository root (pnpm's default is a strict, non-hoisted `node_modules`). Jest is a direct devDependency of this build and resolves locally, so the script here points at `node_modules/jest/bin/jest.js` instead.
 - `handoff.md` section 6 notes that nothing writes `criteria-results.json`, so `measure` would otherwise score every build as 18 failures regardless of the real Jest run. Added a small local Jest reporter (`test/reporter.cjs`, wired in via `jest.config.js`'s `reporters`) that turns the suite's own pass/fail state into that file. It reads test titles for the criterion number and does not change what passes or fails.
 
-## bakeoff.json
+## comparison.json
 
-`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `bakeoff.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from Headless UI or were hand built. Update it as you go rather than at the end.
+`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `comparison.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from Headless UI or were hand built. Update it as you go rather than at the end.

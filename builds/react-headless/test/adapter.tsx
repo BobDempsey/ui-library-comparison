@@ -1,17 +1,17 @@
 import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import type { RenderResult } from '@testing-library/react';
 import axeCore from 'axe-core';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 import type {
   AxeViolation,
-  BakeoffAdapter,
+  ComparisonAdapter,
   CreatedRange,
   EmptyKind,
   FilterValues,
   RowView,
   SortColumn,
   SortDirection,
-} from '@bakeoff/harness';
+} from '@uilc/harness';
 import { TicketsScreen } from '../src/TicketsScreen.js';
 
 const COLUMN_LABEL: Record<SortColumn, string> = {
@@ -33,7 +33,7 @@ const settle = (ms: number): Promise<void> =>
  * trigger button, because the interface requires a synchronous read and opening
  * a Headless UI popup to inspect `aria-selected` is asynchronous.
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   let view: RenderResult | null = null;
 
   const requireView = (): RenderResult => {

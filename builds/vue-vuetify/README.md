@@ -1,14 +1,14 @@
 # vue-vuetify
 
-Vuetify building the bake-off screen in Vue 3.
+Vuetify building the comparison screen in Vue 3.
 
 Read [`spec/screen-spec.md`](../../spec/screen-spec.md) before writing code. Sections 2 to 9 are the requirements. A requirement this library cannot meet is recorded as a failure, not worked around.
 
 ```
-pnpm --filter @bakeoff/vue-vuetify dev
-pnpm --filter @bakeoff/vue-vuetify test
-pnpm --filter @bakeoff/vue-vuetify build
-pnpm --filter @bakeoff/vue-vuetify measure
+pnpm --filter @uilc/vue-vuetify dev
+pnpm --filter @uilc/vue-vuetify test
+pnpm --filter @uilc/vue-vuetify build
+pnpm --filter @uilc/vue-vuetify measure
 ```
 
 Write only inside this folder and `results/vue-vuetify.json`. `packages/criteria` and `packages/harness` belong to the phase one owner.
@@ -17,7 +17,22 @@ Write only inside this folder and `results/vue-vuetify.json`. `packages/criteria
 
 18 of 18 criteria pass, driving the real DOM through the adapter (`test/adapter.ts`) rather than reading component state. No adapter method throws; Vuetify met every requirement the spec asks for, though several needed hand-built code on top (see below).
 
-Bundle: 120.17 KB gzipped total against a 24.21 KB Vue baseline, a 95.96 KB delta, inside the 180 KB budget. `pnpm --filter @bakeoff/vue-vuetify measure` writes this to `results/vue-vuetify.json`.
+Bundle: 153.08 KB gzipped total against a 24.21 KB Vue baseline, a 128.87 KB delta, inside the 180 KB budget. `pnpm --filter @uilc/vue-vuetify measure` writes this to `results/vue-vuetify.json`. (Before the visual repair pass below, this read 120.17 KB / 95.96 KB delta; the difference is Vuetify's own base stylesheet, which the screen was missing entirely.)
+
+## Visual repair pass, 2026-09-03
+
+A first-paint survey at 1440px (`handoff.md` section 7) found four real defects in this build, all traced back to one root cause: `main.ts` never imported `vuetify/styles`. `vite-plugin-vuetify`'s `autoImport: true` resolves each `<v-*>` tag's component and per-component style at build time, which is the standard way to wire up Vuetify with Vite, but it does not substitute for that base stylesheet import, and Vuetify's own setup docs still show it alongside `autoImport`. Without it, `VField`'s outlined-variant CSS, the code that floats a field's label into a notch cut in the border once the field has focus or a value, never loaded.
+
+1. **Status and Priority read as broken, empty boxes.** Both are `v-select` in `multiple` mode with no value selected by default, so their label never floats (there is nothing to float it for). With the notch CSS missing, the resting-state label just sits centered on the border line, which reads as a strikethrough rather than a field waiting for input. The dropdown caret was invisible for a second, unrelated reason: no icon set was configured, and Vuetify's default `mdi` iconset expects the `@mdi/font` icon font's CSS classes, which this build never installed or linked. Fixed by adding `import 'vuetify/styles'` and switching the icon set to `vuetify/iconsets/mdi-svg`, inline SVG paths bundled inside `vuetify` itself, so no icon font dependency or extra network request is needed.
+2. **From/To labels collided with the outline notch.** Same root cause as (1); restoring the base stylesheet restored the notch layout and the collision is gone.
+3. **Mixed column header casing.** Not a styles-loading problem. ID/Subject/Created/Updated are sortable, so their label sits inside a `v-btn`, and `v-btn`'s own CSS forces `text-transform: uppercase` by default; Status/Priority/Assignee are plain `<th>` text with no such rule. The row read SUBJECT/CREATED/UPDATED next to Status/Priority/Assignee purely as an accident of which columns happen to be sortable. Fixed with a scoped `.sort-header-btn { text-transform: none; }` rule in `TicketsTable.vue`, which is more specific than Vuetify's single-class `.v-btn` selector and needs no `!important`. The First/Previous/Next/Last pagination buttons are also `v-btn` and are still uppercase; that was not in the reported defect list and was left alone.
+4. **No container, content ran to the viewport edge.** `TicketsScreen.vue` wrapped everything in `<v-app><v-main>` but never a `<v-container>`. Added `<v-container fluid>` inside `v-main`, which restores padding on both edges without capping the table's width, since the table wants the room.
+
+Confirmed with a real dev-server render (Puppeteer, `http://localhost:5178/` at 1440x900): the Status/Priority/Assignee fields now render as proper outlined boxes with visible carets, opening `#filter-status` shows the option list with the caret rotated and no console errors, From/To labels sit cleanly in their notches, all seven header cells share one casing, and the page now has edge padding.
+
+Left alone deliberately, per the two rules governing this pass: this build's lowercase badge labels (`react-mui`, `react-antd`, and `vue-quasar` share the same default) are a recorded cross-library finding, not a defect, and stayed lowercase.
+
+18 of 18 criteria still pass after the fix (`pnpm --filter @uilc/vue-vuetify test`), and `measure` was re-run (see the bundle line above); the delta grew by about 33 KB because the missing base stylesheet is real CSS this screen needs to render correctly, not weight that was ever optional.
 
 ## Notes for the write-up
 
@@ -54,7 +69,7 @@ Six of section 9's requirements needed custom code:
 
 Beyond the three issues in `handoff.md` section 5 (invalid `jest-preset.json`, the hoisted `jest` binary path, no shared `criteria-results.json` reporter — all present here too, worked around the same way `react-headless` did), Vuetify under Jest needed a fair amount of setup that a future Vue-suite builder (PrimeVue, Quasar) should expect to hit some version of:
 
-- **Jest has to run in classic CommonJS mode, not `--experimental-vm-modules`.** `@vue/vue3-jest` compiles `<script setup>` to CommonJS output; under Jest's native-ESM loader (what `react-headless` uses, since `ts-jest`'s `useESM` mode produces real `export` syntax) a `.vue` file's compiled module does not expose a `default` export the loader can see. Running Jest in its default CJS mode sidesteps this because everything, including the workspace's `type: module` packages like `@bakeoff/fixture`, gets transformed to CommonJS uniformly, so package.json's `type` field never enters into it.
+- **Jest has to run in classic CommonJS mode, not `--experimental-vm-modules`.** `@vue/vue3-jest` compiles `<script setup>` to CommonJS output; under Jest's native-ESM loader (what `react-headless` uses, since `ts-jest`'s `useESM` mode produces real `export` syntax) a `.vue` file's compiled module does not expose a `default` export the loader can see. Running Jest in its default CJS mode sidesteps this because everything, including the workspace's `type: module` packages like `@uilc/fixture`, gets transformed to CommonJS uniformly, so package.json's `type` field never enters into it.
 - **Vuetify ships ESM-only, no CommonJS build**, so its `node_modules` source needs `babel-jest` (with `@babel/preset-env`) and a `transformIgnorePatterns` override, rather than the default skip-everything-in-`node_modules` behavior. pnpm's `node_modules/.pnpm/vuetify@<version>/node_modules/vuetify/...` nesting means the usual single-package "un-ignore" regex recipe (written for a flat `node_modules`) has to target the `.pnpm/vuetify@` segment specifically.
 - **jsdom is missing several globals Vuetify's overlay positioning touches unconditionally**: `CSS` (used for `CSS.supports(...)` feature detection), `visualViewport` (referenced as a bare global, not `window.visualViewport`, inside `VOverlay`'s location strategy), plus the more commonly-needed `ResizeObserver`, `IntersectionObserver`, and `matchMedia`. All five are stubbed in `test/setup.ts`. Without the `visualViewport` stub specifically, opening any `v-select`, `v-menu`, or `v-dialog` throws a `ReferenceError` from deep inside a watcher, which is a confusing failure to trace back to "missing browser global."
 - **`v-select`'s menu does not open on a bare `fireEvent.click`.** It needs a fuller pointer sequence (`pointerdown`, `mousedown`, `mouseup`, `click`) dispatched at the `.v-field` element (the div carrying `role="combobox"`, not the `<input>` inside it) before the menu opens; seen by direct DOM inspection under Jest, not documented anywhere obvious. `test/adapter.ts`'s `openSelect()` helper does this once so nothing else has to.

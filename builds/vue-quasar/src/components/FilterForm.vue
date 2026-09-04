@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PRIORITIES, STATUSES, type Priority, type Status } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status } from '@uilc/fixture';
 import type { FiltersApi } from '../useFilters.js';
 
 /** Section 5. Filters on every keystroke or change, no submit button. */
@@ -45,6 +45,7 @@ function onAssigneeChange(value: string) {
         multiple
         emit-value
         map-options
+        dropdown-icon="M7 10l5 5 5-5z"
         @update:model-value="(v) => filters.setStatus(v as Status[])"
       />
       <span class="visually-hidden" data-testid="filter-status-selected">{{ filters.fields.status.join(',') }}</span>
@@ -59,6 +60,7 @@ function onAssigneeChange(value: string) {
         multiple
         emit-value
         map-options
+        dropdown-icon="M7 10l5 5 5-5z"
         @update:model-value="(v) => filters.setPriority(v as Priority[])"
       />
       <span class="visually-hidden" data-testid="filter-priority-selected">{{ filters.fields.priority.join(',') }}</span>
@@ -72,26 +74,29 @@ function onAssigneeChange(value: string) {
         :model-value="filters.fields.assignee ?? ANY_ASSIGNEE"
         emit-value
         map-options
+        dropdown-icon="M7 10l5 5 5-5z"
         @update:model-value="onAssigneeChange"
       />
     </div>
 
     <fieldset class="field created-range">
       <legend>Created between</legend>
-      <q-input
-        data-testid="filter-created-from"
-        type="date"
-        label="From"
-        :model-value="filters.fields.createdFrom ?? ''"
-        @update:model-value="onFromChange"
-      />
-      <q-input
-        data-testid="filter-created-to"
-        type="date"
-        label="To"
-        :model-value="filters.fields.createdTo ?? ''"
-        @update:model-value="onToChange"
-      />
+      <div class="created-range-inputs">
+        <q-input
+          data-testid="filter-created-from"
+          type="date"
+          label="From"
+          :model-value="filters.fields.createdFrom ?? ''"
+          @update:model-value="onFromChange"
+        />
+        <q-input
+          data-testid="filter-created-to"
+          type="date"
+          label="To"
+          :model-value="filters.fields.createdTo ?? ''"
+          @update:model-value="onToChange"
+        />
+      </div>
     </fieldset>
 
     <div class="field clear-field">

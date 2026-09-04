@@ -1,5 +1,5 @@
 import { Badge as ChakraBadge } from '@chakra-ui/react';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 
 const STATUS_PALETTE: Record<Status, string> = {
   open: 'blue',

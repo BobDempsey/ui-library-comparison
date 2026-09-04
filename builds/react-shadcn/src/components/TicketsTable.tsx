@@ -1,11 +1,12 @@
 import type { KeyboardEvent, MouseEvent, MutableRefObject } from 'react';
-import { PAGE_SIZE, type Ticket } from '@bakeoff/fixture';
+import { PAGE_SIZE, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import type { SortColumn, SortDirection } from '../filtering.js';
 import { sortRows } from '../filtering.js';
 import { TicketBadge } from './TicketBadge.js';
 import { Button } from '@/components/ui/button.js';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table.js';
+import { ChevronDownIcon, ChevronUpIcon, ChevronsUpDownIcon } from '@/components/ui/icons.js';
 
 export interface SortState {
   column: SortColumn | null;
@@ -77,18 +78,22 @@ export function TicketsTable({
     }
   };
 
-  const sortHeader = (col: (typeof COLUMNS)[number]) => (
-    <TableHead key={col.key} scope="col" aria-sort={ariaSortFor(sort, col.key) ?? 'none'}>
-      <button
-        type="button"
-        className="inline-flex items-center gap-1 rounded font-medium hover:text-foreground focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ring"
-        onClick={() => onSort(col.key)}
-      >
-        {col.label}
-        {sort.column === col.key ? (sort.direction === 'ascending' ? ' ▲' : ' ▼') : ''}
-      </button>
-    </TableHead>
-  );
+  const sortHeader = (col: (typeof COLUMNS)[number]) => {
+    const active = sort.column === col.key;
+    const Icon = active ? (sort.direction === 'ascending' ? ChevronUpIcon : ChevronDownIcon) : ChevronsUpDownIcon;
+    return (
+      <TableHead key={col.key} scope="col" aria-sort={ariaSortFor(sort, col.key) ?? 'none'}>
+        <button
+          type="button"
+          className="inline-flex items-center gap-1 rounded font-medium hover:text-foreground focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ring"
+          onClick={() => onSort(col.key)}
+        >
+          {col.label}
+          <Icon aria-hidden="true" className={active ? 'text-foreground' : 'text-muted-foreground'} />
+        </button>
+      </TableHead>
+    );
+  };
 
   return (
     <div className="table-region">

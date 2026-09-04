@@ -1,6 +1,6 @@
 import type { ChangeEvent } from 'react';
 import { Button, Field, Fieldset, Flex, HStack, Input, NativeSelect, Text } from '@chakra-ui/react';
-import { PRIORITIES, STATUSES, type Priority, type Status } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status } from '@uilc/fixture';
 import type { FiltersApi } from '../useFilters.js';
 
 const UNASSIGNED = 'Unassigned';
@@ -49,7 +49,7 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
       borderWidth="1px"
       borderRadius="md"
     >
-      <Field.Root minW="12rem">
+      <Field.Root flex="1 1 16rem" minW="12rem" width="auto">
         <Field.Label htmlFor="search-input">Search</Field.Label>
         <Input
           id="search-input"
@@ -60,7 +60,7 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
         />
       </Field.Root>
 
-      <Field.Root minW="10rem">
+      <Field.Root flex="0 1 10rem" minW="10rem" width="auto">
         <Field.Label htmlFor="filter-status">Status</Field.Label>
         <NativeSelect.Root>
           <NativeSelect.Field
@@ -81,7 +81,7 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
         </NativeSelect.Root>
       </Field.Root>
 
-      <Field.Root minW="10rem">
+      <Field.Root flex="0 1 10rem" minW="10rem" width="auto">
         <Field.Label htmlFor="filter-priority">Priority</Field.Label>
         <NativeSelect.Root>
           <NativeSelect.Field
@@ -102,7 +102,7 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
         </NativeSelect.Root>
       </Field.Root>
 
-      <Field.Root minW="10rem">
+      <Field.Root flex="1 1 10rem" minW="10rem" width="auto">
         <Field.Label htmlFor="filter-assignee">Assignee</Field.Label>
         <NativeSelect.Root>
           <NativeSelect.Field
@@ -123,7 +123,7 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
         </NativeSelect.Root>
       </Field.Root>
 
-      <Fieldset.Root minW="16rem">
+      <Fieldset.Root flex="1 1 18rem" minW="16rem" width="auto">
         <Fieldset.Legend fontWeight="medium" fontSize="sm">
           Created between
         </Fieldset.Legend>

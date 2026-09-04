@@ -1,14 +1,14 @@
 # react-shadcn
 
-shadcn/ui building the bake-off screen in React.
+shadcn/ui building the comparison screen in React.
 
 Read [`spec/screen-spec.md`](../../spec/screen-spec.md) before writing code. Sections 2 to 9 are the requirements. A requirement this library cannot meet is recorded as a failure, not worked around.
 
 ```
-pnpm --filter @bakeoff/react-shadcn dev
-pnpm --filter @bakeoff/react-shadcn test
-pnpm --filter @bakeoff/react-shadcn build
-pnpm --filter @bakeoff/react-shadcn measure
+pnpm --filter @uilc/react-shadcn dev
+pnpm --filter @uilc/react-shadcn test
+pnpm --filter @uilc/react-shadcn build
+pnpm --filter @uilc/react-shadcn measure
 ```
 
 Write only inside this folder and `results/react-shadcn.json`. `packages/criteria` and `packages/harness` belong to the phase one owner.
@@ -37,7 +37,7 @@ shadcn/ui is not an npm package of components. It is Radix UI primitives plus Ta
 
 ### Accessibility (section 9)
 
-`requirementsNeedingCustomCode: 4` in `bakeoff.json`, out of section 9's six code-relevant bullets (the seventh, a manual NVDA/VoiceOver pass, was not done as part of this automated build):
+`requirementsNeedingCustomCode: 4` in `comparison.json`, out of section 9's six code-relevant bullets (the seventh, a manual NVDA/VoiceOver pass, was not done as part of this automated build):
 
 - Needed custom code: semantic table/badge markup and ARIA, the table's keyboard handling and focus-visible ring, the table's `caption`, and `aria-sort` plus the page-count live region. None of these have a Radix or shadcn/ui equivalent to inherit from, the same gap Headless UI had.
 - Free from the DOM's own structure: tab order following filter form, table, then pagination. Nothing in this build reorders tabbing by hand; it falls out of writing the three regions in that order.
@@ -62,6 +62,20 @@ This is fewer than react-headless's 6, because Radix genuinely covers more here 
 - shadcn/ui needed real additions beyond the four scripts and the fixture import: Tailwind CSS v4 via `@tailwindcss/vite`, and a `@` path alias (`@/*` to `src/*`) in both `vite.config.ts` and `tsconfig.json`, because shadcn's own components and every application file that uses them import through `@/components/ui/*` and `@/lib/utils`. `scripts/measure.ts`'s `librarySpecifier` map already expects `@/components/ui` for shadcn/ui, which is why the alias, not a relative import, is the real specifier used throughout `src/`.
 - `jsdom` needed a few more stand-ins than react-headless's `ResizeObserver` stub: `Element.prototype.hasPointerCapture`/`setPointerCapture`/`releasePointerCapture` and `scrollIntoView`, all used internally by Radix's `Select` and `DropdownMenu`. See `test/setup.ts`.
 
-## bakeoff.json
+### Visual defect fixes (2026-09-03)
 
-`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `bakeoff.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from shadcn/ui or were hand built. Update it as you go rather than at the end.
+A 1440px visual survey across all eight builds (`handoff.md` section 7) found three first-paint defects in this build, on top of the 18/18 criteria pass. All three were layout and iconography, not behavior, so no criterion or adapter method changed meaning:
+
+- **Filter bar wrapped to a second row.** The page container was `max-w-5xl` (1024px), giving the filter `<form>` 976px of interior width. The six filter groups (Search, Status, Priority, Assignee, the Created-between fieldset, and the active-count/Clear-filters group) need roughly 1120px laid out end to end at their natural widths, so the fieldset and the count/clear group wrapped to a second line, stranded under a wide gap to the right of Assignee on the first line. Widened the container in `src/TicketsScreen.tsx` from `max-w-5xl` to `max-w-7xl` (1280px), which gives the row enough width to lay out on one line at 1440px without changing gaps, padding, or any individual field's width. This also widens the table region below it; the table itself had no reported defect, so this is a side effect of sharing one container, not a separate fix.
+- **The Assignee trigger's caret was a text glyph.** `src/components/ui/select.tsx` rendered `▾` as `SelectPrimitive.Icon`'s child, a literal character rather than an icon. shadcn/ui's reference implementation pairs its copy-in components with `lucide-react`, which this build never added. Rather than pull in a new dependency for one glyph, added `src/components/ui/icons.tsx`, a small set of inline SVG chevrons (`ChevronDownIcon`, `ChevronUpIcon`, `ChevronsUpDownIcon`), and used `ChevronDownIcon` in place of the `▾` text. This is the same `Select` primitive used for the Assignee filter and the modal's Status/Priority/Assignee fields, so the fix applies everywhere that caret appears.
+- **Sortable column headers carried no sort indicator.** `src/components/TicketsTable.tsx` only rendered a trailing `▲`/`▼` character once a column became the active sort; an unsorted sortable header (the default state on first paint) had no visual affordance at all beyond the `aria-sort="none"` attribute, which is invisible. Replaced the text triangles with the same icon set: the active column shows `ChevronUpIcon`/`ChevronDownIcon` in the foreground color, and every sortable-but-inactive column now shows a neutral `ChevronsUpDownIcon` in the muted color, so the affordance is visible before a user ever clicks.
+
+`test/adapter.tsx`'s `FilterProbe.values()` had a comment and a `.replace(/▾$/, '')` call documenting that the Select trigger's `textContent` carried the old glyph. An inline `<svg>` with no `<text>` node contributes nothing to `textContent`, so that call became a no-op; updated the comment and dropped the now-pointless `.replace` rather than leave stale documentation. No assertion, selector, or pass/fail behavior changed.
+
+Re-ran `pnpm --filter @uilc/react-shadcn test`: 18/18 criteria still pass. Re-ran `measure`: 103.52 KB total / 58.61 KB delta gzipped, unchanged from before the fix (the inline SVGs and the container class rename are gzip noise). `linesOfAppCode` moved from 1396 to 1440 and `libraryImports` from 20 to 21, both automatic counts off the new `icons.tsx` file and its imports. Confirmed all three fixes visually in a real browser via Puppeteer against the running dev server at `http://localhost:5174/` at a 1440x900 viewport: the filter bar renders as one row with no orphaned second line, the Assignee trigger shows a real chevron, and all four sortable headers (ID, Subject, Created, Updated) show a chevron icon in both the unsorted and active-sort states.
+
+Two defects on the same 1440px survey were named as deliberate, out-of-scope findings and left untouched: badge label casing (capitalized here, lowercase in several other builds) and the visible `<h1>Support tickets</h1>` heading (only this build renders one, though the spec never requires it). Both are library-default behavior the comparison exists to record, not bugs in this build.
+
+## comparison.json
+
+`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `comparison.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from shadcn/ui or were hand built. Update it as you go rather than at the end.

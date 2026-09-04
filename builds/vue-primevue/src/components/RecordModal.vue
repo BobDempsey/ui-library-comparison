@@ -6,7 +6,7 @@ import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
 import Select from 'primevue/select';
 import { useConfirm } from 'primevue/useconfirm';
-import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@uilc/fixture';
 import { useToasts } from '../composables/useToasts.js';
 import { formatDate, formatRelative } from '../format.js';
 

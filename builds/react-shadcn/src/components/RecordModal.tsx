@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type RefObject } from 'react';
-import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import { useToasts } from '../toasts/ToastContext.js';
 import { SingleSelectField } from './SingleSelectField.js';

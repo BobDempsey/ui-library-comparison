@@ -1,5 +1,5 @@
 import type { ChangeEvent } from 'react';
-import { PRIORITIES, STATUSES, type Priority, type Status } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status } from '@uilc/fixture';
 import type { FiltersApi } from '../useFilters.js';
 import { MultiSelectField } from './MultiSelectField.js';
 import { SingleSelectField } from './SingleSelectField.js';
@@ -52,14 +52,16 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
 
       <fieldset className="field created-range">
         <legend>Created between</legend>
-        <label htmlFor="created-from">
-          From
-          <input id="created-from" type="date" value={filters.fields.createdFrom ?? ''} onChange={onFromChange} />
-        </label>
-        <label htmlFor="created-to">
-          To
-          <input id="created-to" type="date" value={filters.fields.createdTo ?? ''} onChange={onToChange} />
-        </label>
+        <div className="created-range-inputs">
+          <label htmlFor="created-from">
+            From
+            <input id="created-from" type="date" value={filters.fields.createdFrom ?? ''} onChange={onFromChange} />
+          </label>
+          <label htmlFor="created-to">
+            To
+            <input id="created-to" type="date" value={filters.fields.createdTo ?? ''} onChange={onToChange} />
+          </label>
+        </div>
       </fieldset>
 
       <div className="field clear-field">

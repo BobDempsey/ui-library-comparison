@@ -3,17 +3,17 @@ import axeCore from 'axe-core';
 import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 import type {
   AxeViolation,
-  BakeoffAdapter,
+  ComparisonAdapter,
   CreatedRange,
   EmptyKind,
   FilterValues,
   RowView,
   SortColumn,
   SortDirection,
-} from '@bakeoff/harness';
+} from '@uilc/harness';
 import TicketsScreen from '../src/TicketsScreen.vue';
 
 /**
@@ -30,7 +30,7 @@ import TicketsScreen from '../src/TicketsScreen.vue';
  * (not for parsing back into an array), the same problem `react-headless`
  * solved with a hidden summary next to its Headless UI listbox.
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   let view: RenderResult | null = null;
   const vuetify = createVuetify({ components, directives });
 

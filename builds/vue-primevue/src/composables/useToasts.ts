@@ -24,7 +24,7 @@ export interface ToastApi {
   dismissAll(): void;
 }
 
-const ToastKey: InjectionKey<ToastApi> = Symbol('bakeoff-toasts');
+const ToastKey: InjectionKey<ToastApi> = Symbol('uilc-toasts');
 
 export function createToastQueue(): ToastApi {
   const toasts = reactive<Toast[]>([]);

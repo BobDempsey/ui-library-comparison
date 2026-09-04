@@ -2,17 +2,17 @@ import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testi
 import type { RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import axeCore from 'axe-core';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 import type {
   AxeViolation,
-  BakeoffAdapter,
+  ComparisonAdapter,
   CreatedRange,
   EmptyKind,
   FilterValues,
   RowView,
   SortColumn,
   SortDirection,
-} from '@bakeoff/harness';
+} from '@uilc/harness';
 import { TicketsScreen } from '../src/TicketsScreen.js';
 import { resetToastsForTest } from '../src/toasts.js';
 
@@ -35,7 +35,7 @@ const settle = (ms: number): Promise<void> =>
  * `<select>` (Chakra's `NativeSelect`), the way a mouse or keyboard user
  * would pick options from a native control.
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   let view: RenderResult | null = null;
 
   const requireView = (): RenderResult => {

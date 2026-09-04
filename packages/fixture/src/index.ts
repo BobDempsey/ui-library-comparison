@@ -4,7 +4,7 @@ export * from './types.js';
 
 // The generator is deliberately not re-exported here. It reads and writes files,
 // so pulling it into this entry point drags node:fs into every browser bundle.
-// Scripts import it from '@bakeoff/fixture/generate'.
+// Scripts import it from '@uilc/fixture/generate'.
 
 /**
  * Section 8 needs an error state that every build shows. The flag is read by the

@@ -1,5 +1,5 @@
 {
-  "name": "@bakeoff/criteria",
+  "name": "@uilc/criteria",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,8 +10,8 @@
     "./jest-preset": "./jest-preset.json"
   },
   "dependencies": {
-    "@bakeoff/fixture": "workspace:*",
-    "@bakeoff/harness": "workspace:*"
+    "@uilc/fixture": "workspace:*",
+    "@uilc/harness": "workspace:*"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",

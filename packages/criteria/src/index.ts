@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, test } from '@jest/globals';
-import { PAGE_SIZE } from '@bakeoff/fixture';
-import { TICKETS } from '@bakeoff/fixture/data';
-import type { BakeoffAdapter } from '@bakeoff/harness';
+import { PAGE_SIZE } from '@uilc/fixture';
+import { TICKETS } from '@uilc/fixture/data';
+import type { ComparisonAdapter } from '@uilc/harness';
 import {
   applyFilters,
   countMatching,
@@ -12,7 +12,7 @@ import {
 
 export * from './expected.js';
 
-export type AdapterFactory = () => BakeoffAdapter | Promise<BakeoffAdapter>;
+export type AdapterFactory = () => ComparisonAdapter | Promise<ComparisonAdapter>;
 
 /**
  * The 18 acceptance criteria from section 11, written once and run against every
@@ -23,7 +23,7 @@ export type AdapterFactory = () => BakeoffAdapter | Promise<BakeoffAdapter>;
  */
 export function runCriteria(buildName: string, createAdapter: AdapterFactory): void {
   describe(`${buildName}: acceptance criteria`, () => {
-    let ui: BakeoffAdapter;
+    let ui: ComparisonAdapter;
 
     beforeEach(async () => {
       ui = await createAdapter();

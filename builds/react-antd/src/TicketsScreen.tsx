@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ConfigProvider } from 'antd';
-import { loadAssignees, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { loadAssignees, type FixtureOptions, type Ticket } from '@uilc/fixture';
 import { useTicketData } from './useTicketData.js';
 import { useFilters } from './useFilters.js';
 import { ToastProvider, useToasts } from './toasts/ToastContext.js';

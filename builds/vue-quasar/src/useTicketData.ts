@@ -1,5 +1,5 @@
 import { onMounted, ref, watch, type Ref } from 'vue';
-import { loadTickets, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { loadTickets, type FixtureOptions, type Ticket } from '@uilc/fixture';
 
 export type TicketDataState =
   | { status: 'loading' }

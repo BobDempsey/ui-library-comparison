@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Button, Form, Input, Modal, Select } from 'antd';
 import type { InputRef } from 'antd';
-import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@uilc/fixture';
 import { useToasts } from '../toasts/ToastContext.js';
 import { formatDate, formatRelative } from '../format.js';
 

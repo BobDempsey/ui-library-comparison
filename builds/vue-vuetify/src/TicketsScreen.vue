@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, shallowRef, watch } from 'vue';
-import { loadAssignees, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { loadAssignees, type FixtureOptions, type Ticket } from '@uilc/fixture';
 import { useTicketData } from './useTicketData.js';
 import { useFilters } from './useFilters.js';
 import { nextSort, type SortColumn, type SortDirection } from './filtering.js';
@@ -92,25 +92,27 @@ const emptyMessage = computed(() => {
 <template>
   <v-app>
     <v-main>
-      <ToastRegion />
+      <v-container fluid>
+        <ToastRegion />
 
-      <ErrorState v-if="ticketStatus === 'error'" :message="errorMessage ?? 'Could not load tickets'" @retry="retry" />
-      <LoadingSkeleton v-else-if="ticketStatus === 'loading'" />
-      <template v-else>
-        <FilterForm :filters="filters" :assignees="assignees" />
-        <TicketsTable
-          :filtered="filters.filtered.value"
-          :page="page"
-          :sort="sort"
-          :empty-kind="emptyKind"
-          :empty-message="emptyMessage"
-          @page-change="onPageChange"
-          @sort="onSort"
-          @open-row="(ticket) => onOpenRow(ticket)"
-          @clear-filters="filters.clear"
-        />
-        <RecordModal :ticket="editingTicket" :assignees="assignees" @close="onCloseModal" @save="onSaveTicket" />
-      </template>
+        <ErrorState v-if="ticketStatus === 'error'" :message="errorMessage ?? 'Could not load tickets'" @retry="retry" />
+        <LoadingSkeleton v-else-if="ticketStatus === 'loading'" />
+        <template v-else>
+          <FilterForm :filters="filters" :assignees="assignees" />
+          <TicketsTable
+            :filtered="filters.filtered.value"
+            :page="page"
+            :sort="sort"
+            :empty-kind="emptyKind"
+            :empty-message="emptyMessage"
+            @page-change="onPageChange"
+            @sort="onSort"
+            @open-row="(ticket) => onOpenRow(ticket)"
+            @clear-filters="filters.clear"
+          />
+          <RecordModal :ticket="editingTicket" :assignees="assignees" @close="onCloseModal" @save="onSaveTicket" />
+        </template>
+      </v-container>
     </v-main>
   </v-app>
 </template>

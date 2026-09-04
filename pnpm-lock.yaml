@@ -52,7 +52,7 @@ importers:
 
   builds/react-antd:
     dependencies:
-      '@bakeoff/fixture':
+      '@uilc/fixture':
         specifier: workspace:*
         version: link:../../packages/fixture
       antd:
@@ -68,12 +68,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.1
@@ -89,6 +83,12 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.7(@types/react@18.3.31)
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-react':
         specifier: ^4.3.0
         version: 4.7.0(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))
@@ -110,15 +110,15 @@ importers:
 
   builds/react-chakra:
     dependencies:
-      '@bakeoff/fixture':
-        specifier: workspace:*
-        version: link:../../packages/fixture
       '@chakra-ui/react':
         specifier: ^3.8.0
         version: 3.37.0(@emotion/react@11.14.0(@types/react@18.3.31)(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@emotion/react':
         specifier: ^11.13.0
         version: 11.14.0(@types/react@18.3.31)(react@18.3.1)
+      '@uilc/fixture':
+        specifier: workspace:*
+        version: link:../../packages/fixture
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -126,12 +126,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.1
@@ -147,6 +141,12 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.7(@types/react@18.3.31)
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-react':
         specifier: ^4.3.0
         version: 4.7.0(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))
@@ -168,12 +168,12 @@ importers:
 
   builds/react-headless:
     dependencies:
-      '@bakeoff/fixture':
-        specifier: workspace:*
-        version: link:../../packages/fixture
       '@headlessui/react':
         specifier: ^2.2.0
         version: 2.2.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@uilc/fixture':
+        specifier: workspace:*
+        version: link:../../packages/fixture
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -181,12 +181,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.1
@@ -202,6 +196,12 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.7(@types/react@18.3.31)
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-react':
         specifier: ^4.3.0
         version: 4.7.0(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))
@@ -223,9 +223,6 @@ importers:
 
   builds/react-mui:
     dependencies:
-      '@bakeoff/fixture':
-        specifier: workspace:*
-        version: link:../../packages/fixture
       '@emotion/react':
         specifier: ^11.13.3
         version: 11.14.0(@types/react@18.3.31)(react@18.3.1)
@@ -235,6 +232,9 @@ importers:
       '@mui/material':
         specifier: ^6.1.6
         version: 6.5.0(@emotion/react@11.14.0(@types/react@18.3.31)(react@18.3.1))(@emotion/styled@11.14.1(@emotion/react@11.14.0(@types/react@18.3.31)(react@18.3.1))(@types/react@18.3.31)(react@18.3.1))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@uilc/fixture':
+        specifier: workspace:*
+        version: link:../../packages/fixture
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -242,12 +242,6 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.1
@@ -263,6 +257,12 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.7(@types/react@18.3.31)
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-react':
         specifier: ^4.3.0
         version: 4.7.0(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))
@@ -284,9 +284,6 @@ importers:
 
   builds/react-shadcn:
     dependencies:
-      '@bakeoff/fixture':
-        specifier: workspace:*
-        version: link:../../packages/fixture
       '@radix-ui/react-alert-dialog':
         specifier: ^1.1.6
         version: 1.1.23(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -311,6 +308,9 @@ importers:
       '@radix-ui/react-toast':
         specifier: ^1.2.6
         version: 1.2.23(@types/react-dom@18.3.7(@types/react@18.3.31))(@types/react@18.3.31)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@uilc/fixture':
+        specifier: workspace:*
+        version: link:../../packages/fixture
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -327,12 +327,6 @@ importers:
         specifier: ^2.6.0
         version: 2.6.1
     devDependencies:
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@tailwindcss/vite':
         specifier: ^4.0.0
         version: 4.3.3(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))
@@ -351,6 +345,12 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.7(@types/react@18.3.31)
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-react':
         specifier: ^4.3.0
         version: 4.7.0(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))
@@ -375,12 +375,12 @@ importers:
 
   builds/vue-primevue:
     dependencies:
-      '@bakeoff/fixture':
-        specifier: workspace:*
-        version: link:../../packages/fixture
       '@primeuix/themes':
         specifier: ^2.0.3
         version: 2.0.3
+      '@uilc/fixture':
+        specifier: workspace:*
+        version: link:../../packages/fixture
       primevue:
         specifier: ^4.5.4
         version: 4.5.5(vue@3.5.42(typescript@5.9.3))
@@ -388,12 +388,6 @@ importers:
         specifier: ^3.5.0
         version: 3.5.42(typescript@5.9.3)
     devDependencies:
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.1
@@ -403,6 +397,12 @@ importers:
       '@testing-library/vue':
         specifier: ^8.1.0
         version: 8.1.0(@vue/compiler-dom@3.5.42)(@vue/compiler-sfc@3.5.42)(@vue/server-renderer@3.5.42)(vue@3.5.42(typescript@5.9.3))
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-vue':
         specifier: ^5.2.0
         version: 5.2.4(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))(vue@3.5.42(typescript@5.9.3))
@@ -427,7 +427,7 @@ importers:
 
   builds/vue-quasar:
     dependencies:
-      '@bakeoff/fixture':
+      '@uilc/fixture':
         specifier: workspace:*
         version: link:../../packages/fixture
       quasar:
@@ -437,12 +437,6 @@ importers:
         specifier: ^3.5.0
         version: 3.5.42(typescript@5.9.3)
     devDependencies:
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@quasar/vite-plugin':
         specifier: ^1.12.0
         version: 1.12.0(@vitejs/plugin-vue@5.2.4(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))(vue@3.5.42(typescript@5.9.3)))(quasar@2.29.0)(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))(vue@3.5.42(typescript@5.9.3))
@@ -455,6 +449,12 @@ importers:
       '@testing-library/vue':
         specifier: ^8.1.0
         version: 8.1.0(@vue/compiler-dom@3.5.42)(@vue/compiler-sfc@3.5.42)(@vue/server-renderer@3.5.42)(vue@3.5.42(typescript@5.9.3))
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-vue':
         specifier: ^5.2.0
         version: 5.2.4(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))(vue@3.5.42(typescript@5.9.3))
@@ -482,7 +482,7 @@ importers:
 
   builds/vue-vuetify:
     dependencies:
-      '@bakeoff/fixture':
+      '@uilc/fixture':
         specifier: workspace:*
         version: link:../../packages/fixture
       vue:
@@ -498,12 +498,6 @@ importers:
       '@babel/preset-env':
         specifier: ^7.25.0
         version: 7.29.7(@babel/core@7.29.7)
-      '@bakeoff/criteria':
-        specifier: workspace:*
-        version: link:../../packages/criteria
-      '@bakeoff/harness':
-        specifier: workspace:*
-        version: link:../../packages/harness
       '@testing-library/dom':
         specifier: ^10.4.0
         version: 10.4.1
@@ -513,6 +507,12 @@ importers:
       '@testing-library/vue':
         specifier: ^8.1.0
         version: 8.1.0(@vue/compiler-dom@3.5.42)(@vue/compiler-sfc@3.5.42)(@vue/server-renderer@3.5.42)(vue@3.5.42(typescript@5.9.3))
+      '@uilc/criteria':
+        specifier: workspace:*
+        version: link:../../packages/criteria
+      '@uilc/harness':
+        specifier: workspace:*
+        version: link:../../packages/harness
       '@vitejs/plugin-vue':
         specifier: ^5.2.0
         version: 5.2.4(vite@6.4.3(@types/node@26.4.1)(jiti@2.7.0)(lightningcss@1.32.0)(sass@1.103.1)(tsx@4.23.13))(vue@3.5.42(typescript@5.9.3))
@@ -546,10 +546,10 @@ importers:
 
   packages/criteria:
     dependencies:
-      '@bakeoff/fixture':
+      '@uilc/fixture':
         specifier: workspace:*
         version: link:../fixture
-      '@bakeoff/harness':
+      '@uilc/harness':
         specifier: workspace:*
         version: link:../harness
     devDependencies:
@@ -570,7 +570,7 @@ importers:
 
   packages/harness:
     dependencies:
-      '@bakeoff/fixture':
+      '@uilc/fixture':
         specifier: workspace:*
         version: link:../fixture
 

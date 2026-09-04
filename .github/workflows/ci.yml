@@ -63,15 +63,15 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: shared suite, 18 criteria
         if: steps.exists.outputs.found == 'yes'
-        run: pnpm --filter @bakeoff/${{ matrix.app }} test
+        run: pnpm --filter @uilc/${{ matrix.app }} test
       - name: nobody edited the shared packages
         if: steps.exists.outputs.found == 'yes'
         run: git diff --exit-code origin/main -- packages/criteria packages/harness
       - if: steps.exists.outputs.found == 'yes'
-        run: pnpm --filter @bakeoff/${{ matrix.app }} build
+        run: pnpm --filter @uilc/${{ matrix.app }} build
       - name: size, delta, and the budget
         if: steps.exists.outputs.found == 'yes'
-        run: pnpm --filter @bakeoff/${{ matrix.app }} measure
+        run: pnpm --filter @uilc/${{ matrix.app }} measure
       - uses: actions/upload-artifact@v4
         if: steps.exists.outputs.found == 'yes'
         with:
@@ -93,7 +93,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm --filter @bakeoff/${{ matrix.app }} build
+      - run: pnpm --filter @uilc/${{ matrix.app }} build
 
   # Only the eight builds publish, alongside the write-up.
   publish:

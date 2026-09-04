@@ -1,8 +1,8 @@
-import type { FixtureOptions, Priority, Status } from '@bakeoff/fixture';
+import type { FixtureOptions, Priority, Status } from '@uilc/fixture';
 
 /**
  * The adapter interface. Section 14 of the spec: the 18 criteria live once in
- * `@bakeoff/criteria` and run against every build, so the tests never reach into
+ * `@uilc/criteria` and run against every build, so the tests never reach into
  * a library's DOM. Each build answers these questions its own way.
  *
  * Rules for an implementer:
@@ -14,7 +14,7 @@ import type { FixtureOptions, Priority, Status } from '@bakeoff/fixture';
  * - Throw on anything the build genuinely cannot do. A thrown criterion is a
  *   recorded failure, which is the point. Do not return a plausible fake.
  */
-export interface BakeoffAdapter {
+export interface ComparisonAdapter {
   mount(options?: FixtureOptions): Promise<void>;
   unmount(): Promise<void>;
 

@@ -14,7 +14,7 @@ import {
   Typography,
   type SelectChangeEvent,
 } from '@mui/material';
-import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, SUBJECT_MAX, type Priority, type Status, type Ticket } from '@uilc/fixture';
 import { useToasts } from '../toasts/ToastContext.js';
 import { formatDate, formatRelative } from '../format.js';
 

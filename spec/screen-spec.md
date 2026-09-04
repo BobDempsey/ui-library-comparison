@@ -1,4 +1,4 @@
-# Screen spec: component library bake-off
+# Screen spec: UI library comparison
 
 **Status:** settled, 2026-09-02. The questions the first draft left open are answered in section 13.
 
@@ -151,7 +151,7 @@ These were the open questions in the first draft. All seven were settled on 2026
 One repo, a pnpm workspace, with eight builds as siblings off a shared spec, fixture, and test suite. Everything lives here. There are no per library repos, the write-up has no separate home, and the demo sites publish from this repo's CI. The comparison rests on one commit holding all eight builds, the spec they were measured against, and the results that came out, so a reader can check any number against the code that produced it.
 
 ```
-component-bakeoff/
+ui-library-comparison/
   spec/screen-spec.md        this document, the fixed input
   packages/fixture/          the 240 tickets and the generator, one source for all ten apps
   packages/criteria/         the 18 acceptance criteria as shared Jest suites

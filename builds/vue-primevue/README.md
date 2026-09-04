@@ -1,21 +1,21 @@
 # vue-primevue
 
-PrimeVue building the bake-off screen in Vue 3.
+PrimeVue building the comparison screen in Vue 3.
 
 Read [`spec/screen-spec.md`](../../spec/screen-spec.md) before writing code. Sections 2 to 9 are the requirements. A requirement this library cannot meet is recorded as a failure, not worked around.
 
 ```
-pnpm --filter @bakeoff/vue-primevue dev
-pnpm --filter @bakeoff/vue-primevue test
-pnpm --filter @bakeoff/vue-primevue build
-pnpm --filter @bakeoff/vue-primevue measure
+pnpm --filter @uilc/vue-primevue dev
+pnpm --filter @uilc/vue-primevue test
+pnpm --filter @uilc/vue-primevue build
+pnpm --filter @uilc/vue-primevue measure
 ```
 
 Write only inside this folder and `results/vue-primevue.json`. `packages/criteria` and `packages/harness` belong to the phase one owner.
 
 ## Notes for the write-up
 
-**Result: 18/18 criteria pass.** Bundle: 174.38 KB total (24.21 KB Vue baseline, 150.17 KB delta), inside the 180 KB budget with roughly 5.6 KB of headroom. 954 lines of application code, 18 PrimeVue imports, 0 type escapes. See `results/vue-primevue.json`.
+**Result: 18/18 criteria pass.** Bundle: 174.38 KB total (24.21 KB Vue baseline, 150.17 KB delta), inside the 180 KB budget with roughly 5.6 KB of headroom. 955 lines of application code, 18 PrimeVue imports, 0 type escapes. See `results/vue-primevue.json`.
 
 ### What PrimeVue gave for free
 
@@ -43,6 +43,14 @@ Write only inside this folder and `results/vue-primevue.json`. `packages/criteri
 - `@vue/vue3-jest` runs a Vue SFC's compiled `<template>` through `@babel/core` with no `caller` metadata, so `@babel/preset-env` always downlevels it to CommonJS regardless of Jest's own ESM settings — a `.vue` file's transformed output is CommonJS no matter what `extensionsToTreatAsEsm` asks for.
 - Jest's default `transformIgnorePatterns` excludes `node_modules`, but PrimeVue (and `@primevue/themes`/`@primeuix/themes`/`@primeuix/utils`) publish ESM only, no CommonJS build at all. `jest.config.js` documents the resulting CommonJS-mode setup (unlike react-headless's ESM one) and the exact reasoning; see the comment there before changing it.
 
-## bakeoff.json
+### Theming repair pass (2026-09-03)
 
-`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `bakeoff.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from PrimeVue or were hand built. Filled in as: `requirementsNeedingCustomCode: 4` (the focus-visible outline, the table's accessible name, the page-change live region, and Escape-to-close/focus-restore for the modal — see above), `handBuilt: { modal: false, select: false, toast: true }`, `axeViolationsBeforeFixes: 0` (criteria 17 and 18 passed clean on every run, including before the fixes above were added).
+A visual survey at 1440px found two defects in this build's first paint, both traced to the same cause. `app.use(PrimeVue, { theme: { preset } })` never set `options.darkModeSelector`, so PrimeVue used its own default of `'system'`, which wraps the preset's dark `colorScheme` tokens in `@media (prefers-color-scheme: dark)`. On a machine or browser with a dark OS preference, that media query matched, so `DataTable`, the filter controls, and everything else themed off PrimeVue's CSS variables switched to the preset's dark tokens while `styles.css`'s own hardcoded light colors on `body` and `.filter-form` stayed put, splitting the screen visually in two. The same switch flipped `--p-text-color` (inherited by the table cells, and by extension the status and priority badges in `src/components/Badge.vue`) to the dark scheme's near-white value, which sat against the badges' own fixed light-grey `#e2e8f0` pill background from `styles.css` and read as pale grey on pale grey, a real contrast failure.
+
+Fixed in `src/theme.ts` by adding `export const options = { darkModeSelector: false }` alongside the existing `preset`, and passing it through in both `src/main.ts` and `test/adapter.ts` (`theme: { preset, options }`) so production and Jest stay configured identically, matching how `preset` was already shared between them. `darkModeSelector: false` stops PrimeVue from emitting the dark `colorScheme` block at all rather than gating it behind a selector; confirmed in a real browser (Puppeteer against the running dev server on port 5179) that none of the 29 generated `<style>` tags contain `prefers-color-scheme` any more. The badges now compute to `rgb(51, 65, 85)` text (slate-700) on `rgb(226, 232, 240)` background (slate-200), inherited correctly from the light scheme's `text.color` token, comfortably above 4.5:1.
+
+This is a one-line config change, not new code, so the bundle is unchanged: 174.38 KB total, 150.17 KB delta, same as before the fix. `pnpm --filter @uilc/vue-primevue test` still passes all 18 criteria after the change.
+
+## comparison.json
+
+`measure` reads the bundle and the ergonomics counts off the code. Two things it cannot see live in `comparison.json`: how many section 9 requirements needed custom code, and whether the modal, select, and toast came from PrimeVue or were hand built. Filled in as: `requirementsNeedingCustomCode: 4` (the focus-visible outline, the table's accessible name, the page-change live region, and Escape-to-close/focus-restore for the modal — see above), `handBuilt: { modal: false, select: false, toast: true }`, `axeViolationsBeforeFixes: 0` (criteria 17 and 18 passed clean on every run, including before the fixes above were added).

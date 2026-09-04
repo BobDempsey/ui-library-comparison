@@ -1,5 +1,5 @@
 {
-  "name": "@bakeoff/vue-quasar",
+  "name": "@uilc/vue-quasar",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,13 +10,13 @@
     "measure": "tsx ../../scripts/measure.ts --build vue-quasar"
   },
   "dependencies": {
-    "@bakeoff/fixture": "workspace:*",
+    "@uilc/fixture": "workspace:*",
     "quasar": "^2.18.6",
     "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@bakeoff/criteria": "workspace:*",
-    "@bakeoff/harness": "workspace:*",
+    "@uilc/criteria": "workspace:*",
+    "@uilc/harness": "workspace:*",
     "@quasar/vite-plugin": "^1.12.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^14.5.0",

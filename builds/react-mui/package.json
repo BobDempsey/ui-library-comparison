@@ -1,5 +1,5 @@
 {
-  "name": "@bakeoff/react-mui",
+  "name": "@uilc/react-mui",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,7 +10,7 @@
     "measure": "tsx ../../scripts/measure.ts --build react-mui"
   },
   "dependencies": {
-    "@bakeoff/fixture": "workspace:*",
+    "@uilc/fixture": "workspace:*",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/material": "^6.1.6",
@@ -18,8 +18,8 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@bakeoff/criteria": "workspace:*",
-    "@bakeoff/harness": "workspace:*",
+    "@uilc/criteria": "workspace:*",
+    "@uilc/harness": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.0",

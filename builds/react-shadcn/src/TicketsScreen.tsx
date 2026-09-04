@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { loadAssignees, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { loadAssignees, type FixtureOptions, type Ticket } from '@uilc/fixture';
 import { useTicketData } from './useTicketData.js';
 import { useFilters } from './useFilters.js';
 import { nextSort, type SortColumn, type SortDirection } from './filtering.js';
@@ -21,7 +21,7 @@ export function TicketsScreen({ fixture = {} }: { fixture?: FixtureOptions }) {
   return (
     <ToastProvider>
       <ToastRegion />
-      <div className="mx-auto max-w-5xl p-6">
+      <div className="mx-auto max-w-7xl p-6">
         <ScreenBody fixture={fixture} />
       </div>
     </ToastProvider>

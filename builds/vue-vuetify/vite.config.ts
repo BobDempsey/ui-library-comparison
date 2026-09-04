@@ -11,5 +11,6 @@ import vuetify from 'vite-plugin-vuetify';
  */
 export default defineConfig({
   plugins: [vue(), vuetify({ autoImport: true })],
+  server: { port: 5178, strictPort: true },
   build: { outDir: 'dist', target: 'es2022', sourcemap: false },
 });

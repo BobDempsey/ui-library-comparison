@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
 import ConfirmDialog from 'primevue/confirmdialog';
-import { loadAssignees, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { loadAssignees, type FixtureOptions, type Ticket } from '@uilc/fixture';
 import { useFilters } from './composables/useFilters.js';
 import { useTicketData } from './composables/useTicketData.js';
 import { provideToasts } from './composables/useToasts.js';

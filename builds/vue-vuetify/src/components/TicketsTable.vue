@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { PAGE_SIZE, type Ticket } from '@bakeoff/fixture';
+import { PAGE_SIZE, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import { sortRows, type SortColumn, type SortDirection } from '../filtering.js';
 import Badge from './Badge.vue';
@@ -67,7 +67,7 @@ function onRowKeydown(ticket: Ticket, event: KeyboardEvent): void {
             scope="col"
             :aria-sort="ariaSortFor(col.key)"
           >
-            <v-btn :data-testid="`sort-${col.key}`" variant="text" density="compact" @click="emit('sort', col.key)">
+            <v-btn class="sort-header-btn" :data-testid="`sort-${col.key}`" variant="text" density="compact" @click="emit('sort', col.key)">
               {{ col.label }}<span aria-hidden="true">{{ sort.column === col.key ? (sort.direction === 'ascending' ? ' ▲' : ' ▼') : '' }}</span>
             </v-btn>
           </th>
@@ -80,7 +80,7 @@ function onRowKeydown(ticket: Ticket, event: KeyboardEvent): void {
             scope="col"
             :aria-sort="ariaSortFor(col.key)"
           >
-            <v-btn :data-testid="`sort-${col.key}`" variant="text" density="compact" @click="emit('sort', col.key)">
+            <v-btn class="sort-header-btn" :data-testid="`sort-${col.key}`" variant="text" density="compact" @click="emit('sort', col.key)">
               {{ col.label }}<span aria-hidden="true">{{ sort.column === col.key ? (sort.direction === 'ascending' ? ' ▲' : ' ▼') : '' }}</span>
             </v-btn>
           </th>
@@ -129,3 +129,18 @@ function onRowKeydown(ticket: Ticket, event: KeyboardEvent): void {
     </div>
   </div>
 </template>
+
+<style scoped>
+/*
+ * The sortable ID/Subject/Created/Updated headers wrap their label in a
+ * `v-btn` so they're a real clickable control; `v-btn`'s own CSS forces
+ * `text-transform: uppercase` on its content by default. Status/Priority/
+ * Assignee are plain `<th>` text with no such transform, so the row read
+ * SUBJECT/CREATED/UPDATED next to Status/Priority/Assignee: two casings in
+ * the same header row by accident of which columns are sortable, not by
+ * design. Un-transforming the button text matches it to the plain headers.
+ */
+.sort-header-btn {
+  text-transform: none;
+}
+</style>

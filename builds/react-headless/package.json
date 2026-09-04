@@ -1,5 +1,5 @@
 {
-  "name": "@bakeoff/react-headless",
+  "name": "@uilc/react-headless",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,14 +10,14 @@
     "measure": "tsx ../../scripts/measure.ts --build react-headless"
   },
   "dependencies": {
-    "@bakeoff/fixture": "workspace:*",
+    "@uilc/fixture": "workspace:*",
     "@headlessui/react": "^2.2.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@bakeoff/criteria": "workspace:*",
-    "@bakeoff/harness": "workspace:*",
+    "@uilc/criteria": "workspace:*",
+    "@uilc/harness": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.5.0",

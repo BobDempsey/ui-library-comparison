@@ -3,10 +3,10 @@ import { computed } from 'vue';
 import Button from 'primevue/button';
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
-import { PAGE_SIZE, type Ticket } from '@bakeoff/fixture';
+import { PAGE_SIZE, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import { sortRows } from '../filtering.js';
-import type { EmptyKind } from '@bakeoff/harness';
+import type { EmptyKind } from '@uilc/harness';
 import Badge from './Badge.vue';
 
 /**

@@ -2,19 +2,19 @@ import { fireEvent, render, screen, waitFor, within, type RenderResult } from '@
 import axeCore from 'axe-core';
 import ConfirmationService from 'primevue/confirmationservice';
 import PrimeVue from 'primevue/config';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 import type {
   AxeViolation,
-  BakeoffAdapter,
+  ComparisonAdapter,
   CreatedRange,
   EmptyKind,
   FilterValues,
   RowView,
   SortColumn,
   SortDirection,
-} from '@bakeoff/harness';
+} from '@uilc/harness';
 import TicketsScreen from '../src/TicketsScreen.vue';
-import { preset } from '../src/theme.js';
+import { options, preset } from '../src/theme.js';
 
 const COLUMN_LABEL: Record<SortColumn, string> = {
   id: 'ID',
@@ -41,7 +41,7 @@ const waitForLoaded = (): Promise<void> =>
  * because the interface requires a synchronous read and opening a PrimeVue
  * `MultiSelect` panel to inspect `aria-selected` is asynchronous.
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   let view: RenderResult | null = null;
 
   const requireView = (): RenderResult => {
@@ -93,7 +93,7 @@ export function createAdapter(): BakeoffAdapter {
     async mount(options) {
       view = render(TicketsScreen, {
         props: { fixture: options ?? {} },
-        global: { plugins: [[PrimeVue, { theme: { preset } }], ConfirmationService] },
+        global: { plugins: [[PrimeVue, { theme: { preset, options } }], ConfirmationService] },
       });
       await waitForLoaded();
     },

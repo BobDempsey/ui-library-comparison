@@ -1,6 +1,7 @@
 import * as SelectPrimitive from '@radix-ui/react-select';
 import type { ComponentPropsWithoutRef } from 'react';
 import { cn } from '@/lib/utils.js';
+import { ChevronDownIcon } from './icons.js';
 
 /**
  * shadcn/ui's Select, a styled wrapper over Radix's Select primitive. Keyboard
@@ -27,7 +28,9 @@ export function SelectTrigger({
       {...props}
     >
       {children}
-      <SelectPrimitive.Icon aria-hidden="true">▾</SelectPrimitive.Icon>
+      <SelectPrimitive.Icon aria-hidden="true" className="shrink-0 text-muted-foreground">
+        <ChevronDownIcon />
+      </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
 }

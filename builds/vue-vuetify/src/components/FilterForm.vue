@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { PRIORITIES, STATUSES, type Priority, type Status } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status } from '@uilc/fixture';
 import type { FiltersApi } from '../useFilters.js';
 
 /** Section 5. Filters on every keystroke or change, no submit button. */

@@ -3,7 +3,7 @@ import type { KeyboardEvent } from 'react';
 import { Button, Table } from 'antd';
 import type { TableProps } from 'antd';
 import type { ColumnsType, TableRef } from 'antd/es/table';
-import { PAGE_SIZE, type Ticket } from '@bakeoff/fixture';
+import { PAGE_SIZE, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import type { SortColumn, SortDirection } from '../filtering.js';
 import { sortRows } from '../filtering.js';

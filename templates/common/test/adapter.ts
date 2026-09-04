@@ -1,4 +1,4 @@
-import type { BakeoffAdapter } from '@bakeoff/harness';
+import type { ComparisonAdapter } from '@uilc/harness';
 
 /**
  * This build's answer to the adapter interface. Every method drives a real
@@ -12,7 +12,7 @@ import type { BakeoffAdapter } from '@bakeoff/harness';
  *
  * Delete each `notImplemented` as you go. A build is done when none are left.
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   const notImplemented = (name: string): never => {
     throw new Error(`__BUILD__: ${name} is not implemented yet`);
   };

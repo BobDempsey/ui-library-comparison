@@ -4,4 +4,4 @@ The screen goes here: the table, the filter form, the record modal, and the toas
 
 `measure` counts lines of application code in this folder, so keep test helpers in `test/` and do not vendor library source here.
 
-Load rows through `loadTickets` from `@bakeoff/fixture`. It holds the 600ms skeleton, honours the `fail` flag behind criterion 16, and returns the same 240 rows in the same order as every other build.
+Load rows through `loadTickets` from `@uilc/fixture`. It holds the 600ms skeleton, honours the `fail` flag behind criterion 16, and returns the same 240 rows in the same order as every other build.

@@ -1,5 +1,5 @@
 import { ref, shallowRef, watch, type Ref, type ShallowRef } from 'vue';
-import { loadTickets, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { loadTickets, type FixtureOptions, type Ticket } from '@uilc/fixture';
 
 export type TicketDataStatus = 'loading' | 'error' | 'ready';
 

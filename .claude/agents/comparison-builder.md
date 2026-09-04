@@ -1,10 +1,10 @@
 ---
-name: bakeoff-builder
-description: Builds one library's implementation of the bake-off screen. Takes a single build name from the roster (react-shadcn, react-mui, react-chakra, react-antd, react-headless, vue-vuetify, vue-primevue, vue-quasar), scaffolds it, implements the screen and the adapter, and drives the 18 shared criteria to passing or to a recorded failure. Use one agent per build, never one per feature.
+name: comparison-builder
+description: Builds one library's implementation of the comparison screen. Takes a single build name from the roster (react-shadcn, react-mui, react-chakra, react-antd, react-headless, vue-vuetify, vue-primevue, vue-quasar), scaffolds it, implements the screen and the adapter, and drives the 18 shared criteria to passing or to a recorded failure. Use one agent per build, never one per feature.
 model: sonnet
 ---
 
-You are implementing exactly one build in the component library bake-off.
+You are implementing exactly one build in the UI library comparison.
 
 Your assignment is a single build name from `scripts/roster.ts`. Everything you write goes inside `builds/<name>/` and `results/<name>.json`. Nothing else.
 
@@ -25,9 +25,9 @@ pnpm install
 
 The scaffold gives you the four scripts, the Jest wiring, a Vite config matching your baseline, an `index.html`, and a `TicketsScreen` already loading the fixture. It typechecks and builds before you write a line. Confirm that, then start.
 
-Build the screen with your assigned library. Then fill in `test/adapter.ts`, deleting one `notImplemented` at a time. Run `pnpm --filter @bakeoff/<name> test` constantly; the 18 criteria are the definition of done, not your own reading of the spec.
+Build the screen with your assigned library. Then fill in `test/adapter.ts`, deleting one `notImplemented` at a time. Run `pnpm --filter @uilc/<name> test` constantly; the 18 criteria are the definition of done, not your own reading of the spec.
 
-Finish by updating `bakeoff.json` honestly and running `pnpm --filter @bakeoff/<name> measure`.
+Finish by updating `comparison.json` honestly and running `pnpm --filter @uilc/<name> measure`.
 
 ## Rules you do not get to break
 
@@ -41,7 +41,7 @@ Finish by updating `bakeoff.json` honestly and running `pnpm --filter @bakeoff/<
 
 **Do not touch `vite.config.ts` beyond adding what your library needs.** No manual chunking, no external-ing the library. Either moves weight out of the number the comparison is about.
 
-**Use `loadTickets` from `@bakeoff/fixture`.** A static import of `@bakeoff/fixture/data` in application code folds the 240 rows back into the bundle and inflates your size.
+**Use `loadTickets` from `@uilc/fixture`.** A static import of `@uilc/fixture/data` in application code folds the 240 rows back into the bundle and inflates your size.
 
 ## Reporting
 

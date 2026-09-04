@@ -1,4 +1,4 @@
-import type { Priority, Status, Ticket } from '@bakeoff/fixture';
+import type { Priority, Status, Ticket } from '@uilc/fixture';
 
 /** Sections 4 and 5: the filter and sort rules, mirroring `packages/criteria/src/expected.ts`. */
 

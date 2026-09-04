@@ -1,5 +1,5 @@
-import { PAGE_SIZE, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
-import { TICKETS } from '@bakeoff/fixture/data';
+import { PAGE_SIZE, type Priority, type Status, type Ticket } from '@uilc/fixture';
+import { TICKETS } from '@uilc/fixture/data';
 
 /**
  * A reference implementation of the filtering and sorting in sections 4 and 5.

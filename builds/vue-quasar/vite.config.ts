@@ -13,5 +13,6 @@ import { defineConfig } from 'vite';
  */
 export default defineConfig({
   plugins: [vue({ template: { transformAssetUrls } }), quasar({ sassVariables: true })],
+  server: { port: 5180, strictPort: true },
   build: { outDir: 'dist', target: 'es2022', sourcemap: false },
 });

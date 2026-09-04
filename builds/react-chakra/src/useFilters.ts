@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import type { Priority, Status } from '@bakeoff/fixture';
-import type { Ticket } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
+import type { Ticket } from '@uilc/fixture';
 import { activeFilterCount, applyFilters, EMPTY_FILTERS, type FilterState } from './filtering.js';
 
 const SEARCH_DEBOUNCE_MS = 250;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
-import { loadAssignees, type FixtureOptions, type Ticket } from '@bakeoff/fixture';
+import { ChakraProvider, Container, defaultSystem } from '@chakra-ui/react';
+import { loadAssignees, type FixtureOptions, type Ticket } from '@uilc/fixture';
 import { useTicketData } from './useTicketData.js';
 import { useFilters } from './useFilters.js';
 import { nextSort, type SortColumn, type SortDirection } from './filtering.js';
@@ -23,7 +23,9 @@ export function TicketsScreen({ fixture = {} }: { fixture?: FixtureOptions }) {
   return (
     <ChakraProvider value={defaultSystem}>
       <ToastRegion />
-      <ScreenBody fixture={fixture} />
+      <Container maxW="6xl" px={{ base: '4', md: '6' }} py="6">
+        <ScreenBody fixture={fixture} />
+      </Container>
     </ChakraProvider>
   );
 }

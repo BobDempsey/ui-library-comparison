@@ -1,5 +1,5 @@
 import { Button, Form, Input, Select } from 'antd';
-import { PRIORITIES, STATUSES, type Priority, type Status } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status } from '@uilc/fixture';
 import type { FiltersApi } from '../useFilters.js';
 
 const STATUS_OPTIONS = STATUSES.map((value) => ({ value, label: value }));
@@ -68,21 +68,23 @@ export function FilterForm({ filters, assignees }: { filters: FiltersApi; assign
             of the bundle for a control the spec does not require to be a
             calendar popup. */}
         <div className="created-range-inputs">
-          <label htmlFor="created-from">
-            From
+          <label htmlFor="created-from" className="date-field">
+            <span>From</span>
             <input
               id="created-from"
               type="date"
+              className="antd-like-date"
               data-testid="filter-created-from"
               value={filters.fields.createdFrom ?? ''}
               onChange={(event) => filters.setCreatedFrom(event.target.value === '' ? null : event.target.value)}
             />
           </label>
-          <label htmlFor="created-to">
-            To
+          <label htmlFor="created-to" className="date-field">
+            <span>To</span>
             <input
               id="created-to"
               type="date"
+              className="antd-like-date"
               data-testid="filter-created-to"
               value={filters.fields.createdTo ?? ''}
               onChange={(event) => filters.setCreatedTo(event.target.value === '' ? null : event.target.value)}

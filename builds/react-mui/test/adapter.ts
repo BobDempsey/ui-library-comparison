@@ -3,17 +3,17 @@ import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testi
 import type { RenderResult } from '@testing-library/react';
 import axeCore from 'axe-core';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import type { Priority, Status } from '@bakeoff/fixture';
+import type { Priority, Status } from '@uilc/fixture';
 import type {
   AxeViolation,
-  BakeoffAdapter,
+  ComparisonAdapter,
   CreatedRange,
   EmptyKind,
   FilterValues,
   RowView,
   SortColumn,
   SortDirection,
-} from '@bakeoff/harness';
+} from '@uilc/harness';
 import { TicketsScreen } from '../src/TicketsScreen.js';
 
 const COLUMN_LABEL: Record<SortColumn, string> = {
@@ -37,7 +37,7 @@ const settle = (ms: number): Promise<void> =>
  * which is the interaction Material UI's `Select` binds to (a plain `click`
  * does not reliably open it under jsdom).
  */
-export function createAdapter(): BakeoffAdapter {
+export function createAdapter(): ComparisonAdapter {
   let view: RenderResult | null = null;
 
   const requireView = (): RenderResult => {

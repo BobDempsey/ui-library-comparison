@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
-import { PRIORITIES, STATUSES, type Priority, type Status, type Ticket } from '@bakeoff/fixture';
-import { SUBJECT_MAX } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status, type Ticket } from '@uilc/fixture';
+import { SUBJECT_MAX } from '@uilc/fixture';
 import { SingleSelectField } from './SingleSelectField.js';
 import { useToasts } from '../toasts/ToastContext.js';
 import { formatDate, formatRelative } from '../format.js';

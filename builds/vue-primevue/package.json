@@ -1,5 +1,5 @@
 {
-  "name": "@bakeoff/vue-primevue",
+  "name": "@uilc/vue-primevue",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,14 +10,14 @@
     "measure": "tsx ../../scripts/measure.ts --build vue-primevue"
   },
   "dependencies": {
-    "@bakeoff/fixture": "workspace:*",
+    "@uilc/fixture": "workspace:*",
     "@primeuix/themes": "^2.0.3",
     "primevue": "^4.5.4",
     "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@bakeoff/criteria": "workspace:*",
-    "@bakeoff/harness": "workspace:*",
+    "@uilc/criteria": "workspace:*",
+    "@uilc/harness": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^14.5.0",
     "@testing-library/vue": "^8.1.0",

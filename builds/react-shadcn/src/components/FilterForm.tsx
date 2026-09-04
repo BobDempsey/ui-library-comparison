@@ -1,5 +1,5 @@
 import type { ChangeEvent } from 'react';
-import { PRIORITIES, STATUSES, type Priority, type Status } from '@bakeoff/fixture';
+import { PRIORITIES, STATUSES, type Priority, type Status } from '@uilc/fixture';
 import type { FiltersApi } from '../useFilters.js';
 import { Button } from '@/components/ui/button.js';
 import { Input } from '@/components/ui/input.js';

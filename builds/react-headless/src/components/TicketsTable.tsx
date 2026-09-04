@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from 'react';
-import { PAGE_SIZE, type Ticket } from '@bakeoff/fixture';
+import { PAGE_SIZE, type Ticket } from '@uilc/fixture';
 import { formatDate, formatRelative } from '../format.js';
 import type { SortColumn, SortDirection } from '../filtering.js';
 import { sortRows } from '../filtering.js';
