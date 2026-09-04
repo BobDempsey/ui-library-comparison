@@ -4,9 +4,9 @@
   "framework": "react",
   "kind": "assembly-kit",
   "bundle": {
-    "totalGzipKb": 103.78,
+    "totalGzipKb": 103.8,
     "baselineGzipKb": 44.91,
-    "deltaGzipKb": 58.87,
+    "deltaGzipKb": 58.89,
     "overBudget": false
   },
   "accessibility": {
@@ -14,7 +14,7 @@
     "requirementsNeedingCustomCode": 4
   },
   "ergonomics": {
-    "linesOfAppCode": 1440,
+    "linesOfAppCode": 1445,
     "libraryImports": 21,
     "typeEscapes": 0,
     "handBuilt": {

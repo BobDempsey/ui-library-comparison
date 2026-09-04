@@ -8,6 +8,17 @@ import { formatDate, formatRelative } from '../format.js';
 const STATUS_OPTIONS = STATUSES.map((value) => ({ value, label: value }));
 const PRIORITY_OPTIONS = PRIORITIES.map((value) => ({ value, label: value }));
 
+// Ant Design's `Select` warns ("'value' in Select options should not be
+// 'null'") when an option's `value` is `null`, since it uses `null`/`undefined`
+// internally to mean "no selection". The Assignee field's own value space
+// already includes an explicit "Unassigned" state distinct from "nothing
+// chosen yet", so that state is represented here with a sentinel string and
+// translated back to `null` at the edges (`toSelectValue` in, `fromSelectValue`
+// out) rather than by putting `null` on an option.
+const UNASSIGNED_OPTION = '__unassigned__';
+const toSelectValue = (assignee: string | null): string => assignee ?? UNASSIGNED_OPTION;
+const fromSelectValue = (value: string): string | null => (value === UNASSIGNED_OPTION ? null : value);
+
 /**
  * Section 6. Ant Design's `Modal` supplies `role="dialog"`, `aria-modal`, the
  * title-to-`aria-labelledby` association, and a Tab focus trap between two
@@ -98,7 +109,7 @@ export function RecordModal({
         title={`${ticket.id}: ${ticket.subject}`}
         data-testid="record-dialog"
         focusTriggerAfterClose={false}
-        destroyOnClose
+        destroyOnHidden
         footer={[
           <Button key="cancel" onClick={requestClose}>
             Cancel
@@ -162,13 +173,16 @@ export function RecordModal({
           </Form.Item>
 
           <Form.Item label="Assignee" htmlFor="modal-assignee" className="field">
-            <Select<string | null>
+            <Select<string>
               id="modal-assignee"
               data-testid="modal-assignee-select"
-              value={assignee}
-              options={[{ value: null, label: 'Unassigned' }, ...assignees.map((name) => ({ value: name, label: name }))]}
+              value={toSelectValue(assignee)}
+              options={[
+                { value: UNASSIGNED_OPTION, label: 'Unassigned' },
+                ...assignees.map((name) => ({ value: name, label: name })),
+              ]}
               onChange={(value) => {
-                setAssignee(value);
+                setAssignee(fromSelectValue(value));
                 setTouched(true);
               }}
             />

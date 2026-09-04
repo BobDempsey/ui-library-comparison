@@ -120,7 +120,7 @@ export function TicketsTable({
       </Table.ScrollArea>
 
       {emptyKind ? null : (
-        <HStack mt="3" gap="3">
+        <HStack mt="3" gap="3" wrap="wrap">
           <Text aria-live="polite">
             Showing {start} to {end} of {total}
           </Text>

@@ -137,33 +137,40 @@ export function TicketsTable({
 
   return (
     <div className="table-region">
-      <Table<Ticket>
-        ref={tableRef}
-        columns={columns}
-        dataSource={pageRows}
-        rowKey="id"
-        pagination={false}
-        showSorterTooltip={false}
-        onChange={onChange}
-        locale={{
-          emptyText: emptyKind ? (
-            <div data-testid="table-empty-state" data-kind={emptyKind}>
-              <p>{emptyMessage}</p>
-              {emptyKind === 'no-matches' ? (
-                <Button type="link" onClick={onClearFilters}>
-                  Clear filters
-                </Button>
-              ) : null}
-            </div>
-          ) : null,
-        }}
-        onRow={(record) => ({
-          'data-testid': 'ticket-row',
-          tabIndex: 0,
-          onClick: (event) => onOpenRow(record, event.currentTarget),
-          onKeyDown: onRowKeyDown(record),
-        })}
-      />
+      {/* Ant Design's `Table` has no built-in horizontal-scroll wrapper of its
+          own (its `scroll.x` prop fixes the table to a pixel width instead of
+          letting it size to its columns), so the seven columns' natural width
+          is left alone and this div is the scroll container: at 375px
+          (section 9) it scrolls internally instead of widening the page. */}
+      <div className="table-scroll">
+        <Table<Ticket>
+          ref={tableRef}
+          columns={columns}
+          dataSource={pageRows}
+          rowKey="id"
+          pagination={false}
+          showSorterTooltip={false}
+          onChange={onChange}
+          locale={{
+            emptyText: emptyKind ? (
+              <div data-testid="table-empty-state" data-kind={emptyKind}>
+                <p>{emptyMessage}</p>
+                {emptyKind === 'no-matches' ? (
+                  <Button type="link" onClick={onClearFilters}>
+                    Clear filters
+                  </Button>
+                ) : null}
+              </div>
+            ) : null,
+          }}
+          onRow={(record) => ({
+            'data-testid': 'ticket-row',
+            tabIndex: 0,
+            onClick: (event) => onOpenRow(record, event.currentTarget),
+            onKeyDown: onRowKeyDown(record),
+          })}
+        />
+      </div>
 
       {emptyKind ? null : (
         <div className="pagination">

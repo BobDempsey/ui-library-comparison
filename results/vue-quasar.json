@@ -4,9 +4,9 @@
   "framework": "vue",
   "kind": "suite",
   "bundle": {
-    "totalGzipKb": 115.89,
+    "totalGzipKb": 115.91,
     "baselineGzipKb": 24.21,
-    "deltaGzipKb": 91.68,
+    "deltaGzipKb": 91.7,
     "overBudget": false
   },
   "accessibility": {
@@ -14,7 +14,7 @@
     "requirementsNeedingCustomCode": 6
   },
   "ergonomics": {
-    "linesOfAppCode": 910,
+    "linesOfAppCode": 915,
     "libraryImports": 1,
     "typeEscapes": 0,
     "handBuilt": {

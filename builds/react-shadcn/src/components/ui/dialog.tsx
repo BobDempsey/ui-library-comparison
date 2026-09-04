@@ -1,5 +1,6 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import type { ComponentPropsWithoutRef, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import type { ComponentPropsWithoutRef, ElementRef, HTMLAttributes } from 'react';
 import { cn } from '@/lib/utils.js';
 
 /**
@@ -12,14 +13,18 @@ export const DialogTrigger = DialogPrimitive.Trigger;
 export const DialogPortal = DialogPrimitive.Portal;
 export const DialogClose = DialogPrimitive.Close;
 
-export function DialogOverlay({ className, ...props }: ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>) {
+export const DialogOverlay = forwardRef<
+  ElementRef<typeof DialogPrimitive.Overlay>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+>(function DialogOverlay({ className, ...props }, ref) {
   return (
     <DialogPrimitive.Overlay
+      ref={ref}
       className={cn('fixed inset-0 z-50 bg-slate-900/40', className)}
       {...props}
     />
   );
-}
+});
 
 export function DialogContent({
   className,

@@ -114,6 +114,10 @@ input:focus-visible,
   gap: 0.5rem;
 }
 
+.table-region {
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

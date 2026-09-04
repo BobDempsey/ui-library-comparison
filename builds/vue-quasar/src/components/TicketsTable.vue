@@ -62,6 +62,7 @@ function assigneeLabel(assignee: string | null): string {
 
 <template>
   <div class="table-region">
+    <div class="table-scroll">
     <table>
       <caption class="visually-hidden">Support tickets</caption>
       <thead>
@@ -113,6 +114,7 @@ function assigneeLabel(assignee: string | null): string {
         </tr>
       </tbody>
     </table>
+    </div>
 
     <div v-if="!emptyKind" class="pagination">
       <p aria-live="polite">Showing {{ rangeStart }} to {{ rangeEnd }} of {{ total }}</p>

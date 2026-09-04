@@ -14,7 +14,7 @@
     "requirementsNeedingCustomCode": 5
   },
   "ergonomics": {
-    "linesOfAppCode": 992,
+    "linesOfAppCode": 1028,
     "libraryImports": 9,
     "typeEscapes": 0,
     "handBuilt": {
