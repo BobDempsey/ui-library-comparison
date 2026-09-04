@@ -4,9 +4,9 @@
   "framework": "react",
   "kind": "suite",
   "bundle": {
-    "totalGzipKb": 124.65,
+    "totalGzipKb": 124.67,
     "baselineGzipKb": 44.91,
-    "deltaGzipKb": 79.74,
+    "deltaGzipKb": 79.76,
     "overBudget": false
   },
   "accessibility": {
@@ -14,7 +14,7 @@
     "requirementsNeedingCustomCode": 3
   },
   "ergonomics": {
-    "linesOfAppCode": 985,
+    "linesOfAppCode": 991,
     "libraryImports": 8,
     "typeEscapes": 0,
     "handBuilt": {
