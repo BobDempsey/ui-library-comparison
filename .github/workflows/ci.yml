@@ -69,6 +69,9 @@ jobs:
         run: git diff --exit-code origin/main -- packages/criteria packages/harness
       - if: steps.exists.outputs.found == 'yes'
         run: pnpm --filter @uilc/${{ matrix.app }} build
+      - name: the baseline the delta subtracts
+        if: steps.exists.outputs.found == 'yes'
+        run: pnpm --filter @uilc/baseline-${{ startsWith(matrix.app, 'react-') && 'react' || 'vue' }} build
       - name: size, delta, and the budget
         if: steps.exists.outputs.found == 'yes'
         run: pnpm --filter @uilc/${{ matrix.app }} measure
