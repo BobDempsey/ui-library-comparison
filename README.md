@@ -17,7 +17,7 @@ All eight builds pass all 18 acceptance criteria. Sorted by bundle cost.
 | Chakra UI | React | suite | 97.80 KB | 142.71 KB | 4 | none |
 | Vuetify | Vue | suite | 128.87 KB | 153.08 KB | 6 | toast |
 | PrimeVue | Vue | suite | 150.18 KB | 174.39 KB | 4 | toast |
-| Ant Design | React | suite | 233.74 KB | 278.65 KB | 5 | toast |
+| Ant Design | React | suite | 233.87 KB | 278.78 KB | 5 | toast |
 
 Delta is the total minus an empty app on the same framework, 44.91 KB for React and 24.21 KB for Vue, and it is the number the comparison is about. The 240 fixture rows load through a dynamic import and are excluded, as section 10 of the spec requires. Custom code counts how many of section 9's accessibility requirements the library did not supply.
 

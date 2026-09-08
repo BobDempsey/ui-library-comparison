@@ -92,9 +92,9 @@ The delta is the only figure quoted across both groups, because a total carrying
 | Chakra UI | React | suite | 97.80 KB | 142.71 KB |
 | Vuetify | Vue | suite | 128.87 KB | 153.08 KB |
 | PrimeVue | Vue | suite | 150.18 KB | 174.39 KB |
-| Ant Design | React | suite | 233.74 KB | 278.65 KB |
+| Ant Design | React | suite | 233.87 KB | 278.78 KB |
 
-The spread is five to one, from 44.85 KB to 233.74 KB, for eight screens that behave identically.
+The spread is five to one, from 44.85 KB to 233.87 KB, for eight screens that behave identically.
 
 Ant Design is the only build over budget, and by a wide margin. A standalone esbuild bundle isolated the cause: `Table` alone costs roughly 247 KB gzipped with React, because `rc-table` pulls in `rc-virtual-list` whether or not the table virtualizes. The build trimmed everywhere else it could, using a native `<input type="date">` rather than `DatePicker` and plain markup rather than `Result` and `Skeleton`, and still could not close the gap. That is a library weight finding, not an implementation shortfall.
 
@@ -162,7 +162,7 @@ No winner. The numbers publish and the choice depends on the situation.
 
 **On Vue, Quasar is the cheapest of the three** at a 91.68 KB delta, with Vuetify at 128.87 KB and PrimeVue at 150.18 KB. All three shipped a working modal and select, and none shipped a usable toast.
 
-**Ant Design is hard to justify on a bundle sensitive screen.** It is a capable suite and it passed all 18 criteria, but 233.74 KB for one table is a cost that has to be worth paying.
+**Ant Design is hard to justify on a bundle sensitive screen.** It is a capable suite and it passed all 18 criteria, but 233.87 KB for one table is a cost that has to be worth paying.
 
 ## What this does not tell you
 
