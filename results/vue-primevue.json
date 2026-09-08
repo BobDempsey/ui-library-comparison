@@ -4,9 +4,9 @@
   "framework": "vue",
   "kind": "suite",
   "bundle": {
-    "totalGzipKb": 174.39,
+    "totalGzipKb": 174.41,
     "baselineGzipKb": 24.21,
-    "deltaGzipKb": 150.18,
+    "deltaGzipKb": 150.2,
     "overBudget": false
   },
   "accessibility": {
@@ -14,7 +14,7 @@
     "requirementsNeedingCustomCode": 4
   },
   "ergonomics": {
-    "linesOfAppCode": 955,
+    "linesOfAppCode": 957,
     "libraryImports": 18,
     "typeEscapes": 0,
     "handBuilt": {
@@ -24,7 +24,7 @@
     }
   },
   "render": {
-    "lighthouseFcpMsMedian": 2036,
+    "lighthouseFcpMsMedian": 2019,
     "runs": 5
   },
   "criteria": {

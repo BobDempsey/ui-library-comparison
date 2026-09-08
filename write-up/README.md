@@ -91,7 +91,7 @@ The delta is the only figure quoted across both groups, because a total carrying
 | Quasar | Vue | suite | 91.71 KB | 115.92 KB |
 | Chakra UI | React | suite | 97.81 KB | 142.72 KB |
 | Vuetify | Vue | suite | 128.87 KB | 153.08 KB |
-| PrimeVue | Vue | suite | 150.18 KB | 174.39 KB |
+| PrimeVue | Vue | suite | 150.20 KB | 174.41 KB |
 | Ant Design | React | suite | 233.87 KB | 278.78 KB |
 
 The spread is five to one, from 44.90 KB to 233.87 KB, for eight screens that behave identically.
@@ -158,7 +158,7 @@ Lighthouse first contentful paint on the static build, median of five runs, take
 | Quasar | Vue | 1672 ms | 91.71 KB |
 | Chakra UI | React | 1705 ms | 97.81 KB |
 | Vuetify | Vue | 1849 ms | 128.87 KB |
-| PrimeVue | Vue | 2036 ms | 150.18 KB |
+| PrimeVue | Vue | 2019 ms | 150.20 KB |
 | Ant Design | React | 2405 ms | 233.87 KB |
 
 The order is the bundle order, exactly. Nothing on this screen paints before its library parses, so first render is bundle size read through Lighthouse's mobile throttling rather than an independent finding. The useful figure is the spread: 900 ms between the lightest build and the heaviest, on a simulated mid-tier phone, for eight screens a user cannot tell apart.
@@ -175,7 +175,7 @@ No winner. The numbers publish and the choice depends on the situation.
 
 **When the design system is going to diverge from the library's defaults, take shadcn/ui.** Its components are files in the repo. Every other build here customizes through a theme API and stops where that API stops.
 
-**On Vue, Quasar is the cheapest of the three** at a 91.71 KB delta, with Vuetify at 128.87 KB and PrimeVue at 150.18 KB. All three shipped a working modal and select, and none shipped a usable toast.
+**On Vue, Quasar is the cheapest of the three** at a 91.71 KB delta, with Vuetify at 128.87 KB and PrimeVue at 150.20 KB. All three shipped a working modal and select, and none shipped a usable toast.
 
 **Ant Design is hard to justify on a bundle sensitive screen.** It is a capable suite and it passed all 18 criteria, but 233.87 KB for one table is a cost that has to be worth paying.
 

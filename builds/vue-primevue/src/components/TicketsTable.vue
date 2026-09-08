@@ -45,6 +45,15 @@ const emit = defineEmits<{
 // sequence), DataTable stops resorting its `value` and this is what shows.
 const baseRows = computed(() => sortRows(props.filtered, null, 'descending'));
 
+// PrimeVue's own DataTable props type sortField/sortOrder as `| undefined`,
+// not `| undefined | null`, even though null is its documented "no sort"
+// value and works at runtime. The rest of this app models "no sort" as null
+// (TicketsScreen.vue's refs, this component's own props), so the conversion
+// happens here, at the one place it crosses into PrimeVue's types, rather
+// than changing that model everywhere it appears.
+const dataTableSortField = computed(() => props.sortField ?? undefined);
+const dataTableSortOrder = computed(() => props.sortOrder ?? undefined);
+
 function onRowClick(event: { data: Ticket }): void {
   emit('open-row', event.data);
 }
@@ -57,8 +66,8 @@ function onRowClick(event: { data: Ticket }): void {
       data-key="id"
       selection-mode="single"
       :selection="null"
-      :sort-field="sortField"
-      :sort-order="sortOrder"
+      :sort-field="dataTableSortField"
+      :sort-order="dataTableSortOrder"
       sort-mode="single"
       removable-sort
       paginator
@@ -68,8 +77,8 @@ function onRowClick(event: { data: Ticket }): void {
       paginator-template="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
       :table-props="{ 'aria-label': 'Support tickets' }"
       :pt="{ pcPaginator: { current: { 'aria-live': 'polite' } } }"
-      @update:sort-field="(v) => emit('update:sortField', v)"
-      @update:sort-order="(v) => emit('update:sortOrder', v)"
+      @update:sort-field="(v) => emit('update:sortField', v ?? null)"
+      @update:sort-order="(v) => emit('update:sortOrder', v ?? null)"
       @update:first="(v) => emit('update:first', v)"
       @row-click="onRowClick"
     >
