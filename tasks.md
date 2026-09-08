@@ -11,7 +11,8 @@
 - [x] Typecheck each build against its own tsconfig (all eight pass)
 - [ ] Publish the eight static sites (CI publish job is a placeholder)
 - [ ] Lint and format every build (biome config location is an owner call)
-- [ ] Add vue-tsc to vue-primevue and vue-quasar for a real .vue typecheck
+- [x] Add vue-tsc to vue-primevue and vue-quasar for a real .vue typecheck
+- [ ] Fix or dismiss vue-primevue's 3 vue-tsc errors in TicketsTable.vue
 - [ ] Run the manual screen reader pass (NVDA, VoiceOver)
 - [ ] Deploy a static build and retake Lighthouse numbers against it
 - [ ] Decide whether to promote the shared Jest reporter into its own package
