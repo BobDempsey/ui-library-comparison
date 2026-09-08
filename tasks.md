@@ -6,7 +6,7 @@
 - [x] Add a Lighthouse runner for time to first render
 - [x] Fix the react-antd 375px pagination overflow
 - [x] Rename "bakeoff" to "ui library comparison" throughout the repo
-- [ ] Run CI on a pull request to exercise the criteria/harness diff check
+- [x] Run CI on a pull request to exercise the criteria/harness diff check
 - [x] Review all eight builds past first paint (modal, toast, narrow viewport)
 - [ ] Fix react-antd's record modal overflowing the page by 33px at 1440px
 - [ ] Publish the eight static sites (CI publish job is a placeholder)
