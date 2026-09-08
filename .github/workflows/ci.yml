@@ -50,7 +50,15 @@ jobs:
           - vue-primevue
           - vue-quasar
     steps:
+      # fetch-depth: 0 pulls full history rather than actions/checkout's
+      # default single commit, so origin/main exists locally for the diff
+      # step below. On a push to main that step diffs main against itself
+      # (a trivial pass), so this only matters on a pull request, and no PR
+      # had run before this one, which is why the shallow checkout's
+      # `fatal: bad revision 'origin/main'` went unnoticed until now.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
