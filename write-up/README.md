@@ -85,16 +85,16 @@ The delta is the only figure quoted across both groups, because a total carrying
 
 | Library | Framework | Kind | Delta | Total |
 | --- | --- | --- | --- | --- |
-| Headless UI | React | assembly kit | 44.85 KB | 89.76 KB |
-| shadcn/ui | React | assembly kit | 58.87 KB | 103.78 KB |
+| Headless UI | React | assembly kit | 44.86 KB | 89.77 KB |
+| shadcn/ui | React | assembly kit | 58.89 KB | 103.80 KB |
 | Material UI | React | suite | 79.76 KB | 124.67 KB |
-| Quasar | Vue | suite | 91.68 KB | 115.89 KB |
-| Chakra UI | React | suite | 97.80 KB | 142.71 KB |
+| Quasar | Vue | suite | 91.70 KB | 115.91 KB |
+| Chakra UI | React | suite | 97.81 KB | 142.72 KB |
 | Vuetify | Vue | suite | 128.87 KB | 153.08 KB |
 | PrimeVue | Vue | suite | 150.18 KB | 174.39 KB |
 | Ant Design | React | suite | 233.87 KB | 278.78 KB |
 
-The spread is five to one, from 44.85 KB to 233.87 KB, for eight screens that behave identically.
+The spread is five to one, from 44.86 KB to 233.87 KB, for eight screens that behave identically.
 
 Ant Design is the only build over budget, and by a wide margin. A standalone esbuild bundle isolated the cause: `Table` alone costs roughly 247 KB gzipped with React, because `rc-table` pulls in `rc-virtual-list` whether or not the table virtualizes. The build trimmed everywhere else it could, using a native `<input type="date">` rather than `DatePicker` and plain markup rather than `Result` and `Skeleton`, and still could not close the gap. That is a library weight finding, not an implementation shortfall.
 
@@ -148,19 +148,34 @@ One caveat on the imports column, and it matters. The measurement counts explici
 
 ## Time to first render
 
-Not measured. The spec asks for Lighthouse first contentful paint, median of five runs on the deployed static build, and there is no deployed static build yet. All eight results record `runs: 0` rather than a number invented locally. This category is open.
+Lighthouse first contentful paint on the static build, median of five runs, taken by `pnpm lighthouse` and read back into `results/` by `pnpm measure`.
+
+| Library | Framework | Median FCP | Delta gzip |
+| --- | --- | --- | --- |
+| Headless UI | React | 1506 ms | 44.86 KB |
+| shadcn/ui | React | 1526 ms | 58.89 KB |
+| Material UI | React | 1657 ms | 79.76 KB |
+| Quasar | Vue | 1677 ms | 91.70 KB |
+| Chakra UI | React | 1705 ms | 97.81 KB |
+| Vuetify | Vue | 1853 ms | 128.87 KB |
+| PrimeVue | Vue | 2036 ms | 150.18 KB |
+| Ant Design | React | 2405 ms | 233.87 KB |
+
+The order is the bundle order, exactly. Nothing on this screen paints before its library parses, so first render is bundle size read through Lighthouse's mobile throttling rather than an independent finding. The useful figure is the spread: 900 ms between the lightest build and the heaviest, on a simulated mid-tier phone, for eight screens a user cannot tell apart.
+
+Read these as relative. They were taken on one Windows machine against a local server that gzips what it serves, matching how the bundle numbers are measured, and Lighthouse's mobile preset throttles CPU and network to a fixed profile. The five runs per build agreed within about 10 ms, so the ranking is stable even though the absolute milliseconds are not a claim about any real device.
 
 ## Picking one
 
 No winner. The numbers publish and the choice depends on the situation.
 
-**When shipping speed matters most, take a suite.** Chakra UI is the strongest showing here: the fewest application lines at 904, the only build where the modal, select, and toast all came from the library, zero axe violations, and a 97.80 KB delta. Material UI is close behind and needed the least accessibility help of any build.
+**When shipping speed matters most, take a suite.** Chakra UI is the strongest showing here: the fewest application lines at 904, the only build where the modal, select, and toast all came from the library, zero axe violations, and a 97.81 KB delta. Material UI is close behind and needed the least accessibility help of any build.
 
-**When bundle size is the binding constraint, take an assembly kit.** Headless UI's 44.85 KB delta is roughly half the median, and shadcn/ui's 58.87 KB is the next smallest. Both cost real application code for it, 1092 and 1440 lines against a 904 line floor.
+**When bundle size is the binding constraint, take an assembly kit.** Headless UI's 44.86 KB delta is roughly half the median, and shadcn/ui's 58.89 KB is the next smallest. Both cost real application code for it, 1092 and 1440 lines against a 904 line floor.
 
 **When the design system is going to diverge from the library's defaults, take shadcn/ui.** Its components are files in the repo. Every other build here customizes through a theme API and stops where that API stops.
 
-**On Vue, Quasar is the cheapest of the three** at a 91.68 KB delta, with Vuetify at 128.87 KB and PrimeVue at 150.18 KB. All three shipped a working modal and select, and none shipped a usable toast.
+**On Vue, Quasar is the cheapest of the three** at a 91.70 KB delta, with Vuetify at 128.87 KB and PrimeVue at 150.18 KB. All three shipped a working modal and select, and none shipped a usable toast.
 
 **Ant Design is hard to justify on a bundle sensitive screen.** It is a capable suite and it passed all 18 criteria, but 233.87 KB for one table is a cost that has to be worth paying.
 
@@ -172,7 +187,7 @@ axe-core ran under jsdom, where `HTMLCanvasElement.getContext` is not implemente
 
 The manual screen reader pass in section 9, NVDA on Windows and VoiceOver on macOS through filter, sort, page, open, edit, and save, has not been done. Nothing here substitutes for it.
 
-The render category is empty, as above.
+The render numbers came from a local static server on one Windows machine, not from a deployed site. The spec asks for the deployed build, and nothing is deployed yet. The ranking should hold, since it is the bundle ranking, but the milliseconds would move on other hardware.
 
 The screens were reviewed at 1440px in their default state. Nobody has yet walked all eight through an open modal, a fired toast, or a narrow viewport, so defects in those states are still unfound.
 
@@ -184,8 +199,9 @@ Two visible differences between builds were deliberately left in place rather th
 pnpm install
 pnpm build               # all ten apps
 pnpm test                # the 18 criteria in every build
+pnpm lighthouse --all    # first contentful paint, five runs per build
 pnpm measure --all       # rescore every build into results/
 pnpm fixture:check       # check what the criteria assume about the fixture
 ```
 
-Each build serves on its own port, 5173 through 5180 in roster order, so all eight can run side by side: `pnpm --filter @uilc/<build> dev`.
+`pnpm lighthouse` needs the builds built first, since it serves `dist`. Each build serves on its own port, 5173 through 5180 in roster order, so all eight can run side by side: `pnpm --filter @uilc/<build> dev`.

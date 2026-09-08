@@ -7,6 +7,7 @@
     "build": "pnpm -r --filter \"./builds/*\" --filter \"./baselines/*\" build",
     "test": "pnpm -r --filter \"./builds/*\" test",
     "measure": "tsx scripts/measure.ts",
+    "lighthouse": "tsx scripts/lighthouse.ts",
     "fixture:generate": "tsx packages/fixture/src/generate.ts && tsx scripts/check-fixture.ts",
     "fixture:check": "tsx scripts/check-fixture.ts",
     "typecheck": "tsc --noEmit -p packages/fixture/tsconfig.json && tsc --noEmit -p packages/harness/tsconfig.json && tsc --noEmit -p packages/criteria/tsconfig.json",
@@ -15,6 +16,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.0.0",
     "@types/node": "^26.4.1",
+    "lighthouse": "^13.4.1",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   }

@@ -8,18 +8,18 @@ This is sample content for a demo. The domain, the data, and the numbers are fic
 
 All eight builds pass all 18 acceptance criteria. Sorted by bundle cost.
 
-| Library | Framework | Kind | Delta gzip | Total gzip | Custom code | Hand built |
-| --- | --- | --- | --- | --- | --- | --- |
-| Headless UI | React | assembly kit | 44.85 KB | 89.76 KB | 6 | select, toast |
-| shadcn/ui | React | assembly kit | 58.87 KB | 103.78 KB | 4 | modal, select, toast |
-| Material UI | React | suite | 79.76 KB | 124.67 KB | 3 | toast |
-| Quasar | Vue | suite | 91.68 KB | 115.89 KB | 6 | toast |
-| Chakra UI | React | suite | 97.80 KB | 142.71 KB | 4 | none |
-| Vuetify | Vue | suite | 128.87 KB | 153.08 KB | 6 | toast |
-| PrimeVue | Vue | suite | 150.18 KB | 174.39 KB | 4 | toast |
-| Ant Design | React | suite | 233.87 KB | 278.78 KB | 5 | toast |
+| Library | Framework | Kind | Delta gzip | Total gzip | Median FCP | Custom code | Hand built |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Headless UI | React | assembly kit | 44.86 KB | 89.77 KB | 1506 ms | 6 | select, toast |
+| shadcn/ui | React | assembly kit | 58.89 KB | 103.80 KB | 1526 ms | 4 | modal, select, toast |
+| Material UI | React | suite | 79.76 KB | 124.67 KB | 1657 ms | 3 | toast |
+| Quasar | Vue | suite | 91.70 KB | 115.91 KB | 1677 ms | 6 | toast |
+| Chakra UI | React | suite | 97.81 KB | 142.72 KB | 1705 ms | 4 | none |
+| Vuetify | Vue | suite | 128.87 KB | 153.08 KB | 1853 ms | 6 | toast |
+| PrimeVue | Vue | suite | 150.18 KB | 174.39 KB | 2036 ms | 4 | toast |
+| Ant Design | React | suite | 233.87 KB | 278.78 KB | 2405 ms | 5 | toast |
 
-Delta is the total minus an empty app on the same framework, 44.91 KB for React and 24.21 KB for Vue, and it is the number the comparison is about. The 240 fixture rows load through a dynamic import and are excluded, as section 10 of the spec requires. Custom code counts how many of section 9's accessibility requirements the library did not supply.
+Delta is the total minus an empty app on the same framework, 44.91 KB for React and 24.21 KB for Vue, and it is the number the comparison is about. The 240 fixture rows load through a dynamic import and are excluded, as section 10 of the spec requires. Median FCP is Lighthouse first contentful paint, median of five runs, written by `pnpm lighthouse` and read back by `pnpm measure`. Custom code counts how many of section 9's accessibility requirements the library did not supply.
 
 Ant Design is the only build over the 180 KB budget. Its `Table` alone costs roughly 247 KB gzip with React, because `rc-table` pulls in `rc-virtual-list` unconditionally. That is a library weight finding, not an implementation shortfall.
 
@@ -45,6 +45,7 @@ Two differences are recorded rather than normalized: badge label casing varies b
 pnpm install
 pnpm build               # all ten apps
 pnpm test                # the 18 criteria in every build
+pnpm lighthouse --all    # first contentful paint, five runs per build
 pnpm typecheck           # the three shared packages
 pnpm measure --all       # rescore every build into results/
 pnpm fixture:check       # check what the criteria assume about the fixture

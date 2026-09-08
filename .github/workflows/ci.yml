@@ -72,6 +72,12 @@ jobs:
       - name: the baseline the delta subtracts
         if: steps.exists.outputs.found == 'yes'
         run: pnpm --filter @uilc/baseline-${{ startsWith(matrix.app, 'react-') && 'react' || 'vue' }} build
+      # Lighthouse serves dist and drives headless Chrome, which the runner
+      # already has. It writes builds/<app>/lighthouse.json, and measure below
+      # reads the median off it, so this step has to come first.
+      - name: first contentful paint, median of five runs
+        if: steps.exists.outputs.found == 'yes'
+        run: pnpm lighthouse --build ${{ matrix.app }}
       - name: size, delta, and the budget
         if: steps.exists.outputs.found == 'yes'
         run: pnpm --filter @uilc/${{ matrix.app }} measure

@@ -101,8 +101,8 @@ A library that cannot meet a requirement records the failure. Do not bend the sp
 - `react-antd` passes all 18 criteria but is over the 180 KB bundle budget (233.87 KB delta), because Ant Design's `Table` alone costs roughly 247 KB gzip with React. That is a recorded result, not a defect to fix; the phase one owner decides what, if anything, that means for the comparison.
 - No shared `criteria-results.json` reporter. Each build added its own local Jest reporter (see `builds/react-headless/test/reporter.cjs` for the pattern) rather than one shared implementation. The owner may want to promote it into a shared package now that eight builds have copied it.
 - The `publish` job in CI is a placeholder. Nothing publishes the static sites yet.
-- No Lighthouse runner. `measure` reads a `lighthouse.json` that nothing writes.
-- ~~No write-up. `write-up/` is an empty folder.~~ **Written 2026-09-04** as `write-up/README.md`, from `results/` plus the per-build `comparison.json` notes. It covers bundle size, accessibility defaults and ergonomics, marks time to first render as not measured, and states the four limits: no contrast check under jsdom, no manual screen reader pass, no Lighthouse, and no review past first paint. Section 10 of the spec asks for four categories and only three have data, so it is complete only once a Lighthouse runner exists.
+- ~~No Lighthouse runner. `measure` reads a `lighthouse.json` that nothing writes.~~ **Written 2026-09-08** as `scripts/lighthouse.ts`, see section 11. All eight builds have a median FCP in `results/` and CI takes its own on every run.
+- ~~No write-up. `write-up/` is an empty folder.~~ **Written 2026-09-04** as `write-up/README.md`, from `results/` plus the per-build `comparison.json` notes. It covers bundle size, accessibility defaults and ergonomics, and it gained the fourth category, time to first render, on 2026-09-08. Its four limits are now no contrast check under jsdom, no manual screen reader pass, render numbers from a local server rather than a deployed site, and no review past first paint. Section 10's four categories all have data.
 - ~~Seven of the eight criteria suites have not been run since the rename.~~ **Covered 2026-09-04** by CI run `33883190336`, green on all eight legs, each of which runs `pnpm --filter @uilc/<app> test` before it measures. That is eight suites on Linux and Node 22, not on this Windows machine, so a local full run is still the only evidence for the Windows path.
 - The remote is `https://github.com/BobDempsey/ui-library-comparison` (public), added 2026-09-04, and `main` pushed to it. `ci.yml` runs on push to `main` and on pull requests. The first run, `33881432435`, failed every build leg for the baseline-dist reason in section 5; the second, `33883190336`, and the third, `33924754027`, are both green end to end in about 12 minutes. Each green run is eight full criteria suites on Linux, so CI is now the cheapest way to check all eight. No pull request has ever run, so the `builds` job's diff of `packages/criteria` and `packages/harness` against main is still untested; it only has meaning on a PR.
 - ~~Use Playwright MCP to fully test all builds' functionality, take a screenshot of each, and re-check the eight screens past first paint.~~ **Done 2026-09-04**, see section 9 of this file (the spec has its own section 9, which is the accessibility requirements). The Playwright MCP server is connected and its browser tools are available. Six defects are recorded there, all six fixed the same day, with one smaller `react-antd` pagination overflow left open.
@@ -182,3 +182,34 @@ The last open defect from section 9. `.pagination` in `builds/react-antd/src/sty
 Measured in a real browser at 375px on the running dev server: `body.scrollWidth` 360 against a 360px content width, `documentElement.scrollWidth` 360, and `.pagination` `scrollWidth` 312 equal to its `clientWidth`, so nothing overflows. The console is clean apart from the `favicon.ico` 404 the template gives every build.
 
 `pnpm --filter @uilc/react-antd test` passes 18 of 18 in 590 seconds on Windows. The rescore moved the bundle from 278.65 to 278.78 KB total and 233.74 to 233.87 KB delta, still over the 180 KB budget, which this fix was never about. Those two numbers were quoted by hand in `README.md`, `write-up/README.md` and this file, and all of those copies were updated with the rescore.
+
+## 11. Lighthouse runner, 2026-09-08
+
+`scripts/lighthouse.ts`, run as `pnpm lighthouse --build <name>` or `pnpm lighthouse --all`. It serves `builds/<name>/dist`, runs Lighthouse five times, and writes `builds/<name>/lighthouse.json` as `{ fcpMs: number[] }`, which is the shape `scripts/measure.ts` already read and nothing wrote. The runs are recorded and the median is left to `measure`, so a rescore recomputes it. `lighthouse.json` is committed for the same reason `results/` is. `lighthouse` is a root dev dependency; the runner is a root script rather than a per build one, since section 13 of the spec fixes the four scripts a build exposes.
+
+Medians on this Windows machine, all five runs per build within about 10 ms:
+
+| Build | Median FCP | Delta gzip |
+| --- | --- | --- |
+| react-headless | 1506 ms | 44.86 KB |
+| react-shadcn | 1526 ms | 58.89 KB |
+| react-mui | 1657 ms | 79.76 KB |
+| vue-quasar | 1677 ms | 91.70 KB |
+| react-chakra | 1705 ms | 97.81 KB |
+| vue-vuetify | 1853 ms | 128.87 KB |
+| vue-primevue | 2036 ms | 150.18 KB |
+| react-antd | 2405 ms | 233.87 KB |
+
+That is the bundle order exactly. Nothing on this screen paints before its library parses, so first render restates bundle size rather than finding something new. The spread, 900 ms across the eight, is the part worth publishing.
+
+Three things went wrong on the way, all worth knowing before touching this script.
+
+Lighthouse runs as its CLI in a subprocess, not as an import. It serialises its own functions into the page, and under tsx's esbuild loader those arrive carrying a `__name` helper the page does not have, so every run died with `__name is not defined`.
+
+The server is an in-process `node:http` one, not `vite preview`. The first version spawned `vite preview` and killed it between builds, the kill did not take on Windows, and the surviving server kept port 4180. Every later build then measured the previous build's screen while reporting its own name, which is how the first full run produced eight medians inside 2 ms of each other. That result was wrong and was thrown away. The script now also reads the served `<title>` back and compares it to the build's own `dist/index.html` before spending five runs, so a stale server fails loudly instead of quietly.
+
+The server gzips what it serves. Uncompressed, FCP ran roughly 800 ms higher and the penalty scaled with bundle size, which charges each library for weight it would never ship. The bundle number this comparison publishes is gzipped, so the render number is taken the same way.
+
+CI runs `pnpm lighthouse --build <app>` in each build leg before `measure`, on the runner's own Chrome. Those numbers come off different hardware than the committed ones, so a CI result file and the committed one will not match on `render` even when nothing changed.
+
+The rescore that followed moved every build's bundle by 0.01 to 0.02 KB, since seven of the eight had not been rebuilt since the section 9 fixes. `README.md` and `write-up/README.md` quote those numbers by hand and were updated with them.
