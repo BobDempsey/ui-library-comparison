@@ -196,7 +196,7 @@ Medians on this Windows machine, all five runs per build within about 10 ms:
 | react-mui | 1657 ms | 79.76 KB |
 | vue-quasar | 1677 ms | 91.70 KB |
 | react-chakra | 1705 ms | 97.81 KB |
-| vue-vuetify | 1853 ms | 128.87 KB |
+| vue-vuetify | 1849 ms | 128.87 KB |
 | vue-primevue | 2036 ms | 150.18 KB |
 | react-antd | 2405 ms | 233.87 KB |
 
@@ -209,6 +209,8 @@ Lighthouse runs as its CLI in a subprocess, not as an import. It serialises its 
 The server is an in-process `node:http` one, not `vite preview`. The first version spawned `vite preview` and killed it between builds, the kill did not take on Windows, and the surviving server kept port 4180. Every later build then measured the previous build's screen while reporting its own name, which is how the first full run produced eight medians inside 2 ms of each other. That result was wrong and was thrown away. The script now also reads the served `<title>` back and compares it to the build's own `dist/index.html` before spending five runs, so a stale server fails loudly instead of quietly.
 
 The server gzips what it serves. Uncompressed, FCP ran roughly 800 ms higher and the penalty scaled with bundle size, which charges each library for weight it would never ship. The bundle number this comparison publishes is gzipped, so the render number is taken the same way.
+
+A fourth thing, found by CI rather than locally. The Lighthouse CLI is run by node against `node_modules/lighthouse/cli/index.js`, with no shell in between. `pnpm exec` through a shell splits `--chrome-flags=--headless=new --no-sandbox` at the space, Lighthouse ignores the orphaned half, and the run fails on a CI runner with `Unable to connect to Chrome`. Seven legs passed and `vue-vuetify` failed on run `34238174803` before that change.
 
 CI runs `pnpm lighthouse --build <app>` in each build leg before `measure`, on the runner's own Chrome. Those numbers come off different hardware than the committed ones, so a CI result file and the committed one will not match on `render` even when nothing changed.
 

@@ -157,7 +157,7 @@ Lighthouse first contentful paint on the static build, median of five runs, take
 | Material UI | React | 1657 ms | 79.76 KB |
 | Quasar | Vue | 1677 ms | 91.70 KB |
 | Chakra UI | React | 1705 ms | 97.81 KB |
-| Vuetify | Vue | 1853 ms | 128.87 KB |
+| Vuetify | Vue | 1849 ms | 128.87 KB |
 | PrimeVue | Vue | 2036 ms | 150.18 KB |
 | Ant Design | React | 2405 ms | 233.87 KB |
 

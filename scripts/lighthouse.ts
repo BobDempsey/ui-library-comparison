@@ -95,12 +95,20 @@ async function assertServingBuild(url: string, distDir: string): Promise<void> {
   if (served !== expected) throw new Error(`${url} served "${served}", expected "${expected}"`);
 }
 
+/** Lighthouse's own CLI entry point, run by node directly. */
+const LIGHTHOUSE_CLI = join(root, 'node_modules', 'lighthouse', 'cli', 'index.js');
+
 /**
  * One Lighthouse pass in its own Chrome, so a run never inherits the last one's
  * cache. Lighthouse runs as its CLI rather than as an import: it serialises its
  * own functions into the page, and under tsx's esbuild loader those arrive
  * carrying a `__name` helper the page does not have, so every run dies with
  * `__name is not defined`. A subprocess runs the published code untouched.
+ *
+ * node runs that CLI file rather than `pnpm exec lighthouse` so no shell sits in
+ * between. `--chrome-flags` holds a space, and a shell splits it into a second
+ * argument Lighthouse then ignores, which on a CI runner costs `--no-sandbox`
+ * and the run fails with `Unable to connect to Chrome`.
  */
 async function firstContentfulPaint(url: string): Promise<number> {
   const dir = mkdtempSync(join(tmpdir(), 'uilc-lh-'));
@@ -108,18 +116,17 @@ async function firstContentfulPaint(url: string): Promise<number> {
   try {
     await new Promise<void>((resolve, reject) => {
       const child = spawn(
-        'pnpm',
+        process.execPath,
         [
-          'exec',
-          'lighthouse',
+          LIGHTHOUSE_CLI,
           url,
           '--only-audits=first-contentful-paint',
           '--output=json',
           `--output-path=${out}`,
-          '--chrome-flags=--headless=new',
+          '--chrome-flags=--headless=new --no-sandbox',
           '--quiet',
         ],
-        { cwd: root, shell: process.platform === 'win32', stdio: ['ignore', 'ignore', 'pipe'] },
+        { cwd: root, stdio: ['ignore', 'ignore', 'pipe'] },
       );
       let stderr = '';
       child.stderr?.on('data', (chunk: Buffer) => {

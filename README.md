@@ -15,7 +15,7 @@ All eight builds pass all 18 acceptance criteria. Sorted by bundle cost.
 | Material UI | React | suite | 79.76 KB | 124.67 KB | 1657 ms | 3 | toast |
 | Quasar | Vue | suite | 91.70 KB | 115.91 KB | 1677 ms | 6 | toast |
 | Chakra UI | React | suite | 97.81 KB | 142.72 KB | 1705 ms | 4 | none |
-| Vuetify | Vue | suite | 128.87 KB | 153.08 KB | 1853 ms | 6 | toast |
+| Vuetify | Vue | suite | 128.87 KB | 153.08 KB | 1849 ms | 6 | toast |
 | PrimeVue | Vue | suite | 150.18 KB | 174.39 KB | 2036 ms | 4 | toast |
 | Ant Design | React | suite | 233.87 KB | 278.78 KB | 2405 ms | 5 | toast |
 
