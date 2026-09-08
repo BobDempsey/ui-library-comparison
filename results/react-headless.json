@@ -4,9 +4,9 @@
   "framework": "react",
   "kind": "assembly-kit",
   "bundle": {
-    "totalGzipKb": 89.77,
+    "totalGzipKb": 89.81,
     "baselineGzipKb": 44.91,
-    "deltaGzipKb": 44.86,
+    "deltaGzipKb": 44.9,
     "overBudget": false
   },
   "accessibility": {
@@ -14,7 +14,7 @@
     "requirementsNeedingCustomCode": 6
   },
   "ergonomics": {
-    "linesOfAppCode": 1095,
+    "linesOfAppCode": 1107,
     "libraryImports": 3,
     "typeEscapes": 0,
     "handBuilt": {
@@ -24,7 +24,7 @@
     }
   },
   "render": {
-    "lighthouseFcpMsMedian": 1506,
+    "lighthouseFcpMsMedian": 1512,
     "runs": 5
   },
   "criteria": {

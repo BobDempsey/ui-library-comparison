@@ -90,6 +90,14 @@ input:focus-visible,
   border: none;
   padding: 0;
   margin: 0;
+  /* At narrow widths the two date inputs below no longer fit side by side
+     without shrinking past a usable size. Letting this field claim the whole
+     row, rather than sharing one with its flex siblings in .filter-form,
+     gives the wrap below room before the pair has to stack (section 9's
+     375px check). */
+  flex: 1 1 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .created-range legend {
@@ -99,6 +107,7 @@ input:focus-visible,
 
 .created-range-inputs {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
@@ -106,6 +115,11 @@ input:focus-visible,
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  /* Lets each date input shrink with its row and, once two no longer fit
+     side by side, wrap to its own line instead of forcing the field, and
+     the form around it, wider than its container. */
+  flex: 1 1 130px;
+  min-width: 0;
 }
 
 .clear-field {
