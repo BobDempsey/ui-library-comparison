@@ -85,16 +85,16 @@ The delta is the only figure quoted across both groups, because a total carrying
 
 | Library | Framework | Kind | Delta | Total |
 | --- | --- | --- | --- | --- |
-| Headless UI | React | assembly kit | 44.86 KB | 89.77 KB |
+| Headless UI | React | assembly kit | 44.90 KB | 89.81 KB |
 | shadcn/ui | React | assembly kit | 58.89 KB | 103.80 KB |
 | Material UI | React | suite | 79.76 KB | 124.67 KB |
-| Quasar | Vue | suite | 91.70 KB | 115.91 KB |
+| Quasar | Vue | suite | 91.71 KB | 115.92 KB |
 | Chakra UI | React | suite | 97.81 KB | 142.72 KB |
 | Vuetify | Vue | suite | 128.87 KB | 153.08 KB |
 | PrimeVue | Vue | suite | 150.18 KB | 174.39 KB |
 | Ant Design | React | suite | 233.87 KB | 278.78 KB |
 
-The spread is five to one, from 44.86 KB to 233.87 KB, for eight screens that behave identically.
+The spread is five to one, from 44.90 KB to 233.87 KB, for eight screens that behave identically.
 
 Ant Design is the only build over budget, and by a wide margin. A standalone esbuild bundle isolated the cause: `Table` alone costs roughly 247 KB gzipped with React, because `rc-table` pulls in `rc-virtual-list` whether or not the table virtualizes. The build trimmed everywhere else it could, using a native `<input type="date">` rather than `DatePicker` and plain markup rather than `Result` and `Skeleton`, and still could not close the gap. That is a library weight finding, not an implementation shortfall.
 
@@ -135,7 +135,7 @@ Counted, not judged. Four numbers per build, with the conclusion drawn in prose 
 | Vuetify | 957 | 2 | 0 | library | library | hand built |
 | Material UI | 991 | 8 | 0 | library | library | hand built |
 | Ant Design | 992 | 9 | 0 | library | library | hand built |
-| Headless UI | 1092 | 3 | 0 | library | hand built | hand built |
+| Headless UI | 1107 | 3 | 0 | library | hand built | hand built |
 | shadcn/ui | 1440 | 21 | 0 | hand built | hand built | hand built |
 
 No build needed a single `any` or type assertion. That is the one category where all eight tie, and it says something about where typed component libraries have landed.
@@ -152,10 +152,10 @@ Lighthouse first contentful paint on the static build, median of five runs, take
 
 | Library | Framework | Median FCP | Delta gzip |
 | --- | --- | --- | --- |
-| Headless UI | React | 1506 ms | 44.86 KB |
+| Headless UI | React | 1512 ms | 44.90 KB |
 | shadcn/ui | React | 1526 ms | 58.89 KB |
 | Material UI | React | 1657 ms | 79.76 KB |
-| Quasar | Vue | 1677 ms | 91.70 KB |
+| Quasar | Vue | 1672 ms | 91.71 KB |
 | Chakra UI | React | 1705 ms | 97.81 KB |
 | Vuetify | Vue | 1849 ms | 128.87 KB |
 | PrimeVue | Vue | 2036 ms | 150.18 KB |
@@ -171,11 +171,11 @@ No winner. The numbers publish and the choice depends on the situation.
 
 **When shipping speed matters most, take a suite.** Chakra UI is the strongest showing here: the fewest application lines at 904, the only build where the modal, select, and toast all came from the library, zero axe violations, and a 97.81 KB delta. Material UI is close behind and needed the least accessibility help of any build.
 
-**When bundle size is the binding constraint, take an assembly kit.** Headless UI's 44.86 KB delta is roughly half the median, and shadcn/ui's 58.89 KB is the next smallest. Both cost real application code for it, 1092 and 1440 lines against a 904 line floor.
+**When bundle size is the binding constraint, take an assembly kit.** Headless UI's 44.90 KB delta is roughly half the median, and shadcn/ui's 58.89 KB is the next smallest. Both cost real application code for it, 1107 and 1440 lines against a 904 line floor.
 
 **When the design system is going to diverge from the library's defaults, take shadcn/ui.** Its components are files in the repo. Every other build here customizes through a theme API and stops where that API stops.
 
-**On Vue, Quasar is the cheapest of the three** at a 91.70 KB delta, with Vuetify at 128.87 KB and PrimeVue at 150.18 KB. All three shipped a working modal and select, and none shipped a usable toast.
+**On Vue, Quasar is the cheapest of the three** at a 91.71 KB delta, with Vuetify at 128.87 KB and PrimeVue at 150.18 KB. All three shipped a working modal and select, and none shipped a usable toast.
 
 **Ant Design is hard to justify on a bundle sensitive screen.** It is a capable suite and it passed all 18 criteria, but 233.87 KB for one table is a cost that has to be worth paying.
 

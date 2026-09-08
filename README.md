@@ -10,10 +10,10 @@ All eight builds pass all 18 acceptance criteria. Sorted by bundle cost.
 
 | Library | Framework | Kind | Delta gzip | Total gzip | Median FCP | Custom code | Hand built |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Headless UI | React | assembly kit | 44.86 KB | 89.77 KB | 1506 ms | 6 | select, toast |
+| Headless UI | React | assembly kit | 44.90 KB | 89.81 KB | 1512 ms | 6 | select, toast |
 | shadcn/ui | React | assembly kit | 58.89 KB | 103.80 KB | 1526 ms | 4 | modal, select, toast |
 | Material UI | React | suite | 79.76 KB | 124.67 KB | 1657 ms | 3 | toast |
-| Quasar | Vue | suite | 91.70 KB | 115.91 KB | 1677 ms | 6 | toast |
+| Quasar | Vue | suite | 91.71 KB | 115.92 KB | 1672 ms | 6 | toast |
 | Chakra UI | React | suite | 97.81 KB | 142.72 KB | 1705 ms | 4 | none |
 | Vuetify | Vue | suite | 128.87 KB | 153.08 KB | 1849 ms | 6 | toast |
 | PrimeVue | Vue | suite | 150.18 KB | 174.39 KB | 2036 ms | 4 | toast |
