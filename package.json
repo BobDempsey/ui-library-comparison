@@ -11,12 +11,15 @@
     "fixture:generate": "tsx packages/fixture/src/generate.ts && tsx scripts/check-fixture.ts",
     "fixture:check": "tsx scripts/check-fixture.ts",
     "typecheck": "tsc --noEmit -p packages/fixture/tsconfig.json && tsc --noEmit -p packages/harness/tsconfig.json && tsc --noEmit -p packages/criteria/tsconfig.json",
-    "new-build": "tsx scripts/new-build.ts"
+    "new-build": "tsx scripts/new-build.ts",
+    "screenshots": "tsx scripts/screenshots.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.0",
     "@types/node": "^26.4.1",
+    "chrome-launcher": "^1.2.1",
     "lighthouse": "^13.4.1",
+    "puppeteer-core": "^25.10.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0"
   }

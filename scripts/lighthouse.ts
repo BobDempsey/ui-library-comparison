@@ -21,12 +21,11 @@
  */
 import { spawn } from 'node:child_process';
 import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { createServer, type Server } from 'node:http';
 import { tmpdir } from 'node:os';
-import { extname, join, normalize, sep } from 'node:path';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { gzipSync } from 'node:zlib';
 import { ROSTER } from './roster.js';
+import { assertServingBuild, serve } from './serve.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 
@@ -35,65 +34,6 @@ const RUNS = 5;
 
 /** Away from the dev server ports in each `vite.config.ts`, so the two never collide. */
 const PORT = 4180;
-
-const CONTENT_TYPES: Record<string, string> = {
-  '.html': 'text/html; charset=utf-8',
-  '.js': 'text/javascript; charset=utf-8',
-  '.css': 'text/css; charset=utf-8',
-  '.json': 'application/json; charset=utf-8',
-  '.svg': 'image/svg+xml',
-  '.png': 'image/png',
-  '.ico': 'image/x-icon',
-  '.woff2': 'font/woff2',
-};
-
-/**
- * Serves one `dist` folder in this process rather than shelling out to
- * `vite preview`. A child process that outlives its kill keeps the port, and
- * the next build then measures the previous build's screen while reporting the
- * new build's name. An in-process server closes when this script says so.
- *
- * It gzips what it serves, because every static host does and because the
- * bundle number this comparison publishes is gzipped. Serving the raw bytes
- * under Lighthouse's throttling charges each library for compressible weight it
- * would never ship, and charges the biggest bundles most.
- */
-function serve(distDir: string, port: number): Promise<Server> {
-  const server = createServer((req, res) => {
-    const path = (req.url ?? '/').split('?')[0] ?? '/';
-    // Anything without an extension is a route, so it gets the SPA shell.
-    const relative = extname(path) === '' ? 'index.html' : decodeURIComponent(path).replace(/^\/+/, '');
-    const file = join(distDir, normalize(relative));
-    if (!file.startsWith(distDir + sep) || !existsSync(file)) {
-      res.writeHead(404).end('not found');
-      return;
-    }
-    const type = CONTENT_TYPES[extname(file)] ?? 'application/octet-stream';
-    const gzip = (req.headers['accept-encoding'] ?? '').includes('gzip');
-    const body = readFileSync(file);
-    res.writeHead(200, gzip ? { 'content-type': type, 'content-encoding': 'gzip' } : { 'content-type': type });
-    res.end(gzip ? gzipSync(body) : body);
-  });
-
-  return new Promise((resolve, reject) => {
-    server.once('error', reject);
-    server.listen(port, '127.0.0.1', () => resolve(server));
-  });
-}
-
-/**
- * Reads the served title back and compares it to the one in the build's own
- * `dist/index.html`. Every build titles its page after its library, so this
- * catches a stale server holding the port before five runs are spent on the
- * wrong screen. That is the bug the in-process server above removed, and this
- * is the check that would have caught it.
- */
-async function assertServingBuild(url: string, distDir: string): Promise<void> {
-  const titleOf = (html: string) => /<title>([^<]*)<\/title>/.exec(html)?.[1] ?? '';
-  const expected = titleOf(readFileSync(join(distDir, 'index.html'), 'utf8'));
-  const served = titleOf(await (await fetch(url)).text());
-  if (served !== expected) throw new Error(`${url} served "${served}", expected "${expected}"`);
-}
 
 /** Lighthouse's own CLI entry point, run by node directly. */
 const LIGHTHOUSE_CLI = join(root, 'node_modules', 'lighthouse', 'cli', 'index.js');
