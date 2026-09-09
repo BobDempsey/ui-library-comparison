@@ -9,6 +9,9 @@
 - [x] Run CI on a pull request to exercise the criteria/harness diff check
 - [x] Review all eight builds past first paint (modal, toast, narrow viewport)
 - [x] Typecheck each build against its own tsconfig (all eight pass)
+- [x] Spec the results site (spec/site-spec.md)
+- [ ] Capture and commit the sixteen build screenshots
+- [ ] Build the results site against spec/site-spec.md
 - [ ] Publish the eight static sites (CI publish job is a placeholder)
 - [ ] Lint and format every build (biome config location is an owner call)
 - [x] Add vue-tsc to vue-primevue and vue-quasar for a real .vue typecheck
